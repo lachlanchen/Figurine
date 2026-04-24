@@ -36,13 +36,24 @@ const translations = {
     buyEyebrow: "First release",
     buyTitle: ["One product.", "Small batch.", "Direct order."],
     buyText: "The first batch is prepared by request so the finish, paper, and binding can stay personal.",
-    priceCurrent: "Launch price $888",
-    priceOriginal: "Original $998",
-    buyButton: "Buy for $888",
+    promoCodeLabel: "Code LAZY = pay 0.88x",
+    promoNote:
+      "Enter LAZY at checkout for 12% off. Stripe collects the delivery name, address, and phone number.",
+    priceHkdLabel: "Traditional Chinese / Hong Kong",
+    priceCnyLabel: "Simplified Chinese / Mainland China",
+    priceUsdLabel: "English and Japanese / Global USD",
+    priceOriginalLabel: "Original",
+    payHkd: "繁體中文付款",
+    payCny: "简体中文付款",
+    payUsdEnglish: "Pay in English",
+    payUsdJapanese: "日本語で購入",
+    priceCurrent: "LAZY price",
+    priceOriginal: "Original price",
+    buyButton: "Buy now",
     buyButtonFallback: "Contact to order",
     footer: "Handmade by LazyingArt."
   },
-  zh: {
+  "zh-Hans": {
     navCraft: "工艺",
     navDetails: "细节",
     navBuy: "购买",
@@ -63,10 +74,57 @@ const translations = {
     buyEyebrow: "第一批",
     buyTitle: ["一款产品。", "小批制作。", "直接订购。"],
     buyText: "第一批按预约制作，封面、内页和装订都可以保持更个人化的选择。",
-    priceCurrent: "首发价 $888",
-    priceOriginal: "原价 $998",
-    buyButton: "$888 购买",
+    promoCodeLabel: "优惠码 LAZY = 0.88 倍价格",
+    promoNote: "结账时输入 LAZY 可享 12% 优惠。Stripe 会收集配送姓名、地址和电话。",
+    priceHkdLabel: "繁体中文 / 香港",
+    priceCnyLabel: "简体中文 / 中国内地",
+    priceUsdLabel: "英文与日文 / 全球 USD",
+    priceOriginalLabel: "原价",
+    payHkd: "繁體中文付款",
+    payCny: "简体中文付款",
+    payUsdEnglish: "英文付款",
+    payUsdJapanese: "日本語で購入",
+    priceCurrent: "LAZY 优惠价",
+    priceOriginal: "原价",
+    buyButton: "立即购买",
     buyButtonFallback: "联系订购",
+    footer: "LazyingArt 手作。"
+  },
+  "zh-Hant": {
+    navCraft: "工藝",
+    navDetails: "細節",
+    navBuy: "購買",
+    eyebrow: "第一款手作本",
+    heroTitle: ["百衲皮革，", "鮮活成冊。"],
+    heroText: ["被重新拾起的皮革邊角料，", "經過手縫成為一本明亮、", "有重量、像奢侈品一樣", "安靜的手帳。"],
+    ctaPrimary: "立即購買",
+    ctaPrimaryFallback: "預約訂購",
+    ctaSecondary: "查看細節",
+    statement: ["舊料、針腳、劃痕和不完美", "都被保留下來。", "它不是工廠複製品，", "而是一件有來處的物。"],
+    detailEyebrow: "材料性格",
+    detailTitle: ["高級感，", "不必磨掉", "手作的靈魂。"],
+    detailOne: "多色皮革拼接，保留天然紋理與色差。",
+    detailTwo: "每一道接縫都能看見手縫痕跡。",
+    detailThree: "按需小批製作，每一本都會有細微差異。",
+    galleryEyebrow: "色彩研究",
+    galleryTitle: ["兩張正面圖，", "看清拼接表情。"],
+    buyEyebrow: "第一批",
+    buyTitle: ["一款產品。", "小批製作。", "直接訂購。"],
+    buyText: "第一批按預約製作，封面、內頁和裝訂都可以保持更個人化的選擇。",
+    promoCodeLabel: "優惠碼 LAZY = 0.88 倍價格",
+    promoNote: "結帳時輸入 LAZY 可享 12% 優惠。Stripe 會收集配送姓名、地址和電話。",
+    priceHkdLabel: "繁體中文 / 香港",
+    priceCnyLabel: "簡體中文 / 中國內地",
+    priceUsdLabel: "英文與日文 / 全球 USD",
+    priceOriginalLabel: "原價",
+    payHkd: "繁體中文付款",
+    payCny: "简体中文付款",
+    payUsdEnglish: "英文付款",
+    payUsdJapanese: "日本語で購入",
+    priceCurrent: "LAZY 優惠價",
+    priceOriginal: "原價",
+    buyButton: "立即購買",
+    buyButtonFallback: "聯絡訂購",
     footer: "LazyingArt 手作。"
   },
   ja: {
@@ -98,9 +156,19 @@ const translations = {
     buyEyebrow: "ファーストリリース",
     buyTitle: ["ひとつの商品。", "少量制作。", "直接注文。"],
     buyText: "最初のロットは予約制で制作し、仕上げ、紙、綴じ方をより個人的に調整できます。",
-    priceCurrent: "発売価格 $888",
-    priceOriginal: "通常価格 $998",
-    buyButton: "$888 で購入",
+    promoCodeLabel: "コード LAZY = 0.88 倍価格",
+    promoNote: "チェックアウトで LAZY を入力すると 12% オフ。配送先の氏名、住所、電話番号は Stripe で入力します。",
+    priceHkdLabel: "繁体字中国語 / 香港",
+    priceCnyLabel: "簡体字中国語 / 中国本土",
+    priceUsdLabel: "英語と日本語 / グローバル USD",
+    priceOriginalLabel: "通常価格",
+    payHkd: "繁體中文付款",
+    payCny: "简体中文付款",
+    payUsdEnglish: "英語で購入",
+    payUsdJapanese: "日本語で購入",
+    priceCurrent: "LAZY 価格",
+    priceOriginal: "通常価格",
+    buyButton: "購入する",
     buyButtonFallback: "注文について相談",
     footer: "LazyingArt の手仕事。"
   }
@@ -108,14 +176,25 @@ const translations = {
 
 const languageSelect = document.getElementById("language");
 const fallbackOrderHref = "mailto:hello@lazying.art?subject=Patchwork%20Leather%20Notebook";
-const urlLanguage = new URLSearchParams(window.location.search).get("lang");
-const savedLanguage = localStorage.getItem("language");
-const browserLanguage = navigator.language?.toLowerCase().startsWith("zh")
-  ? "zh"
-  : navigator.language?.toLowerCase().startsWith("ja")
-    ? "ja"
-    : "en";
 let smartTextFrame = 0;
+
+function normalizeLanguage(language) {
+  const value = String(language || "").toLowerCase();
+  if (["zh-hant", "zh-tw", "zh-hk", "zh-mo"].includes(value)) {
+    return "zh-Hant";
+  }
+  if (["zh", "zh-cn", "zh-hans", "zh-sg"].includes(value)) {
+    return "zh-Hans";
+  }
+  if (value.startsWith("ja")) {
+    return "ja";
+  }
+  return translations[language] ? language : "en";
+}
+
+function preferredBrowserLanguage() {
+  return normalizeLanguage(navigator.language || "en");
+}
 
 function renderLocalizedText(node, value, language) {
   node.style.fontSize = "";
@@ -140,28 +219,47 @@ function renderLocalizedText(node, value, language) {
 }
 
 function setLanguage(language) {
-  const dictionary = translations[language] || translations.en;
-  document.documentElement.lang = language;
+  const normalizedLanguage = normalizeLanguage(language);
+  const dictionary = translations[normalizedLanguage] || translations.en;
+  document.documentElement.lang = normalizedLanguage;
   document.querySelectorAll("[data-i18n]").forEach((node) => {
     const key = node.getAttribute("data-i18n");
     if (dictionary[key]) {
-      renderLocalizedText(node, dictionary[key], language);
+      renderLocalizedText(node, dictionary[key], normalizedLanguage);
     }
   });
-  localStorage.setItem("language", language);
-  languageSelect.value = language;
+  localStorage.setItem("language", normalizedLanguage);
+  languageSelect.value = normalizedLanguage;
   scheduleSmartTextFit();
 }
 
+function checkoutKeyForLanguage(language) {
+  const normalizedLanguage = normalizeLanguage(language);
+  if (normalizedLanguage === "zh-Hant") {
+    return "hkd_zh_hant";
+  }
+  if (normalizedLanguage === "zh-Hans") {
+    return "cny_zh_hans";
+  }
+  if (normalizedLanguage === "ja") {
+    return "usd_ja";
+  }
+  return "usd_en";
+}
+
+function checkoutHrefForKey(key) {
+  const links = window.LAZYING_STRIPE_PAYMENT_LINKS || {};
+  const url = links[key]?.url || window.LAZYING_STRIPE_PAYMENT_LINK || "";
+  return typeof url === "string" && url.startsWith("https://") ? url : fallbackOrderHref;
+}
+
 function applyCheckoutLink() {
-  const dictionary = translations[languageSelect.value] || translations.en;
-  const paymentLink =
-    typeof window.LAZYING_STRIPE_PAYMENT_LINK === "string"
-      ? window.LAZYING_STRIPE_PAYMENT_LINK.trim()
-      : "";
-  const href = paymentLink.startsWith("https://") ? paymentLink : fallbackOrderHref;
+  const language = normalizeLanguage(languageSelect.value);
+  const dictionary = translations[language] || translations.en;
 
   document.querySelectorAll("[data-checkout-link]").forEach((link) => {
+    const key = link.dataset.checkoutKey || checkoutKeyForLanguage(language);
+    const href = checkoutHrefForKey(key);
     link.href = href;
     if (href === fallbackOrderHref) {
       link.removeAttribute("target");
@@ -173,6 +271,22 @@ function applyCheckoutLink() {
     } else {
       link.target = "_blank";
       link.rel = "noopener";
+    }
+  });
+}
+
+function applyPriceLabels() {
+  const links = window.LAZYING_STRIPE_PAYMENT_LINKS || {};
+  document.querySelectorAll("[data-price-value]").forEach((node) => {
+    const value = links[node.dataset.priceValue]?.discount;
+    if (value) {
+      node.textContent = value;
+    }
+  });
+  document.querySelectorAll("[data-price-original]").forEach((node) => {
+    const value = links[node.dataset.priceOriginal]?.original;
+    if (value) {
+      node.textContent = value;
     }
   });
 }
@@ -268,7 +382,12 @@ languageSelect.addEventListener("change", (event) => {
   applyCheckoutLink();
 });
 
-setLanguage(translations[urlLanguage] ? urlLanguage : savedLanguage || browserLanguage);
+const rawUrlLanguage = new URLSearchParams(window.location.search).get("lang");
+const rawSavedLanguage = localStorage.getItem("language");
+const urlLanguage = rawUrlLanguage ? normalizeLanguage(rawUrlLanguage) : "";
+const savedLanguage = rawSavedLanguage ? normalizeLanguage(rawSavedLanguage) : "";
+setLanguage(urlLanguage || savedLanguage || preferredBrowserLanguage());
+applyPriceLabels();
 applyCheckoutLink();
 initProductCarousel();
 window.addEventListener("resize", scheduleSmartTextFit);

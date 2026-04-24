@@ -27,7 +27,8 @@
         <a href="#buy" data-i18n="navBuy">Buy</a>
         <select id="language" class="language" aria-label="Language">
           <option value="en">English</option>
-          <option value="zh">中文</option>
+          <option value="zh-Hans">简体中文</option>
+          <option value="zh-Hant">繁體中文</option>
           <option value="ja">日本語</option>
         </select>
       </nav>
@@ -119,9 +120,73 @@
         <p data-i18n="buyText">
           The first batch is prepared by request so the finish, paper, and binding can stay personal.
         </p>
-        <div class="price-stack" aria-label="Product price">
-          <span class="price-current" data-i18n="priceCurrent">Launch price $888</span>
-          <span class="price-original" data-i18n="priceOriginal">Original $998</span>
+        <div class="offer-panel" aria-label="Product price options">
+          <div class="offer-heading">
+            <span class="promo-badge" data-i18n="promoCodeLabel">Code LAZY = pay 0.88x</span>
+            <p data-i18n="promoNote">
+              Enter LAZY at checkout for 12% off. Stripe collects the delivery name, address, and phone number.
+            </p>
+          </div>
+          <div class="price-grid">
+            <article class="price-card">
+              <span class="price-locale" data-i18n="priceHkdLabel">Traditional Chinese / Hong Kong</span>
+              <strong class="price-value" data-price-value="hkd_zh_hant">HKD 878.24</strong>
+              <span class="price-was">
+                <span data-i18n="priceOriginalLabel">Original</span>
+                <s data-price-original="hkd_zh_hant">HKD 998</s>
+              </span>
+              <a
+                class="button primary price-button"
+                href="mailto:hello@lazying.art?subject=Patchwork%20Leather%20Notebook"
+                data-checkout-link
+                data-checkout-key="hkd_zh_hant"
+                data-i18n-fallback="buyButtonFallback"
+                data-i18n="payHkd"
+              >繁體中文付款</a>
+            </article>
+            <article class="price-card">
+              <span class="price-locale" data-i18n="priceCnyLabel">Simplified Chinese / Mainland China</span>
+              <strong class="price-value" data-price-value="cny_zh_hans">CNY 878.24</strong>
+              <span class="price-was">
+                <span data-i18n="priceOriginalLabel">Original</span>
+                <s data-price-original="cny_zh_hans">CNY 998</s>
+              </span>
+              <a
+                class="button primary price-button"
+                href="mailto:hello@lazying.art?subject=Patchwork%20Leather%20Notebook"
+                data-checkout-link
+                data-checkout-key="cny_zh_hans"
+                data-i18n-fallback="buyButtonFallback"
+                data-i18n="payCny"
+              >简体中文付款</a>
+            </article>
+            <article class="price-card">
+              <span class="price-locale" data-i18n="priceUsdLabel">English and Japanese / Global USD</span>
+              <strong class="price-value" data-price-value="usd_en">USD 130.24</strong>
+              <span class="price-was">
+                <span data-i18n="priceOriginalLabel">Original</span>
+                <s data-price-original="usd_en">USD 148</s>
+              </span>
+              <div class="price-actions">
+                <a
+                  class="button primary price-button"
+                  href="mailto:hello@lazying.art?subject=Patchwork%20Leather%20Notebook"
+                  data-checkout-link
+                  data-checkout-key="usd_en"
+                  data-i18n-fallback="buyButtonFallback"
+                  data-i18n="payUsdEnglish"
+                >Pay in English</a>
+                <a
+                  class="button secondary price-button"
+                  href="mailto:hello@lazying.art?subject=Patchwork%20Leather%20Notebook"
+                  data-checkout-link
+                  data-checkout-key="usd_ja"
+                  data-i18n-fallback="buyButtonFallback"
+                  data-i18n="payUsdJapanese"
+                >日本語で購入</a>
+              </div>
+            </article>
+          </div>
         </div>
         <a
           class="button primary"

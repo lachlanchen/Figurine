@@ -434,6 +434,104 @@ h2 {
   text-decoration: line-through;
 }
 
+.offer-panel {
+  width: min(100%, 1120px);
+  margin: 0 auto 28px;
+}
+
+.offer-heading {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.offer-heading p {
+  max-width: 720px;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(16px, 1.7vw, 20px);
+  line-height: 1.45;
+}
+
+.promo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  border: 1px solid rgba(34, 92, 255, 0.22);
+  border-radius: 999px;
+  padding: 0 16px;
+  color: var(--blue);
+  background: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  font-weight: 820;
+  letter-spacing: 0;
+}
+
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.price-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+  min-height: 274px;
+  padding: clamp(18px, 2.4vw, 28px);
+  border: 1px solid rgba(21, 19, 15, 0.12);
+  border-radius: 8px;
+  text-align: left;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.56)),
+    radial-gradient(circle at 88% 12%, rgba(255, 92, 53, 0.13), transparent 32%);
+  box-shadow: 0 20px 54px rgba(21, 19, 15, 0.12);
+}
+
+.price-locale {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 760;
+  line-height: 1.25;
+}
+
+.price-value {
+  color: var(--ink);
+  font-size: clamp(34px, 4.4vw, 54px);
+  font-weight: 880;
+  line-height: 0.95;
+  overflow-wrap: anywhere;
+}
+
+.price-was {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  color: rgba(21, 19, 15, 0.52);
+  font-size: 15px;
+  font-weight: 720;
+}
+
+.price-was s {
+  text-decoration-thickness: 2px;
+}
+
+.price-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.price-button {
+  width: 100%;
+  min-height: 42px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
 .site-footer {
   display: flex;
   justify-content: space-between;
@@ -489,6 +587,19 @@ h2 {
     flex-direction: column;
     align-items: center;
     gap: 8px;
+  }
+
+  .price-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .price-card {
+    min-height: 0;
+    text-align: center;
+  }
+
+  .price-was {
+    justify-content: center;
   }
 
   .product-carousel-section {

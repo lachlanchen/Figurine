@@ -10,7 +10,7 @@ Key files:
 
 - [website/index.html](website/index.html) - storefront markup and metadata
 - [website/styles.css](website/styles.css) - responsive visual design
-- [website/script.js](website/script.js) - English, Chinese, and Japanese i18n
+- [website/script.js](website/script.js) - English, Simplified Chinese, Traditional Chinese, and Japanese i18n
 - [website/CNAME](website/CNAME) - custom domain: `buy.lazying.art`
 
 Product and brand assets:
@@ -22,7 +22,7 @@ Product and brand assets:
 - [website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-01.webp](website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-01.webp) - carousel front view
 - [website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-02.webp](website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-02.webp) - carousel alternate front view
 - [website/assets/products/patchwork-leather-notebook/product.json](website/assets/products/patchwork-leather-notebook/product.json) - product metadata
-- [website/stripe-config.js](website/stripe-config.js) - public Stripe Payment Link config; keep it empty until `../Stripe` exports a real Payment Link URL
+- [website/stripe-config.js](website/stripe-config.js) - public Stripe Payment Link config for localized USD, CNY, and HKD checkout links
 
 The current hero product image was generated from:
 
@@ -37,7 +37,7 @@ The current lifestyle detail image was generated from:
 
 ## Stripe Checkout
 
-The storefront is wired for a Stripe Payment Link via [website/stripe-config.js](website/stripe-config.js). The separate helper repo is initialized at `../Stripe`; fill `../Stripe/.env`, then run:
+The storefront is wired for Stripe Payment Links via [website/stripe-config.js](website/stripe-config.js). The separate helper repo is initialized at `../Stripe`; fill `../Stripe/.env`, then run:
 
 ```bash
 cd ../Stripe
@@ -45,7 +45,7 @@ npm run create:payment-link
 npm run export:figurine
 ```
 
-The first product is configured at original price `$998` and launch price `$888` using `usd`. Product settings live in `../Stripe/config/patchwork-leather-notebook.json`; checkout allows quantity changes and promotion codes. Real Stripe keys stay in `../Stripe/.env` and are not committed.
+The first product uses original prices `HKD 998`, `CNY 998`, and `USD 148`. Promotion code `LAZY` applies a `0.88x` checkout price (`12%` off), shown on the homepage as `HKD 878.24`, `CNY 878.24`, and `USD 130.24`. Product settings live in `../Stripe/config/patchwork-leather-notebook.json`; checkout allows quantity changes, promotion codes, billing and shipping address collection, customer names, and phone numbers. Real Stripe keys stay in `../Stripe/.env` and are not committed.
 
 ## Nano Banana 2 Image Tool
 

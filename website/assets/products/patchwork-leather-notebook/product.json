@@ -2,18 +2,41 @@
   "id": "patchwork-leather-notebook",
   "name": {
     "en": "Patchwork Leather Notebook",
-    "zh": "百衲皮革手账",
+    "zh-Hans": "百衲皮革手账",
+    "zh-Hant": "百衲皮革手帳",
     "ja": "百衲レザーノート"
   },
   "status": "made-to-order",
   "price": {
-    "currency": "USD",
-    "original": 998,
-    "discount": 888
+    "promotionCode": "LAZY",
+    "discountFactor": 0.88,
+    "currencies": [
+      {
+        "currency": "HKD",
+        "original": 998,
+        "discount": 878.24
+      },
+      {
+        "currency": "CNY",
+        "original": 998,
+        "discount": 878.24
+      },
+      {
+        "currency": "USD",
+        "original": 148,
+        "discount": 130.24
+      }
+    ]
   },
   "checkout": {
     "provider": "stripe",
-    "config": "website/stripe-config.js"
+    "config": "website/stripe-config.js",
+    "collects": ["customer name", "billing address", "shipping address", "phone number"],
+    "quantity": {
+      "adjustable": true,
+      "minimum": 1,
+      "maximum": 10
+    }
   },
   "heroImage": "assets/products/patchwork-leather-notebook/patchwork-leather-notebook-luxury-clean-v2.jpg",
   "detailImage": "assets/products/patchwork-leather-notebook/patchwork-leather-notebook-office-writing-v1.jpg",
