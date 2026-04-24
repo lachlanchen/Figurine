@@ -8,14 +8,16 @@ The public checkout config lives in `website/stripe-config.js`. It is generated 
 
 | Key | Language | Currency | Original | LAZY price | URL |
 | --- | --- | --- | --- | --- | --- |
-| `usd_en` | English | USD | `USD 148` | `USD 130.24` | `https://buy.stripe.com/14AcN73uH8kx1YKb4K2go06?locale=en` |
-| `usd_ja` | Japanese | USD | `USD 148` | `USD 130.24` | `https://buy.stripe.com/00w3cx5CP0S56f0fl02go07?locale=ja` |
-| `cny_zh_hans` | Simplified Chinese | CNY | `CNY 998` | `CNY 878.24` | `https://buy.stripe.com/9B628t9T59oB9rc1ua2go08?locale=zh` |
-| `hkd_zh_hant` | Traditional Chinese | HKD | `HKD 998` | `HKD 878.24` | `https://buy.stripe.com/8x25kF2qDeIVfPA4Gm2go09?locale=zh-TW` |
+| `usd_en` | English and other added languages | USD | `USD 148` | `USD 130.24` | `https://buy.stripe.com/cNi6oJ8P158lavg4Gm2go0a?locale=en` |
+| `jpy_ja` | Japanese | JPY | `JPY 22,000` | `JPY 19,360` | `https://buy.stripe.com/5kQcN79T530d46S6Ou2go0b?locale=ja` |
+| `cny_zh_hans` | Simplified Chinese | CNY | `CNY 998` | `CNY 878.24` | `https://buy.stripe.com/dRm14p4yL8kx46S6Ou2go0c?locale=zh` |
+| `hkd_zh_hant` | Traditional Chinese | HKD | `HKD 998` | `HKD 878.24` | `https://buy.stripe.com/dRmfZj5CPcAN9rcegW2go0d?locale=zh-TW` |
 
 Promotion code `LAZY` is a live Stripe promotion code backed by coupon `patchwork-leather-notebook-lazy-88pct`. It applies `12%` off, which means customers pay `0.88x`.
 
 Checkout settings: adjustable quantity `1-10`, promotion codes enabled, customer creation enabled, required billing address, shipping address collection for all supported countries, and phone number collection.
+
+Website routing: Japanese uses `jpy_ja`, Traditional Chinese uses `hkd_zh_hant`, Simplified Chinese uses `cny_zh_hans`, and every other supported website language uses `usd_en` with a localized Stripe `locale` query parameter.
 
 ## Updating Stripe Links
 
@@ -44,11 +46,13 @@ Also commit and push `../Stripe` after Stripe edits. If `../Stripe` has no remot
 
 The site avoids awkward multilingual breaks through `website/script.js` and `website/styles.css`.
 
-- Translation values can be arrays. Each array item becomes an inline `.text-chunk`.
-- For English, chunks are joined with spaces. For Chinese and Japanese, chunks are joined with zero-width spaces, giving the browser controlled break opportunities.
+- Translation values can be arrays. For `.smart-text` headings, each array item becomes an inline `.text-chunk`.
+- For most heading languages, chunks are joined with spaces. For Chinese and Japanese headings, chunks are joined with zero-width spaces, giving the browser controlled break opportunities.
+- For non-heading copy, arrays are joined as plain text with spaces so paragraphs can wrap naturally on mobile.
 - `.text-chunk` uses `white-space: nowrap`, so phrases stay together.
 - `fitSmartText()` measures the widest chunk and reduces font size only when a chunk would overflow its container.
 - `scheduleSmartTextFit()` reruns after language changes, resize, and font loading.
+- Arabic sets `dir="rtl"` on the document so layout and list markers align correctly.
 
 When adding copy, split display headings at natural phrase boundaries:
 

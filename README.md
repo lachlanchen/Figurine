@@ -10,7 +10,7 @@ Key files:
 
 - [website/index.html](website/index.html) - storefront markup and metadata
 - [website/styles.css](website/styles.css) - responsive visual design
-- [website/script.js](website/script.js) - English, Simplified Chinese, Traditional Chinese, and Japanese i18n
+- [website/script.js](website/script.js) - multilingual storefront i18n and checkout routing
 - [website/CNAME](website/CNAME) - custom domain: `buy.lazying.art`
 
 Product and brand assets:
@@ -25,7 +25,7 @@ Product and brand assets:
 - [website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp](website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp) - Lala-chan Panda Doll category image
 - [website/assets/products/lala-chan-panda-doll/product.json](website/assets/products/lala-chan-panda-doll/product.json) - Panda Doll category metadata
 - [prompts/lala-chan-panda-doll-product-image.txt](prompts/lala-chan-panda-doll-product-image.txt) - Nano Banana prompt for the Lala-chan panda doll product image
-- [website/stripe-config.js](website/stripe-config.js) - public Stripe Payment Link config for localized USD, CNY, and HKD checkout links
+- [website/stripe-config.js](website/stripe-config.js) - public Stripe Payment Link config for USD, JPY, CNY, and HKD checkout links
 - [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md) - checkout links, promotion code, regeneration workflow, and smart text wrapping notes
 
 The current hero product image was generated from:
@@ -55,11 +55,11 @@ npm run create:payment-link
 npm run export:figurine
 ```
 
-The first product uses original prices `HKD 998`, `CNY 998`, and `USD 148`. Promotion code `LAZY` applies a `0.88x` checkout price (`12%` off), shown on the homepage as `HKD 878.24`, `CNY 878.24`, and `USD 130.24`. Product settings live in `../Stripe/config/patchwork-leather-notebook.json`; checkout allows quantity changes, promotion codes, billing and shipping address collection, customer names, and phone numbers. Real Stripe keys stay in `../Stripe/.env` and are not committed. Full operational notes are in [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md).
+The first product uses original prices `HKD 998`, `CNY 998`, `USD 148`, and `JPY 22,000`. Promotion code `LAZY` applies a `0.88x` checkout price (`12%` off), shown on the homepage as `HKD 878.24`, `CNY 878.24`, `USD 130.24`, and `JPY 19,360`. Japanese routes to JPY checkout; Traditional Chinese routes to HKD; Simplified Chinese routes to CNY; all other site languages route to the USD link with a Stripe locale parameter. Product settings live in `../Stripe/config/patchwork-leather-notebook.json`; checkout allows quantity changes, promotion codes, billing and shipping address collection, customer names, and phone numbers. Real Stripe keys stay in `../Stripe/.env` and are not committed. Full operational notes are in [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md).
 
 ## Smart Text Wrapping
 
-Hero and section headings use phrase-level i18n arrays in [website/script.js](website/script.js). Each phrase is rendered as a non-breaking `.text-chunk`; Chinese and Japanese chunks are separated with zero-width spaces so wrapping happens at chosen phrase boundaries. `fitSmartText()` reduces heading size only when the widest chunk would overflow. See [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md) before changing multilingual display copy.
+Hero and section headings use phrase-level i18n arrays in [website/script.js](website/script.js). Each phrase is rendered as a non-breaking `.text-chunk`; Chinese and Japanese chunks are separated with zero-width spaces so wrapping happens at chosen phrase boundaries. `fitSmartText()` reduces heading size only when the widest chunk would overflow, and Arabic flips the document to RTL. See [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md) before changing multilingual display copy.
 
 ## Nano Banana 2 Image Tool
 

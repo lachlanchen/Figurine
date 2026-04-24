@@ -5,15 +5,15 @@ window.LAZYING_STRIPE_PAYMENT_LINKS = {
     "currency": "USD",
     "original": "USD 148",
     "discount": "USD 130.24",
-    "url": "https://buy.stripe.com/14AcN73uH8kx1YKb4K2go06?locale=en"
+    "url": "https://buy.stripe.com/cNi6oJ8P158lavg4Gm2go0a?locale=en"
   },
-  "usd_ja": {
+  "jpy_ja": {
     "locale": "ja",
     "stripeLocale": "ja",
-    "currency": "USD",
-    "original": "USD 148",
-    "discount": "USD 130.24",
-    "url": "https://buy.stripe.com/00w3cx5CP0S56f0fl02go07?locale=ja"
+    "currency": "JPY",
+    "original": "JPY 22,000",
+    "discount": "JPY 19,360",
+    "url": "https://buy.stripe.com/5kQcN79T530d46S6Ou2go0b?locale=ja"
   },
   "cny_zh_hans": {
     "locale": "zh-Hans",
@@ -21,7 +21,7 @@ window.LAZYING_STRIPE_PAYMENT_LINKS = {
     "currency": "CNY",
     "original": "CNY 998",
     "discount": "CNY 878.24",
-    "url": "https://buy.stripe.com/9B628t9T59oB9rc1ua2go08?locale=zh"
+    "url": "https://buy.stripe.com/dRm14p4yL8kx46S6Ou2go0c?locale=zh"
   },
   "hkd_zh_hant": {
     "locale": "zh-Hant",
@@ -29,10 +29,10 @@ window.LAZYING_STRIPE_PAYMENT_LINKS = {
     "currency": "HKD",
     "original": "HKD 998",
     "discount": "HKD 878.24",
-    "url": "https://buy.stripe.com/8x25kF2qDeIVfPA4Gm2go09?locale=zh-TW"
+    "url": "https://buy.stripe.com/dRmfZj5CPcAN9rcegW2go0d?locale=zh-TW"
   }
 };
-window.LAZYING_STRIPE_PAYMENT_LINK = "https://buy.stripe.com/14AcN73uH8kx1YKb4K2go06?locale=en";
+window.LAZYING_STRIPE_PAYMENT_LINK = "https://buy.stripe.com/cNi6oJ8P158lavg4Gm2go0a?locale=en";
 window.LAZYING_PROMOTION = {
   "code": "LAZY",
   "percentOff": 12,

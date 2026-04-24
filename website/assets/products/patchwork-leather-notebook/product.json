@@ -4,7 +4,14 @@
     "en": "Patchwork Leather Notebook",
     "zh-Hans": "百衲皮革手账",
     "zh-Hant": "百衲皮革手帳",
-    "ja": "百衲レザーノート"
+    "ja": "百衲レザーノート",
+    "ko": "패치워크 가죽 노트",
+    "vi": "Sổ tay da ghép mảnh",
+    "ar": "دفتر جلد مرقع",
+    "fr": "Carnet en cuir patchwork",
+    "es": "Cuaderno de cuero patchwork",
+    "de": "Patchwork-Leder-Notizbuch",
+    "ru": "Блокнот из лоскутной кожи"
   },
   "status": "made-to-order",
   "price": {
@@ -25,6 +32,11 @@
         "currency": "USD",
         "original": 148,
         "discount": 130.24
+      },
+      {
+        "currency": "JPY",
+        "original": 22000,
+        "discount": 19360
       }
     ]
   },
