@@ -20,7 +20,7 @@ const translations = {
     buyTitle: "One product. Small batch. Direct order.",
     buyText: "The first batch is prepared by request so the finish, paper, and binding can stay personal.",
     buyButton: "Contact to order",
-    footer: "Handmade by Lazying Art."
+    footer: "Handmade by LazyingArt."
   },
   zh: {
     navCraft: "工艺",
@@ -41,7 +41,7 @@ const translations = {
     buyTitle: "一款产品。小批制作。直接订购。",
     buyText: "第一批按预约制作，封面、内页和装订都可以保持更个人化的选择。",
     buyButton: "联系订购",
-    footer: "Lazying Art 手作。"
+    footer: "LazyingArt 手作。"
   },
   ja: {
     navCraft: "クラフト",
@@ -64,7 +64,7 @@ const translations = {
     buyTitle: "ひとつの商品。少量制作。直接注文。",
     buyText: "最初のロットは予約制で制作し、仕上げ、紙、綴じ方をより個人的に調整できます。",
     buyButton: "注文について相談",
-    footer: "Lazying Art の手仕事。"
+    footer: "LazyingArt の手仕事。"
   }
 };
 

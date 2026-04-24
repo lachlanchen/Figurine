@@ -23,6 +23,105 @@ The product prompt layer is changed for a global ecommerce site selling handmade
 | Image size | `2K` |
 | Output stem | `handmade_notebook_image` |
 
+## API Reference
+
+Hosts:
+
+- Global: `https://grsaiapi.com`
+- China: `https://grsai.dakka.com.cn`
+
+Use `Host + Path`, for example:
+
+```text
+https://grsaiapi.com/v1/draw/nano-banana
+```
+
+The API also supports the Gemini official request format by replacing the base URL with a GRS AI host and changing model names such as `gemini-2.5-flash-image` to `nano-banana-fast`.
+
+### Generate Image
+
+```http
+POST /v1/draw/nano-banana
+Content-Type: application/json
+Authorization: Bearer <GRSAI_KEY>
+```
+
+Request:
+
+```json
+{
+  "model": "nano-banana-2",
+  "prompt": "Clean high-end product image of the reference notebook",
+  "aspectRatio": "4:5",
+  "imageSize": "2K",
+  "urls": ["https://example.com/reference.png"],
+  "webHook": "-1",
+  "shutProgress": false
+}
+```
+
+Parameters:
+
+- `model` required string. Supported values include `nano-banana-2`, `nano-banana-2-cl`, `nano-banana-2-4k-cl`, `nano-banana-fast`, `nano-banana`, `nano-banana-pro`, `nano-banana-pro-vt`, `nano-banana-pro-cl`, `nano-banana-pro-vip`, and `nano-banana-pro-4k-vip`.
+- `prompt` required string. Describe the desired image or edit.
+- `urls` optional array. Reference image URLs or Base64/data URI images.
+- `aspectRatio` optional string. Supported: `auto`, `1:1`, `16:9`, `9:16`, `4:3`, `3:4`, `3:2`, `2:3`, `5:4`, `4:5`, `21:9`. Nano Banana 2 variants also support `1:4`, `4:1`, `1:8`, and `8:1`.
+- `imageSize` optional string. Use `1K`, `2K`, or `4K` depending on model support.
+- `webHook` optional string. Omit for stream response, pass a callback URL for POST callbacks, or pass `-1` to return an id for polling.
+- `shutProgress` optional boolean. When true, progress messages are suppressed and only the final result is returned; most useful with a webhook.
+
+When `webHook` is `-1`, the submit response returns an id:
+
+```json
+{
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "id": "task-id"
+  }
+}
+```
+
+### Poll Result
+
+```http
+POST /v1/draw/result
+Content-Type: application/json
+Authorization: Bearer <GRSAI_KEY>
+```
+
+Request:
+
+```json
+{
+  "id": "task-id"
+}
+```
+
+Response:
+
+```json
+{
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "id": "task-id",
+    "results": [
+      {
+        "url": "https://example.com/generated-image.jpg",
+        "content": "Prompt or generated response content"
+      }
+    ],
+    "progress": 100,
+    "status": "succeeded",
+    "failure_reason": "",
+    "error": ""
+  }
+}
+```
+
+Status values are `running`, `succeeded`, and `failed`. `failure_reason` may include `input_moderation`, `output_moderation`, or `error`; retrying can help for transient `error` failures.
+
 ## Useful Commands
 
 Hero image dry run:

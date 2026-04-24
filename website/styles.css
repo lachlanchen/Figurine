@@ -50,8 +50,18 @@ img {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-size: 15px;
   font-weight: 760;
+  line-height: 1;
+}
+
+.brand-logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
 }
 
 .nav {
@@ -262,6 +272,16 @@ h2 {
 @media (max-width: 860px) {
   .site-header {
     padding: 14px 18px;
+  }
+
+  .brand {
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  .brand-logo {
+    width: 30px;
+    height: 30px;
   }
 
   .nav a {
