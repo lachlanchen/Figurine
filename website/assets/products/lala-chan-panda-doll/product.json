@@ -1,13 +1,42 @@
 {
   "id": "lala-chan-panda-doll",
   "name": {
-    "en": "Lala-chan Panda Doll",
-    "zh-Hans": "Lala-chan 熊猫娃娃",
-    "zh-Hant": "Lala-chan 熊貓娃娃",
-    "ja": "ララちゃん パンダドール"
+    "en": "Rara-chan Panda Doll",
+    "zh-Hans": "Rara-chan 熊猫娃娃",
+    "zh-Hant": "Rara-chan 熊貓娃娃",
+    "ja": "ララちゃん パンダドール",
+    "ko": "Rara-chan 판다 인형",
+    "vi": "Búp bê panda Rara-chan",
+    "ar": "دمية الباندا Rara-chan",
+    "fr": "Poupée panda Rara-chan",
+    "es": "Muñeco panda Rara-chan",
+    "de": "Rara-chan Panda-Puppe",
+    "ru": "Кукла-панда Rara-chan"
   },
-  "status": "coming-soon",
+  "status": "available-now",
   "category": "panda-doll",
+  "price": {
+    "promotionCode": "LAZY",
+    "discountFactor": 0.88,
+    "currencies": [
+      {
+        "currency": "USD",
+        "original": 198,
+        "discount": 174.24
+      }
+    ]
+  },
+  "checkout": {
+    "provider": "stripe",
+    "config": "website/stripe-config.js",
+    "key": "rara_usd_en",
+    "collects": ["customer name", "billing address", "shipping address", "phone number"],
+    "quantity": {
+      "adjustable": true,
+      "minimum": 1,
+      "maximum": 10
+    }
+  },
   "sourceReference": "website/assets/brand/lazyingart-logo.png",
   "prompt": "prompts/lala-chan-panda-doll-product-image.txt",
   "productImage": "assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp"

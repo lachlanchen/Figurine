@@ -3,16 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LazyingArt Figurine | Patchwork Leather Notebook</title>
+    <title>LazyingArt Figurine | Handmade Notebook and Panda Doll</title>
     <meta
       name="description"
-      content="A handmade patchwork leather notebook made from vivid reclaimed leather, visible stitching, and one-of-a-kind craft."
+      content="LazyingArt handmade goods: a vivid patchwork leather notebook and Rara-chan / Lala-chan panda doll."
     />
-    <meta property="og:title" content="LazyingArt Figurine | Patchwork Leather Notebook" />
-    <meta property="og:description" content="Handmade, vivid, reclaimed leather. One notebook at a time." />
+    <meta name="theme-color" content="#fbfaf6" />
+    <meta name="application-name" content="LazyingArt Figurine" />
+    <meta name="apple-mobile-web-app-title" content="LazyingArt" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta property="og:title" content="LazyingArt Figurine | Handmade Notebook and Panda Doll" />
+    <meta property="og:description" content="Handmade LazyingArt products with vivid craft and small-batch character." />
     <meta property="og:image" content="assets/products/patchwork-leather-notebook/patchwork-leather-notebook-luxury-clean-v2.jpg" />
     <link rel="canonical" href="https://buy.lazying.art/" />
     <link rel="icon" type="image/png" href="assets/brand/lazyingart-icon.png" />
+    <link rel="apple-touch-icon" href="assets/brand/lazyingart-pwa-192.png" />
+    <link rel="manifest" href="manifest.webmanifest" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -22,9 +29,9 @@
         <span class="brand-title">LazyingArt Figurine</span>
       </a>
       <nav class="nav" aria-label="Primary">
-        <a href="#craft" data-i18n="navCraft">Craft</a>
-        <a href="#details" data-i18n="navDetails">Details</a>
-        <a href="#buy" data-i18n="navBuy">Buy</a>
+        <a href="#notebook-craft" data-product-nav="craft" data-i18n="navCraft">Craft</a>
+        <a href="#notebook-details" data-product-nav="details" data-i18n="navDetails">Details</a>
+        <a href="#notebook-buy" data-product-nav="buy" data-i18n="navBuy">Buy</a>
         <div class="language-shell">
           <span class="language-label" data-language-label>English</span>
           <select id="language" class="language" aria-label="Language">
@@ -44,12 +51,12 @@
       </nav>
     </header>
     <nav class="category-header" aria-label="Product categories">
-      <a class="category-link is-active" href="#top" data-i18n="categoryNotebook">Notebook</a>
-      <a class="category-link" href="#panda" data-i18n="categoryPanda">Panda</a>
+      <a class="category-link is-active" href="#notebook" data-product-tab="notebook" data-i18n="categoryNotebook">Notebook</a>
+      <a class="category-link" href="#panda" data-product-tab="panda" data-i18n="categoryPanda">Panda</a>
     </nav>
 
     <main id="top">
-      <section class="hero">
+      <section id="notebook" class="hero" data-product-panel="notebook">
         <div class="hero-copy">
           <p class="eyebrow" data-i18n="eyebrow">One handmade notebook</p>
           <h1 class="smart-text" data-i18n="heroTitle">Patchwork leather, made vivid.</h1>
@@ -61,10 +68,11 @@
               class="button primary"
               href="mailto:hello@lazying.art?subject=Patchwork%20Leather%20Notebook"
               data-checkout-link
+              data-checkout-product="notebook"
               data-i18n-fallback="ctaPrimaryFallback"
               data-i18n="ctaPrimary"
             >Buy now</a>
-            <a class="button secondary" href="#details" data-i18n="ctaSecondary">See details</a>
+            <a class="button secondary" href="#notebook-details" data-i18n="ctaSecondary">See details</a>
           </div>
         </div>
         <figure class="product-stage" aria-label="Patchwork leather notebook">
@@ -75,7 +83,7 @@
         </figure>
       </section>
 
-      <section id="details" class="product-carousel-section" aria-label="Notebook detail carousel">
+      <section id="notebook-details" class="product-carousel-section" data-product-panel="notebook" aria-label="Notebook detail carousel">
         <div class="product-carousel" data-product-carousel>
           <div class="carousel-viewport">
             <article class="carousel-slide showcase-slide is-active">
@@ -136,23 +144,7 @@
         </div>
       </section>
 
-      <section id="panda" class="category-preview" aria-labelledby="panda-title">
-        <div class="category-preview-copy">
-          <p class="eyebrow" data-i18n="pandaEyebrow">Panda doll</p>
-          <h2 id="panda-title" class="smart-text" data-i18n="pandaTitle">Lala-chan is coming next.</h2>
-          <p data-i18n="pandaText">
-            A lovable panda doll inspired by the LazyingArt panda mark, designed as a tactile collectible with a soft handmade soul.
-          </p>
-        </div>
-        <figure class="panda-stage" aria-label="Lala-chan panda doll">
-          <img
-            src="assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp"
-            alt="Lala-chan panda doll collectible product"
-          />
-        </figure>
-      </section>
-
-      <section id="buy" class="buy">
+      <section id="notebook-buy" class="buy" data-product-panel="notebook">
         <p class="eyebrow" data-i18n="buyEyebrow">First release</p>
         <h2 class="smart-text" data-i18n="buyTitle">One product. Small batch. Direct order.</h2>
         <p data-i18n="buyText">
@@ -206,10 +198,10 @@
                 <s data-price-original="usd_en">USD 148</s>
               </span>
               <span class="price-alt">
-                <strong data-price-value="jpy_ja">JPY 19,360</strong>
+                <strong data-price-value="jpy_ja">JPY 17,501</strong>
                 <span>
                   <span data-i18n="priceOriginalLabel">Original</span>
-                  <s data-price-original="jpy_ja">JPY 22,000</s>
+                  <s data-price-original="jpy_ja">JPY 19,888</s>
                 </span>
               </span>
               <div class="price-actions">
@@ -237,21 +229,115 @@
           class="button primary"
           href="mailto:hello@lazying.art?subject=Patchwork%20Leather%20Notebook"
           data-checkout-link
+          data-checkout-product="notebook"
           data-i18n-fallback="buyButtonFallback"
           data-i18n="buyButton"
         >Buy in your currency</a>
       </section>
 
-      <section id="craft" class="statement">
+      <section id="notebook-craft" class="statement" data-product-panel="notebook">
         <p class="smart-text" data-i18n="statement">
           Built from humble offcuts, finished with visible stitches, and kept intentionally imperfect. Every mark is part of the object.
+        </p>
+      </section>
+
+      <section id="panda" class="hero panda-hero" data-product-panel="panda" hidden>
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="pandaAvailableEyebrow">Available now</p>
+          <h1 class="smart-text" data-i18n="pandaHeroTitle">Rara-chan / Lala-chan panda doll.</h1>
+          <p class="hero-text" data-i18n="pandaHeroText">
+            A soft collectible panda doll inspired by the LazyingArt panda mark. Rara-chan is known as Lala-chan in Japanese.
+          </p>
+          <div class="hero-actions">
+            <a
+              class="button primary"
+              href="mailto:hello@lazying.art?subject=Rara-chan%20Panda%20Doll"
+              data-checkout-link
+              data-checkout-product="panda"
+              data-i18n-fallback="buyButtonFallback"
+              data-i18n="pandaPrimary"
+            >Buy Rara-chan</a>
+            <a class="button secondary" href="#panda-details" data-i18n="pandaSecondary">See panda details</a>
+          </div>
+        </div>
+        <figure class="product-stage panda-stage" aria-label="Rara-chan Lala-chan panda doll">
+          <img
+            src="assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp"
+            alt="Rara-chan Lala-chan panda doll collectible product"
+          />
+        </figure>
+      </section>
+
+      <section id="panda-details" class="category-preview panda-detail" data-product-panel="panda" hidden aria-labelledby="panda-detail-title">
+        <div class="category-preview-copy">
+          <p class="eyebrow" data-i18n="pandaEyebrow">Panda doll</p>
+          <h2 id="panda-detail-title" class="smart-text" data-i18n="pandaDetailTitle">A gentle mascot made tangible.</h2>
+          <ul class="detail-list">
+            <li data-i18n="pandaDetailOne">Soft collectible form with a calm, bright character.</li>
+            <li data-i18n="pandaDetailTwo">Inspired by the LazyingArt panda logo.</li>
+            <li data-i18n="pandaDetailThree">Available now as a small-batch panda doll.</li>
+          </ul>
+        </div>
+        <figure class="panda-stage" aria-label="Rara-chan Lala-chan panda doll detail">
+          <img
+            src="assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp"
+            alt="Rara-chan Lala-chan panda doll"
+          />
+        </figure>
+      </section>
+
+      <section id="panda-buy" class="buy panda-buy" data-product-panel="panda" hidden>
+        <p class="eyebrow" data-i18n="pandaBuyEyebrow">Panda doll release</p>
+        <h2 class="smart-text" data-i18n="pandaBuyTitle">Rara-chan is ready to order.</h2>
+        <p data-i18n="pandaBuyText">
+          Use code LAZY at checkout for the same 0.88x launch price.
+        </p>
+        <div class="offer-panel" aria-label="Panda doll price option">
+          <div class="offer-heading">
+            <span class="promo-badge" data-i18n="promoCodeLabel">Code LAZY = pay 0.88x</span>
+            <p data-i18n="promoNote">
+              Enter LAZY at checkout for 12% off. Stripe collects the delivery name, address, and phone number.
+            </p>
+          </div>
+          <div class="price-grid single-price-grid">
+            <article class="price-card">
+              <span class="price-locale" data-i18n="pandaPriceLabel">Rara-chan / Global USD</span>
+              <strong class="price-value" data-price-value="rara_usd_en">USD 174.24</strong>
+              <span class="price-was">
+                <span data-i18n="priceOriginalLabel">Original</span>
+                <s data-price-original="rara_usd_en">USD 198</s>
+              </span>
+              <a
+                class="button primary price-button"
+                href="mailto:hello@lazying.art?subject=Rara-chan%20Panda%20Doll"
+                data-checkout-link
+                data-checkout-product="panda"
+                data-i18n-fallback="buyButtonFallback"
+                data-i18n="payPandaUsd"
+              >Buy Rara-chan</a>
+            </article>
+          </div>
+        </div>
+        <a
+          class="button primary"
+          href="mailto:hello@lazying.art?subject=Rara-chan%20Panda%20Doll"
+          data-checkout-link
+          data-checkout-product="panda"
+          data-i18n-fallback="buyButtonFallback"
+          data-i18n="pandaPrimary"
+        >Buy Rara-chan</a>
+      </section>
+
+      <section id="panda-craft" class="statement panda-statement" data-product-panel="panda" hidden>
+        <p class="smart-text" data-i18n="pandaStatement">
+          Rara-chan is available now: soft, bright, and made to carry the LazyingArt panda spirit.
         </p>
       </section>
     </main>
 
     <footer class="site-footer">
       <span>buy.lazying.art</span>
-      <span data-i18n="footer">Handmade by LazyingArt.</span>
+      <span data-i18n="footer">LazyingArt LLC</span>
     </footer>
 
     <script src="stripe-config.js"></script>

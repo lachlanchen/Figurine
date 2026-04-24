@@ -37,6 +37,10 @@ img {
   max-width: 100%;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 section {
   scroll-margin-top: 150px;
 }
@@ -101,7 +105,7 @@ section {
   gap: 16px;
   font-size: clamp(22px, 2.7vw, 30px);
   font-weight: 760;
-  line-height: 1;
+  line-height: 1.12;
 }
 
 .brand-logo {
@@ -112,11 +116,13 @@ section {
 
 .brand-title {
   display: inline-block;
+  padding: 4px 0 6px;
   background: var(--brand-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   font-weight: 850;
+  line-height: 1.12;
   letter-spacing: 0;
   white-space: nowrap;
 }
@@ -657,6 +663,38 @@ h2 {
   gap: 14px;
 }
 
+.single-price-grid {
+  grid-template-columns: minmax(0, 420px);
+  justify-content: center;
+}
+
+.detail-list {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+  color: var(--muted);
+  font-size: clamp(17px, 1.8vw, 23px);
+  line-height: 1.38;
+}
+
+.detail-list li {
+  position: relative;
+  padding-left: 24px;
+}
+
+.detail-list li::before {
+  content: "";
+  position: absolute;
+  top: 0.66em;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--coral);
+}
+
 .price-card {
   display: grid;
   align-content: start;
@@ -764,7 +802,8 @@ h2 {
 
 @media (max-width: 860px) {
   .site-header {
-    padding: 12px;
+    min-height: 66px;
+    padding: 10px 12px;
   }
 
   .brand {
@@ -772,8 +811,8 @@ h2 {
     min-width: 0;
     max-width: calc(100% - 116px);
     gap: 8px;
-    padding-right: 120px;
-    font-size: clamp(18px, 5vw, 23px);
+    font-size: clamp(16px, 4.7vw, 22px);
+    line-height: 1.14;
   }
 
   .brand-logo {
@@ -784,11 +823,12 @@ h2 {
 
   .brand-title {
     min-width: 0;
+    padding: 5px 0 7px;
   }
 
   .nav {
     position: absolute;
-    top: 18px;
+    top: 16px;
     right: 12px;
     flex: 0 0 auto;
     margin-left: 0;
@@ -814,7 +854,8 @@ h2 {
   }
 
   .hero {
-    padding-top: 132px;
+    min-height: auto;
+    padding-top: 154px;
   }
 
   .product-stage {
@@ -849,8 +890,13 @@ h2 {
     padding-left: 0;
   }
 
-  .showcase-copy li::before {
+  .showcase-copy li::before,
+  .detail-list li::before {
     display: none;
+  }
+
+  .detail-list li {
+    padding-left: 0;
   }
 
   .site-footer {
@@ -865,6 +911,11 @@ h2 {
 
   .price-grid {
     grid-template-columns: 1fr;
+  }
+
+  .single-price-grid {
+    max-width: 420px;
+    margin: 0 auto;
   }
 
   .price-card {
@@ -912,9 +963,9 @@ h2 {
 
 @media (max-width: 520px) {
   .brand-title {
-    width: 142px;
-    max-width: 142px;
+    width: 150px;
+    max-width: 150px;
     white-space: normal;
-    line-height: 0.94;
+    line-height: 1.08;
   }
 }

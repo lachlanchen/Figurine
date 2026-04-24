@@ -42,7 +42,7 @@ const translations = {
     galleryTextTwo:
       "Each view shows a different rhythm of leather grain, visible thread, and repaired-object beauty.",
     pandaEyebrow: "Panda doll",
-    pandaTitle: ["Lala-chan", "is coming next."],
+    pandaTitle: ["Rara-chan", "is available now."],
     pandaText:
       "A lovable panda doll inspired by the LazyingArt panda mark, designed as a tactile collectible with a soft handmade soul.",
     buyEyebrow: "First release",
@@ -90,7 +90,7 @@ const translations = {
     galleryAltTitle: ["换一个角度，", "仍然鲜活。"],
     galleryTextTwo: "每个角度都会露出不同的皮纹、线迹和被修补过的美。",
     pandaEyebrow: "熊猫娃娃",
-    pandaTitle: ["Lala-chan", "下一款登场。"],
+    pandaTitle: ["Rara-chan", "现已开放购买。"],
     pandaText: "以 LazyingArt 熊猫标志为灵感，做成柔软、可收藏、有手作灵魂的可爱熊猫娃娃。",
     buyEyebrow: "第一批",
     buyTitle: ["一款产品。", "小批制作。", "直接订购。"],
@@ -136,7 +136,7 @@ const translations = {
     galleryAltTitle: ["換一個角度，", "仍然鮮活。"],
     galleryTextTwo: "每個角度都會露出不同的皮紋、線跡和被修補過的美。",
     pandaEyebrow: "熊貓娃娃",
-    pandaTitle: ["Lala-chan", "下一款登場。"],
+    pandaTitle: ["Rara-chan", "現已開放購買。"],
     pandaText: "以 LazyingArt 熊貓標誌為靈感，做成柔軟、可收藏、有手作靈魂的可愛熊貓娃娃。",
     buyEyebrow: "第一批",
     buyTitle: ["一款產品。", "小批製作。", "直接訂購。"],
@@ -190,7 +190,7 @@ const translations = {
     galleryAltTitle: ["角度を変えても、", "同じ生きた表面。"],
     galleryTextTwo: "見る角度ごとに、革の粒、糸の跡、修復された美しさの違うリズムが現れます。",
     pandaEyebrow: "パンダドール",
-    pandaTitle: ["ララちゃん", "次に登場。"],
+    pandaTitle: ["ララちゃん", "販売中。"],
     pandaText: "LazyingArt のパンダマークから生まれる、やわらかくて集めたくなる手仕事のパンダドールです。",
     buyEyebrow: "ファーストリリース",
     buyTitle: ["ひとつの商品。", "少量制作。", "直接注文。"],
@@ -236,7 +236,7 @@ const translations = {
     galleryAltTitle: ["다른 각도,", "같은 살아 있는 표면."],
     galleryTextTwo: "각 시선마다 가죽 결, 실, 수선된 아름다움의 다른 리듬이 보입니다.",
     pandaEyebrow: "판다 인형",
-    pandaTitle: ["Lala-chan", "곧 공개됩니다."],
+    pandaTitle: ["Rara-chan", "현재 판매 중."],
     pandaText: "LazyingArt 판다 마크에서 영감을 받은, 부드럽고 소장하고 싶은 수제 감성의 판다 인형입니다.",
     buyEyebrow: "첫 출시",
     buyTitle: ["하나의 제품.", "소량 제작.", "직접 주문."],
@@ -282,7 +282,7 @@ const translations = {
     galleryAltTitle: ["Góc khác,", "vẫn là bề mặt sống."],
     galleryTextTwo: "Mỗi góc nhìn lộ ra nhịp điệu khác nhau của vân da, chỉ khâu và vẻ đẹp được sửa chữa.",
     pandaEyebrow: "Búp bê panda",
-    pandaTitle: ["Lala-chan", "sắp ra mắt."],
+    pandaTitle: ["Rara-chan", "đang bán."],
     pandaText: "Một búp bê panda mềm mại, đáng sưu tầm, lấy cảm hứng từ dấu panda của LazyingArt.",
     buyEyebrow: "Đợt đầu",
     buyTitle: ["Một sản phẩm.", "Làm số lượng nhỏ.", "Đặt trực tiếp."],
@@ -328,7 +328,7 @@ const translations = {
     galleryAltTitle: ["زاوية أخرى،", "والسطح نفسه حي."],
     galleryTextTwo: "كل زاوية تكشف إيقاعا مختلفا من حبيبات الجلد والخيط وجمال الإصلاح.",
     pandaEyebrow: "دمية باندا",
-    pandaTitle: ["Lala-chan", "قادمة قريبا."],
+    pandaTitle: ["Rara-chan", "متاحة الآن."],
     pandaText: "دمية باندا محببة مستوحاة من علامة LazyingArt، ناعمة وقابلة للاقتناء وبروح يدوية.",
     buyEyebrow: "الإصدار الأول",
     buyTitle: ["منتج واحد.", "دفعة صغيرة.", "طلب مباشر."],
@@ -374,7 +374,7 @@ const translations = {
     galleryAltTitle: ["Un autre angle,", "la même surface vivante."],
     galleryTextTwo: "Chaque vue révèle un autre rythme de grain, de fil visible et de beauté réparée.",
     pandaEyebrow: "Poupée panda",
-    pandaTitle: ["Lala-chan", "arrive bientôt."],
+    pandaTitle: ["Rara-chan", "est disponible."],
     pandaText: "Une poupée panda tactile et désirable, inspirée de la marque panda LazyingArt.",
     buyEyebrow: "Première sortie",
     buyTitle: ["Un produit.", "Petite série.", "Commande directe."],
@@ -420,7 +420,7 @@ const translations = {
     galleryAltTitle: ["Otro ángulo,", "la misma superficie viva."],
     galleryTextTwo: "Cada vista muestra otro ritmo de grano, hilo visible y belleza reparada.",
     pandaEyebrow: "Muñeco panda",
-    pandaTitle: ["Lala-chan", "llega pronto."],
+    pandaTitle: ["Rara-chan", "ya está disponible."],
     pandaText: "Un muñeco panda táctil y coleccionable inspirado en el panda de LazyingArt.",
     buyEyebrow: "Primer lanzamiento",
     buyTitle: ["Un producto.", "Lote pequeño.", "Pedido directo."],
@@ -466,7 +466,7 @@ const translations = {
     galleryAltTitle: ["Ein anderer Winkel,", "dieselbe lebendige Oberfläche."],
     galleryTextTwo: "Jede Ansicht zeigt einen anderen Rhythmus aus Lederkorn, sichtbarem Faden und reparierter Schönheit.",
     pandaEyebrow: "Panda-Puppe",
-    pandaTitle: ["Lala-chan", "kommt als Nächstes."],
+    pandaTitle: ["Rara-chan", "ist jetzt verfügbar."],
     pandaText: "Eine weiche, sammelbare Panda-Puppe, inspiriert von der LazyingArt-Pandamarke.",
     buyEyebrow: "Erste Ausgabe",
     buyTitle: ["Ein Produkt.", "Kleine Serie.", "Direkt bestellen."],
@@ -512,7 +512,7 @@ const translations = {
     galleryAltTitle: ["Другой угол,", "та же живая поверхность."],
     galleryTextTwo: "Каждый ракурс показывает другой ритм кожи, нити и красоты ремонта.",
     pandaEyebrow: "Кукла-панда",
-    pandaTitle: ["Lala-chan", "скоро появится."],
+    pandaTitle: ["Rara-chan", "уже доступна."],
     pandaText: "Мягкая коллекционная кукла-панда, вдохновленная знаком панды LazyingArt.",
     buyEyebrow: "Первый выпуск",
     buyTitle: ["Один продукт.", "Малая партия.", "Прямой заказ."],
@@ -538,7 +538,250 @@ const translations = {
 const languageSelect = document.getElementById("language");
 const languageLabel = document.querySelector("[data-language-label]");
 const fallbackOrderHref = "mailto:hello@lazying.art?subject=Patchwork%20Leather%20Notebook";
+const productAnchors = {
+  notebook: {
+    craft: "notebook-craft",
+    details: "notebook-details",
+    buy: "notebook-buy"
+  },
+  panda: {
+    craft: "panda-craft",
+    details: "panda-details",
+    buy: "panda-buy"
+  }
+};
 let smartTextFrame = 0;
+let hashScrollFrame = 0;
+
+Object.values(translations).forEach((dictionary) => {
+  dictionary.footer = "LazyingArt LLC";
+});
+
+const pandaProductCopy = {
+  en: {
+    pandaAvailableEyebrow: "Available now",
+    pandaHeroTitle: ["Rara-chan", "/", "Lala-chan", "panda doll."],
+    pandaHeroText:
+      "A soft collectible panda doll inspired by the LazyingArt panda mark. Rara-chan is known as Lala-chan in Japanese.",
+    pandaTitle: ["Rara-chan", "is available now."],
+    pandaText:
+      "A soft collectible panda doll inspired by the LazyingArt panda mark. Rara-chan is known as Lala-chan in Japanese.",
+    pandaPrimary: "Buy Rara-chan",
+    pandaSecondary: "See panda details",
+    pandaDetailTitle: ["A gentle mascot", "made tangible."],
+    pandaDetailOne: "Soft collectible form with a calm, bright character.",
+    pandaDetailTwo: "Inspired by the LazyingArt panda logo.",
+    pandaDetailThree: "Available now as a small-batch panda doll.",
+    pandaBuyEyebrow: "Panda doll release",
+    pandaBuyTitle: ["Rara-chan", "is ready to order."],
+    pandaBuyText: "Use code LAZY at checkout for the same 0.88x launch price.",
+    pandaPriceLabel: "Rara-chan / Global USD",
+    payPandaUsd: "Buy Rara-chan",
+    pandaStatement: [
+      "Rara-chan is",
+      "available now:",
+      "soft, bright,",
+      "and made to carry",
+      "the LazyingArt",
+      "panda spirit."
+    ]
+  },
+  "zh-Hans": {
+    pandaAvailableEyebrow: "现已开放购买",
+    pandaHeroTitle: ["Rara-chan", "熊猫娃娃。"],
+    pandaHeroText: "以 LazyingArt 熊猫标志为灵感的柔软收藏娃娃。日文里她叫 Lala-chan。",
+    pandaTitle: ["Rara-chan", "现已开放购买。"],
+    pandaText: "以 LazyingArt 熊猫标志为灵感，做成柔软、可收藏、有手作灵魂的熊猫娃娃。",
+    pandaPrimary: "购买 Rara-chan",
+    pandaSecondary: "查看熊猫细节",
+    pandaDetailTitle: ["把温柔吉祥物", "做成实体。"],
+    pandaDetailOne: "柔软可收藏，有安静明亮的性格。",
+    pandaDetailTwo: "灵感来自 LazyingArt 熊猫标志。",
+    pandaDetailThree: "小批量现货熊猫娃娃。",
+    pandaBuyEyebrow: "熊猫娃娃发售",
+    pandaBuyTitle: ["Rara-chan", "已经可以订购。"],
+    pandaBuyText: "结账时使用优惠码 LAZY，享受同样的 0.88 倍发售价。",
+    pandaPriceLabel: "Rara-chan / 全球 USD",
+    payPandaUsd: "购买 Rara-chan",
+    pandaStatement: ["Rara-chan", "现已发售：", "柔软、明亮，", "带着 LazyingArt", "熊猫精神。"]
+  },
+  "zh-Hant": {
+    pandaAvailableEyebrow: "現已開放購買",
+    pandaHeroTitle: ["Rara-chan", "熊貓娃娃。"],
+    pandaHeroText: "以 LazyingArt 熊貓標誌為靈感的柔軟收藏娃娃。日文裡她叫 Lala-chan。",
+    pandaTitle: ["Rara-chan", "現已開放購買。"],
+    pandaText: "以 LazyingArt 熊貓標誌為靈感，做成柔軟、可收藏、有手作靈魂的熊貓娃娃。",
+    pandaPrimary: "購買 Rara-chan",
+    pandaSecondary: "查看熊貓細節",
+    pandaDetailTitle: ["把溫柔吉祥物", "做成實體。"],
+    pandaDetailOne: "柔軟可收藏，有安靜明亮的性格。",
+    pandaDetailTwo: "靈感來自 LazyingArt 熊貓標誌。",
+    pandaDetailThree: "小批量現貨熊貓娃娃。",
+    pandaBuyEyebrow: "熊貓娃娃發售",
+    pandaBuyTitle: ["Rara-chan", "已經可以訂購。"],
+    pandaBuyText: "結帳時使用優惠碼 LAZY，享受同樣的 0.88 倍發售價。",
+    pandaPriceLabel: "Rara-chan / 全球 USD",
+    payPandaUsd: "購買 Rara-chan",
+    pandaStatement: ["Rara-chan", "現已發售：", "柔軟、明亮，", "帶著 LazyingArt", "熊貓精神。"]
+  },
+  ja: {
+    pandaAvailableEyebrow: "販売中",
+    pandaHeroTitle: ["ララちゃん", "パンダドール。"],
+    pandaHeroText:
+      "LazyingArt のパンダマークから生まれた、やわらかいコレクタブルドール。英語名は Rara-chan です。",
+    pandaTitle: ["ララちゃん", "販売中。"],
+    pandaText: "LazyingArt のパンダマークをもとにした、やわらかく集めたくなるパンダドールです。",
+    pandaPrimary: "ララちゃんを購入",
+    pandaSecondary: "パンダの細部を見る",
+    pandaDetailTitle: ["やさしいマスコットを", "手に取れる形へ。"],
+    pandaDetailOne: "落ち着いた明るさを持つ、やわらかなコレクタブル。",
+    pandaDetailTwo: "LazyingArt のパンダロゴから着想。",
+    pandaDetailThree: "少量制作のパンダドールとして販売中。",
+    pandaBuyEyebrow: "パンダドール発売",
+    pandaBuyTitle: ["ララちゃん", "注文できます。"],
+    pandaBuyText: "チェックアウトでコード LAZY を使うと、同じ 0.88 倍のローンチ価格になります。",
+    pandaPriceLabel: "ララちゃん / グローバル USD",
+    payPandaUsd: "ララちゃんを購入",
+    pandaStatement: ["ララちゃん", "販売中。", "やわらかく、明るく、", "LazyingArt の", "パンダ精神を", "まとっています。"]
+  },
+  ko: {
+    pandaAvailableEyebrow: "현재 판매 중",
+    pandaHeroTitle: ["Rara-chan", "판다 인형."],
+    pandaHeroText: "LazyingArt 판다 마크에서 영감을 받은 부드러운 컬렉터블 인형입니다. 일본어 이름은 Lala-chan입니다.",
+    pandaTitle: ["Rara-chan", "현재 판매 중."],
+    pandaText: "LazyingArt 판다 마크에서 영감을 받은, 부드럽고 소장하고 싶은 판다 인형입니다.",
+    pandaPrimary: "Rara-chan 구매",
+    pandaSecondary: "판다 상세 보기",
+    pandaDetailTitle: ["부드러운 마스코트를", "손에 잡히는 형태로."],
+    pandaDetailOne: "차분하고 밝은 성격의 부드러운 컬렉터블 형태.",
+    pandaDetailTwo: "LazyingArt 판다 로고에서 영감을 받았습니다.",
+    pandaDetailThree: "소량 판다 인형으로 현재 판매 중입니다.",
+    pandaBuyEyebrow: "판다 인형 출시",
+    pandaBuyTitle: ["Rara-chan", "주문 가능합니다."],
+    pandaBuyText: "결제 시 코드 LAZY를 사용하면 같은 0.88배 출시 가격을 받을 수 있습니다.",
+    pandaPriceLabel: "Rara-chan / 글로벌 USD",
+    payPandaUsd: "Rara-chan 구매",
+    pandaStatement: ["Rara-chan은", "현재 판매 중입니다:", "부드럽고 밝으며", "LazyingArt 판다", "정신을 담았습니다."]
+  },
+  vi: {
+    pandaAvailableEyebrow: "Đang bán",
+    pandaHeroTitle: ["Rara-chan", "búp bê panda."],
+    pandaHeroText: "Búp bê panda mềm mại lấy cảm hứng từ dấu panda LazyingArt. Trong tiếng Nhật, cô ấy là Lala-chan.",
+    pandaTitle: ["Rara-chan", "đang bán."],
+    pandaText: "Búp bê panda mềm mại, đáng sưu tầm, lấy cảm hứng từ dấu panda của LazyingArt.",
+    pandaPrimary: "Mua Rara-chan",
+    pandaSecondary: "Xem chi tiết panda",
+    pandaDetailTitle: ["Linh vật dịu dàng", "trở thành món đồ thật."],
+    pandaDetailOne: "Dáng mềm, đáng sưu tầm, với tính cách sáng và bình yên.",
+    pandaDetailTwo: "Lấy cảm hứng từ logo panda LazyingArt.",
+    pandaDetailThree: "Đang bán dưới dạng búp bê panda lô nhỏ.",
+    pandaBuyEyebrow: "Ra mắt búp bê panda",
+    pandaBuyTitle: ["Rara-chan", "đã sẵn sàng đặt mua."],
+    pandaBuyText: "Dùng mã LAZY khi thanh toán để nhận giá ra mắt 0.88 lần.",
+    pandaPriceLabel: "Rara-chan / USD toàn cầu",
+    payPandaUsd: "Mua Rara-chan",
+    pandaStatement: ["Rara-chan", "đang bán:", "mềm mại, sáng sủa", "và mang tinh thần", "panda LazyingArt."]
+  },
+  ar: {
+    pandaAvailableEyebrow: "متاحة الآن",
+    pandaHeroTitle: ["Rara-chan", "دمية باندا."],
+    pandaHeroText: "دمية باندا ناعمة قابلة للاقتناء مستوحاة من علامة LazyingArt. تعرف في اليابانية باسم Lala-chan.",
+    pandaTitle: ["Rara-chan", "متاحة الآن."],
+    pandaText: "دمية باندا ناعمة قابلة للاقتناء مستوحاة من علامة LazyingArt.",
+    pandaPrimary: "اشترِ Rara-chan",
+    pandaSecondary: "شاهد تفاصيل الباندا",
+    pandaDetailTitle: ["تعويذة لطيفة", "تصبح شيئا ملموسا."],
+    pandaDetailOne: "شكل ناعم قابل للاقتناء بشخصية هادئة ومشرقة.",
+    pandaDetailTwo: "مستوحاة من شعار باندا LazyingArt.",
+    pandaDetailThree: "متاحة الآن كدمية باندا بإنتاج صغير.",
+    pandaBuyEyebrow: "إصدار دمية الباندا",
+    pandaBuyTitle: ["Rara-chan", "جاهزة للطلب."],
+    pandaBuyText: "استخدم رمز LAZY عند الدفع للحصول على سعر الإطلاق نفسه 0.88x.",
+    pandaPriceLabel: "Rara-chan / USD عالمي",
+    payPandaUsd: "اشترِ Rara-chan",
+    pandaStatement: ["Rara-chan", "متاحة الآن:", "ناعمة ومشرقة", "وتحمل روح", "باندا LazyingArt."]
+  },
+  fr: {
+    pandaAvailableEyebrow: "Disponible maintenant",
+    pandaHeroTitle: ["Rara-chan", "poupée panda."],
+    pandaHeroText: "Une poupée panda douce et collectionnable, inspirée du signe panda LazyingArt. En japonais, elle s'appelle Lala-chan.",
+    pandaTitle: ["Rara-chan", "est disponible."],
+    pandaText: "Une poupée panda douce et collectionnable, inspirée du signe panda LazyingArt.",
+    pandaPrimary: "Acheter Rara-chan",
+    pandaSecondary: "Voir les détails panda",
+    pandaDetailTitle: ["Une mascotte douce", "rendue tangible."],
+    pandaDetailOne: "Forme douce à collectionner, avec un caractère calme et lumineux.",
+    pandaDetailTwo: "Inspirée du logo panda LazyingArt.",
+    pandaDetailThree: "Disponible maintenant en petite série.",
+    pandaBuyEyebrow: "Sortie poupée panda",
+    pandaBuyTitle: ["Rara-chan", "est prête à commander."],
+    pandaBuyText: "Utilisez le code LAZY au paiement pour le même prix de lancement 0,88x.",
+    pandaPriceLabel: "Rara-chan / USD global",
+    payPandaUsd: "Acheter Rara-chan",
+    pandaStatement: ["Rara-chan", "est disponible :", "douce, lumineuse,", "et porte l'esprit", "panda LazyingArt."]
+  },
+  es: {
+    pandaAvailableEyebrow: "Disponible ahora",
+    pandaHeroTitle: ["Rara-chan", "muñeco panda."],
+    pandaHeroText: "Un muñeco panda suave y coleccionable inspirado en el signo panda de LazyingArt. En japonés se llama Lala-chan.",
+    pandaTitle: ["Rara-chan", "ya está disponible."],
+    pandaText: "Un muñeco panda suave y coleccionable inspirado en el signo panda de LazyingArt.",
+    pandaPrimary: "Comprar Rara-chan",
+    pandaSecondary: "Ver detalles del panda",
+    pandaDetailTitle: ["Una mascota amable", "hecha tangible."],
+    pandaDetailOne: "Forma suave y coleccionable con carácter tranquilo y luminoso.",
+    pandaDetailTwo: "Inspirada en el logo panda de LazyingArt.",
+    pandaDetailThree: "Disponible ahora como muñeco panda de lote pequeño.",
+    pandaBuyEyebrow: "Lanzamiento del muñeco panda",
+    pandaBuyTitle: ["Rara-chan", "lista para pedir."],
+    pandaBuyText: "Usa el código LAZY al pagar para obtener el mismo precio de lanzamiento 0.88x.",
+    pandaPriceLabel: "Rara-chan / USD global",
+    payPandaUsd: "Comprar Rara-chan",
+    pandaStatement: ["Rara-chan", "ya está disponible:", "suave, brillante", "y con el espíritu", "panda de LazyingArt."]
+  },
+  de: {
+    pandaAvailableEyebrow: "Jetzt verfügbar",
+    pandaHeroTitle: ["Rara-chan", "Panda-Puppe."],
+    pandaHeroText: "Eine weiche Sammel-Panda-Puppe, inspiriert von der LazyingArt-Pandamarke. Auf Japanisch heißt sie Lala-chan.",
+    pandaTitle: ["Rara-chan", "ist jetzt verfügbar."],
+    pandaText: "Eine weiche, sammelbare Panda-Puppe, inspiriert von der LazyingArt-Pandamarke.",
+    pandaPrimary: "Rara-chan kaufen",
+    pandaSecondary: "Panda-Details ansehen",
+    pandaDetailTitle: ["Ein sanftes Maskottchen", "zum Anfassen."],
+    pandaDetailOne: "Weiche Sammelform mit ruhigem, hellem Charakter.",
+    pandaDetailTwo: "Inspiriert vom LazyingArt-Pandalogo.",
+    pandaDetailThree: "Jetzt als kleine Panda-Puppenserie verfügbar.",
+    pandaBuyEyebrow: "Panda-Puppen-Release",
+    pandaBuyTitle: ["Rara-chan", "ist bestellbereit."],
+    pandaBuyText: "Nutze beim Checkout den Code LAZY für denselben 0,88x-Startpreis.",
+    pandaPriceLabel: "Rara-chan / Global USD",
+    payPandaUsd: "Rara-chan kaufen",
+    pandaStatement: ["Rara-chan", "ist jetzt verfügbar:", "weich, hell", "und mit dem", "LazyingArt-Pandageist."]
+  },
+  ru: {
+    pandaAvailableEyebrow: "Уже доступна",
+    pandaHeroTitle: ["Rara-chan", "кукла-панда."],
+    pandaHeroText: "Мягкая коллекционная кукла-панда, вдохновленная знаком LazyingArt. На японском ее зовут Lala-chan.",
+    pandaTitle: ["Rara-chan", "уже доступна."],
+    pandaText: "Мягкая коллекционная кукла-панда, вдохновленная знаком LazyingArt.",
+    pandaPrimary: "Купить Rara-chan",
+    pandaSecondary: "Смотреть детали панды",
+    pandaDetailTitle: ["Добрый маскот", "стал осязаемым."],
+    pandaDetailOne: "Мягкая коллекционная форма со спокойным и ярким характером.",
+    pandaDetailTwo: "Вдохновлена логотипом панды LazyingArt.",
+    pandaDetailThree: "Уже доступна как кукла-панда малой партии.",
+    pandaBuyEyebrow: "Релиз куклы-панды",
+    pandaBuyTitle: ["Rara-chan", "готова к заказу."],
+    pandaBuyText: "Используйте код LAZY при оплате, чтобы получить ту же стартовую цену 0.88x.",
+    pandaPriceLabel: "Rara-chan / Global USD",
+    payPandaUsd: "Купить Rara-chan",
+    pandaStatement: ["Rara-chan", "уже доступна:", "мягкая, яркая", "и несет дух", "панды LazyingArt."]
+  }
+};
+
+Object.entries(pandaProductCopy).forEach(([language, copy]) => {
+  Object.assign(translations[language], copy);
+});
 
 function normalizeLanguage(language) {
   const value = String(language || "").toLowerCase();
@@ -613,8 +856,10 @@ function setLanguage(language) {
   document.documentElement.dir = normalizedLanguage === "ar" ? "rtl" : "ltr";
   document.querySelectorAll("[data-i18n]").forEach((node) => {
     const key = node.getAttribute("data-i18n");
-    if (dictionary[key]) {
-      renderLocalizedText(node, dictionary[key], normalizedLanguage);
+    const hasLocalizedValue = dictionary[key] !== undefined;
+    const value = hasLocalizedValue ? dictionary[key] : translations.en[key];
+    if (value !== undefined) {
+      renderLocalizedText(node, value, hasLocalizedValue ? normalizedLanguage : "en");
     }
   });
   localStorage.setItem("language", normalizedLanguage);
@@ -626,7 +871,10 @@ function setLanguage(language) {
   scheduleSmartTextFit();
 }
 
-function checkoutKeyForLanguage(language) {
+function checkoutKeyForLanguage(language, product = currentProduct()) {
+  if (product === "panda") {
+    return "rara_usd_en";
+  }
   const normalizedLanguage = normalizeLanguage(language);
   if (normalizedLanguage === "zh-Hant") {
     return "hkd_zh_hant";
@@ -671,7 +919,7 @@ function checkoutHrefForKey(key, language, explicitKey = false) {
   if (typeof url !== "string" || !url.startsWith("https://")) {
     return fallbackOrderHref;
   }
-  if (!explicitKey && key === "usd_en") {
+  if (!explicitKey && ["usd_en", "rara_usd_en"].includes(key)) {
     return withStripeLocale(url, stripeLocaleForLanguage(language));
   }
   return url;
@@ -682,8 +930,9 @@ function applyCheckoutLink() {
   const dictionary = translations[language] || translations.en;
 
   document.querySelectorAll("[data-checkout-link]").forEach((link) => {
+    const product = link.dataset.checkoutProduct || currentProduct();
     const explicitKey = Boolean(link.dataset.checkoutKey);
-    const key = link.dataset.checkoutKey || checkoutKeyForLanguage(language);
+    const key = link.dataset.checkoutKey || checkoutKeyForLanguage(language, product);
     const href = checkoutHrefForKey(key, language, explicitKey);
     link.href = href;
     if (href === fallbackOrderHref) {
@@ -742,10 +991,61 @@ function scheduleSmartTextFit() {
   smartTextFrame = window.requestAnimationFrame(fitSmartText);
 }
 
+function currentProduct() {
+  return window.location.hash.startsWith("#panda") ? "panda" : "notebook";
+}
+
+function scrollToVisibleHashTarget() {
+  const rawId = window.location.hash.slice(1);
+  if (!rawId) {
+    return;
+  }
+
+  const target = document.getElementById(decodeURIComponent(rawId));
+  if (!target || target.hidden || target.closest("[hidden]")) {
+    return;
+  }
+
+  window.cancelAnimationFrame(hashScrollFrame);
+  hashScrollFrame = window.requestAnimationFrame(() => {
+    target.scrollIntoView({ block: "start" });
+  });
+}
+
+function setActiveProduct(product, shouldScroll = true) {
+  const activeProduct = product === "panda" ? "panda" : "notebook";
+
+  document.querySelectorAll("[data-product-panel]").forEach((panel) => {
+    panel.hidden = panel.dataset.productPanel !== activeProduct;
+  });
+
+  document.querySelectorAll("[data-product-tab]").forEach((link) => {
+    link.classList.toggle("is-active", link.dataset.productTab === activeProduct);
+  });
+
+  document.querySelectorAll("[data-product-nav]").forEach((link) => {
+    const target = productAnchors[activeProduct]?.[link.dataset.productNav];
+    if (target) {
+      link.href = `#${target}`;
+    }
+  });
+
+  applyCheckoutLink();
+  scheduleSmartTextFit();
+  if (shouldScroll) {
+    scrollToVisibleHashTarget();
+  }
+}
+
 function updateActiveCategory() {
-  const activeHref = window.location.hash === "#panda" ? "#panda" : "#top";
+  setActiveProduct(currentProduct());
+}
+
+function initProductTabs() {
   document.querySelectorAll(".category-link").forEach((link) => {
-    link.classList.toggle("is-active", link.getAttribute("href") === activeHref);
+    link.addEventListener("click", () => {
+      setActiveProduct(link.dataset.productTab, false);
+    });
   });
 }
 
@@ -822,7 +1122,14 @@ setLanguage(urlLanguage || savedLanguage || preferredBrowserLanguage());
 applyPriceLabels();
 applyCheckoutLink();
 initProductCarousel();
+initProductTabs();
 updateActiveCategory();
 window.addEventListener("resize", scheduleSmartTextFit);
 window.addEventListener("hashchange", updateActiveCategory);
 document.fonts?.ready.then(scheduleSmartTextFit);
+
+if ("serviceWorker" in navigator && window.location.protocol !== "file:") {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("service-worker.js").catch(() => {});
+  });
+}

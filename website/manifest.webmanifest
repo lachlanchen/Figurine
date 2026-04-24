@@ -1,0 +1,24 @@
+{
+  "name": "LazyingArt Figurine",
+  "short_name": "LazyingArt",
+  "description": "LazyingArt storefront for handmade notebooks and panda dolls.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fbfaf6",
+  "theme_color": "#fbfaf6",
+  "icons": [
+    {
+      "src": "assets/brand/lazyingart-pwa-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/brand/lazyingart-pwa-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

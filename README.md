@@ -1,6 +1,6 @@
 # Figurine
 
-Public website workspace for the `buy.lazying.art` storefront by LazyingArt. The first product is a handmade patchwork leather notebook.
+Public website workspace for the `buy.lazying.art` storefront by LazyingArt. Current products are the patchwork leather notebook and Rara-chan / Lala-chan panda doll.
 
 ## Website
 
@@ -12,20 +12,22 @@ Key files:
 - [website/styles.css](website/styles.css) - responsive visual design
 - [website/script.js](website/script.js) - multilingual storefront i18n and checkout routing
 - [website/CNAME](website/CNAME) - custom domain: `buy.lazying.art`
+- [website/manifest.webmanifest](website/manifest.webmanifest) and [website/service-worker.js](website/service-worker.js) - PWA install metadata and static asset caching
 
 Product and brand assets:
 
 - [website/assets/brand/lazyingart-logo.png](website/assets/brand/lazyingart-logo.png) - LazyingArt logo used in the header
 - [website/assets/brand/lazyingart-icon.png](website/assets/brand/lazyingart-icon.png) - favicon
+- [website/assets/brand/lazyingart-pwa-192.png](website/assets/brand/lazyingart-pwa-192.png) and [website/assets/brand/lazyingart-pwa-512.png](website/assets/brand/lazyingart-pwa-512.png) - square PWA app icons
 - [website/assets/products/patchwork-leather-notebook/patchwork-leather-notebook-luxury-clean-v2.jpg](website/assets/products/patchwork-leather-notebook/patchwork-leather-notebook-luxury-clean-v2.jpg) - current hero product image
 - [website/assets/products/patchwork-leather-notebook/patchwork-leather-notebook-office-writing-v1.jpg](website/assets/products/patchwork-leather-notebook/patchwork-leather-notebook-office-writing-v1.jpg) - lifestyle detail image generated from the clean product reference
 - [website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-01.webp](website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-01.webp) - carousel front view
 - [website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-02.webp](website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-02.webp) - carousel alternate front view
 - [website/assets/products/patchwork-leather-notebook/product.json](website/assets/products/patchwork-leather-notebook/product.json) - product metadata
-- [website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp](website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp) - Lala-chan Panda Doll category image
-- [website/assets/products/lala-chan-panda-doll/product.json](website/assets/products/lala-chan-panda-doll/product.json) - Panda Doll category metadata
+- [website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp](website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp) - Rara-chan / Lala-chan Panda Doll product image
+- [website/assets/products/lala-chan-panda-doll/product.json](website/assets/products/lala-chan-panda-doll/product.json) - Panda Doll product metadata
 - [prompts/lala-chan-panda-doll-product-image.txt](prompts/lala-chan-panda-doll-product-image.txt) - Nano Banana prompt for the Lala-chan panda doll product image
-- [website/stripe-config.js](website/stripe-config.js) - public Stripe Payment Link config for USD, JPY, CNY, and HKD checkout links
+- [website/stripe-config.js](website/stripe-config.js) - public Stripe Payment Link config for notebook and panda doll checkout links
 - [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md) - checkout links, promotion code, regeneration workflow, and smart text wrapping notes
 
 The current hero product image was generated from:
@@ -55,7 +57,7 @@ npm run create:payment-link
 npm run export:figurine
 ```
 
-The first product uses original prices `HKD 998`, `CNY 998`, `USD 148`, and `JPY 22,000`. Promotion code `LAZY` applies a `0.88x` checkout price (`12%` off), shown on the homepage as `HKD 878.24`, `CNY 878.24`, `USD 130.24`, and `JPY 19,360`. Japanese routes to JPY checkout; Traditional Chinese routes to HKD; Simplified Chinese routes to CNY; all other site languages route to the USD link with a Stripe locale parameter. Product settings live in `../Stripe/config/patchwork-leather-notebook.json`; checkout allows quantity changes, promotion codes, billing and shipping address collection, customer names, and phone numbers. Real Stripe keys stay in `../Stripe/.env` and are not committed. Full operational notes are in [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md).
+The notebook uses original prices `HKD 998`, `CNY 998`, `USD 148`, and `JPY 19,888`. Promotion code `LAZY` applies a `0.88x` checkout price (`12%` off), shown as `HKD 878.24`, `CNY 878.24`, `USD 130.24`, and `JPY 17,501`. Rara-chan Panda Doll is available now at `USD 198`, or `USD 174.24` with `LAZY`; in Japanese copy the same doll is named Lala-chan. Notebook and panda tabs are isolated so detail sections and checkout links do not leak between products. Product settings live in `../Stripe/config/patchwork-leather-notebook.json`; checkout allows quantity changes, promotion codes, billing and shipping address collection, customer names, and phone numbers. Real Stripe keys stay in `../Stripe/.env` and are not committed. Full operational notes are in [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md).
 
 ## Smart Text Wrapping
 

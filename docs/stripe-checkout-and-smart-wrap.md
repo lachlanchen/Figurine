@@ -1,6 +1,6 @@
 # Stripe Checkout and Smart Text Wrapping
 
-This site sells the patchwork leather notebook through Stripe Payment Links generated from the helper repo at `../Stripe`.
+This site sells the patchwork leather notebook and Rara-chan Panda Doll through Stripe Payment Links generated from the helper repo at `../Stripe`.
 
 ## Live Payment Links
 
@@ -8,16 +8,23 @@ The public checkout config lives in `website/stripe-config.js`. It is generated 
 
 | Key | Language | Currency | Original | LAZY price | URL |
 | --- | --- | --- | --- | --- | --- |
-| `usd_en` | English and other added languages | USD | `USD 148` | `USD 130.24` | `https://buy.stripe.com/cNi6oJ8P158lavg4Gm2go0a?locale=en` |
-| `jpy_ja` | Japanese | JPY | `JPY 22,000` | `JPY 19,360` | `https://buy.stripe.com/5kQcN79T530d46S6Ou2go0b?locale=ja` |
-| `cny_zh_hans` | Simplified Chinese | CNY | `CNY 998` | `CNY 878.24` | `https://buy.stripe.com/dRm14p4yL8kx46S6Ou2go0c?locale=zh` |
-| `hkd_zh_hant` | Traditional Chinese | HKD | `HKD 998` | `HKD 878.24` | `https://buy.stripe.com/dRmfZj5CPcAN9rcegW2go0d?locale=zh-TW` |
+| `usd_en` | Notebook, English and other added languages | USD | `USD 148` | `USD 130.24` | `https://buy.stripe.com/6oUcN7c1d58lavg0q62go0o?locale=en` |
+| `jpy_ja` | Notebook, Japanese | JPY | `JPY 19,888` | `JPY 17,501` | `https://buy.stripe.com/5kQaEZ1mz8kxavg8WC2go0p?locale=ja` |
+| `cny_zh_hans` | Notebook, Simplified Chinese | CNY | `CNY 998` | `CNY 878.24` | `https://buy.stripe.com/28E4gB0ivasFavg7Sy2go0q?locale=zh` |
+| `hkd_zh_hant` | Notebook, Traditional Chinese | HKD | `HKD 998` | `HKD 878.24` | `https://buy.stripe.com/8x2fZj5CPeIV6f01ua2go0r?locale=zh-TW` |
+| `rara_usd_en` | Rara-chan Panda Doll | USD | `USD 198` | `USD 174.24` | `https://buy.stripe.com/28E4gB2qDbwJ32O4Gm2go0s?locale=en` |
 
 Promotion code `LAZY` is a live Stripe promotion code backed by coupon `patchwork-leather-notebook-lazy-88pct`. It applies `12%` off, which means customers pay `0.88x`.
 
 Checkout settings: adjustable quantity `1-10`, promotion codes enabled, customer creation enabled, required billing address, shipping address collection for all supported countries, and phone number collection.
 
-Website routing: Japanese uses `jpy_ja`, Traditional Chinese uses `hkd_zh_hant`, Simplified Chinese uses `cny_zh_hans`, and every other supported website language uses `usd_en` with a localized Stripe `locale` query parameter.
+Website routing: the notebook tab uses `jpy_ja` for Japanese, `hkd_zh_hant` for Traditional Chinese, `cny_zh_hans` for Simplified Chinese, and `usd_en` for other languages with a localized Stripe `locale` query parameter. The panda tab always uses `rara_usd_en` and localizes the Stripe `locale` query parameter.
+
+The notebook and panda tabs are separate product panels. Keep product-specific checkout buttons marked with `data-checkout-product` so payment links do not leak between products. `styles.css` also defines `[hidden] { display: none !important; }`, because section display rules like `.hero { display: grid; }` can otherwise override the browser default hidden behavior.
+
+## PWA
+
+The storefront is installable as a PWA through `website/manifest.webmanifest` and `website/service-worker.js`. The manifest uses square app icons at `website/assets/brand/lazyingart-pwa-192.png` and `website/assets/brand/lazyingart-pwa-512.png`. The service worker is skipped for `file:` URLs and registers only on the deployed site.
 
 ## Updating Stripe Links
 
