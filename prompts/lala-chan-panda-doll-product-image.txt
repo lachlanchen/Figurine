@@ -1,0 +1,10 @@
+Use case: product-mockup
+Asset type: ecommerce hero/product image for the Panda Doll category on buy.lazying.art
+Primary request: Generate an irresistible premium product image of a cute collectible panda doll named Lala-chan. In Japanese, the name is ララちゃん / Rara-chan. Use the provided LazyingArt panda logo only as a character reference for the panda's friendly face, black-and-white markings, soft rounded silhouette, and playful brand personality.
+Input image: The provided panda logo is a visual reference, not a logo to copy into the image. Do not render any text, logo mark, watermark, or brand lettering.
+Subject: One physical panda doll that people would want to buy. The doll should feel handmade, tactile, and collectible: soft plush or leather-fabric mixed body, rounded head, gentle glossy eyes, tiny stitched details, charming seated pose, premium craft finish, and a warm lovable expression. It should look like a real sellable object, not a flat illustration.
+Scene/backdrop: Clean high-end studio product photography on a warm off-white background with subtle grounding shadow, Apple-like clarity, bright vivid but tasteful color, luxury toy collectible presentation.
+Composition: 4:5 vertical ecommerce product image. Full doll visible, centered, generous margin, front three-quarter angle, crisp details in the face and stitching. Keep the subject large enough to feel desirable but not cropped.
+Style: Photorealistic premium product photography, charming kawaii collectible design, soft tactile material, polished lighting, high perceived value, clean and bright.
+Quality controls: No readable text, no logo, no packaging, no price tag, no extra characters, no duplicated dolls, no distorted anatomy, no scary expression, no plastic cheapness, no clutter, no harsh shadows, no picture frame, no UI.
+Final output: Single polished panda doll product image suitable for the Panda category section of a modern luxury handmade storefront.

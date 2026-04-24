@@ -22,6 +22,9 @@ Product and brand assets:
 - [website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-01.webp](website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-01.webp) - carousel front view
 - [website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-02.webp](website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-02.webp) - carousel alternate front view
 - [website/assets/products/patchwork-leather-notebook/product.json](website/assets/products/patchwork-leather-notebook/product.json) - product metadata
+- [website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp](website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp) - Lala-chan Panda Doll category image
+- [website/assets/products/lala-chan-panda-doll/product.json](website/assets/products/lala-chan-panda-doll/product.json) - Panda Doll category metadata
+- [prompts/lala-chan-panda-doll-product-image.txt](prompts/lala-chan-panda-doll-product-image.txt) - Nano Banana prompt for the Lala-chan panda doll product image
 - [website/stripe-config.js](website/stripe-config.js) - public Stripe Payment Link config for localized USD, CNY, and HKD checkout links
 - [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md) - checkout links, promotion code, regeneration workflow, and smart text wrapping notes
 
@@ -35,6 +38,12 @@ The current lifestyle detail image was generated from:
 - Source/reference: `website/assets/products/patchwork-leather-notebook/patchwork-leather-notebook-luxury-clean-v2.jpg`
 - Prompt: [prompts/patchwork-leather-notebook-office-lifestyle.txt](prompts/patchwork-leather-notebook-office-lifestyle.txt)
 - Local Nano Banana run folder, ignored by git: `generated/product-image-optimization/patchwork-leather-notebook-office-writing-v1`
+
+The Panda Doll category image is generated from:
+
+- Source/reference: [website/assets/brand/lazyingart-logo.png](website/assets/brand/lazyingart-logo.png)
+- Prompt: [prompts/lala-chan-panda-doll-product-image.txt](prompts/lala-chan-panda-doll-product-image.txt)
+- Local Nano Banana run folder, ignored by git: `generated/product-image-optimization/lala-chan-panda-doll-v1`
 
 ## Stripe Checkout
 

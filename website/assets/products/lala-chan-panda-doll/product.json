@@ -1,0 +1,14 @@
+{
+  "id": "lala-chan-panda-doll",
+  "name": {
+    "en": "Lala-chan Panda Doll",
+    "zh-Hans": "Lala-chan 熊猫娃娃",
+    "zh-Hant": "Lala-chan 熊貓娃娃",
+    "ja": "ララちゃん パンダドール"
+  },
+  "status": "coming-soon",
+  "category": "panda-doll",
+  "sourceReference": "website/assets/brand/lazyingart-logo.png",
+  "prompt": "prompts/lala-chan-panda-doll-product-image.txt",
+  "productImage": "assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp"
+}

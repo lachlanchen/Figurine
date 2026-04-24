@@ -3,6 +3,8 @@ const translations = {
     navCraft: "Craft",
     navDetails: "Details",
     navBuy: "Buy",
+    categoryNotebook: "Notebook",
+    categoryPanda: "Panda Doll",
     eyebrow: "One handmade notebook",
     heroTitle: ["Patchwork", "leather,", "made vivid."],
     heroText: [
@@ -33,6 +35,10 @@ const translations = {
     detailThree: "Made-to-order, each piece slightly different.",
     galleryEyebrow: "Color study",
     galleryTitle: ["Two views", "of the patchwork face."],
+    pandaEyebrow: "Panda doll",
+    pandaTitle: ["Lala-chan", "is coming next."],
+    pandaText:
+      "A lovable panda doll inspired by the LazyingArt panda mark, designed as a tactile collectible with a soft handmade soul.",
     buyEyebrow: "First release",
     buyTitle: ["One product.", "Small batch.", "Direct order."],
     buyText: "The first batch is prepared by request so the finish, paper, and binding can stay personal.",
@@ -57,6 +63,8 @@ const translations = {
     navCraft: "工艺",
     navDetails: "细节",
     navBuy: "购买",
+    categoryNotebook: "手账本",
+    categoryPanda: "熊猫娃娃",
     eyebrow: "第一款手作本",
     heroTitle: ["百衲皮革，", "鲜活成册。"],
     heroText: ["被重新拾起的皮革边角料，", "经过手缝成为一本明亮、", "有重量、像奢侈品一样", "安静的手账。"],
@@ -71,6 +79,9 @@ const translations = {
     detailThree: "按需小批制作，每一本都会有细微差异。",
     galleryEyebrow: "色彩研究",
     galleryTitle: ["两张正面图，", "看清拼接表情。"],
+    pandaEyebrow: "熊猫娃娃",
+    pandaTitle: ["Lala-chan", "下一款登场。"],
+    pandaText: "以 LazyingArt 熊猫标志为灵感，做成柔软、可收藏、有手作灵魂的可爱熊猫娃娃。",
     buyEyebrow: "第一批",
     buyTitle: ["一款产品。", "小批制作。", "直接订购。"],
     buyText: "第一批按预约制作，封面、内页和装订都可以保持更个人化的选择。",
@@ -94,6 +105,8 @@ const translations = {
     navCraft: "工藝",
     navDetails: "細節",
     navBuy: "購買",
+    categoryNotebook: "手帳本",
+    categoryPanda: "熊貓娃娃",
     eyebrow: "第一款手作本",
     heroTitle: ["百衲皮革，", "鮮活成冊。"],
     heroText: ["被重新拾起的皮革邊角料，", "經過手縫成為一本明亮、", "有重量、像奢侈品一樣", "安靜的手帳。"],
@@ -108,6 +121,9 @@ const translations = {
     detailThree: "按需小批製作，每一本都會有細微差異。",
     galleryEyebrow: "色彩研究",
     galleryTitle: ["兩張正面圖，", "看清拼接表情。"],
+    pandaEyebrow: "熊貓娃娃",
+    pandaTitle: ["Lala-chan", "下一款登場。"],
+    pandaText: "以 LazyingArt 熊貓標誌為靈感，做成柔軟、可收藏、有手作靈魂的可愛熊貓娃娃。",
     buyEyebrow: "第一批",
     buyTitle: ["一款產品。", "小批製作。", "直接訂購。"],
     buyText: "第一批按預約製作，封面、內頁和裝訂都可以保持更個人化的選擇。",
@@ -131,6 +147,8 @@ const translations = {
     navCraft: "クラフト",
     navDetails: "細部",
     navBuy: "購入",
+    categoryNotebook: "ノート",
+    categoryPanda: "パンダドール",
     eyebrow: "最初の手仕事ノート",
     heroTitle: ["継ぎ革を、", "鮮やかな", "一冊へ。"],
     heroText:
@@ -153,6 +171,9 @@ const translations = {
     detailThree: "受注制作のため、一冊ごとに少しずつ異なります。",
     galleryEyebrow: "色の表情",
     galleryTitle: ["正面から見る", "パッチワークの表情。"],
+    pandaEyebrow: "パンダドール",
+    pandaTitle: ["ララちゃん", "次に登場。"],
+    pandaText: "LazyingArt のパンダマークから生まれる、やわらかくて集めたくなる手仕事のパンダドールです。",
     buyEyebrow: "ファーストリリース",
     buyTitle: ["ひとつの商品。", "少量制作。", "直接注文。"],
     buyText: "最初のロットは予約制で制作し、仕上げ、紙、綴じ方をより個人的に調整できます。",
@@ -317,6 +338,13 @@ function scheduleSmartTextFit() {
   smartTextFrame = window.requestAnimationFrame(fitSmartText);
 }
 
+function updateActiveCategory() {
+  const activeHref = window.location.hash === "#panda" ? "#panda" : "#top";
+  document.querySelectorAll(".category-link").forEach((link) => {
+    link.classList.toggle("is-active", link.getAttribute("href") === activeHref);
+  });
+}
+
 function initProductCarousel() {
   document.querySelectorAll("[data-product-carousel]").forEach((carousel) => {
     const slides = [...carousel.querySelectorAll(".carousel-slide")];
@@ -390,5 +418,7 @@ setLanguage(urlLanguage || savedLanguage || preferredBrowserLanguage());
 applyPriceLabels();
 applyCheckoutLink();
 initProductCarousel();
+updateActiveCategory();
 window.addEventListener("resize", scheduleSmartTextFit);
+window.addEventListener("hashchange", updateActiveCategory);
 document.fonts?.ready.then(scheduleSmartTextFit);
