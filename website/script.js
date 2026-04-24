@@ -20,9 +20,9 @@ const translations = {
     buyEyebrow: "First release",
     buyTitle: "One product. Small batch. Direct order.",
     buyText: "The first batch is prepared by request so the finish, paper, and binding can stay personal.",
-    priceCurrent: "Launch price ¥888",
-    priceOriginal: "Original ¥998",
-    buyButton: "Buy for ¥888",
+    priceCurrent: "Launch price $888",
+    priceOriginal: "Original $998",
+    buyButton: "Buy for $888",
     buyButtonFallback: "Contact to order",
     footer: "Handmade by LazyingArt."
   },
@@ -45,9 +45,9 @@ const translations = {
     buyEyebrow: "第一批",
     buyTitle: "一款产品。小批制作。直接订购。",
     buyText: "第一批按预约制作，封面、内页和装订都可以保持更个人化的选择。",
-    priceCurrent: "首发价 ¥888",
-    priceOriginal: "原价 ¥998",
-    buyButton: "¥888 购买",
+    priceCurrent: "首发价 $888",
+    priceOriginal: "原价 $998",
+    buyButton: "$888 购买",
     buyButtonFallback: "联系订购",
     footer: "LazyingArt 手作。"
   },
@@ -72,9 +72,9 @@ const translations = {
     buyEyebrow: "ファーストリリース",
     buyTitle: "ひとつの商品。少量制作。直接注文。",
     buyText: "最初のロットは予約制で制作し、仕上げ、紙、綴じ方をより個人的に調整できます。",
-    priceCurrent: "発売価格 ¥888",
-    priceOriginal: "通常価格 ¥998",
-    buyButton: "¥888 で購入",
+    priceCurrent: "発売価格 $888",
+    priceOriginal: "通常価格 $998",
+    buyButton: "$888 で購入",
     buyButtonFallback: "注文について相談",
     footer: "LazyingArt の手仕事。"
   }

@@ -43,7 +43,7 @@ npm run create:payment-link
 npm run export:figurine
 ```
 
-The first product is configured at original price `998` and launch price `888` using `cny` by default. Real Stripe keys stay in `../Stripe/.env` and are not committed.
+The first product is configured at original price `$998` and launch price `$888` using `usd`. Product settings live in `../Stripe/config/patchwork-leather-notebook.json`; checkout allows quantity changes and promotion codes. Real Stripe keys stay in `../Stripe/.env` and are not committed.
 
 ## Nano Banana 2 Image Tool
 
