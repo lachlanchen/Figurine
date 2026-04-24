@@ -1,0 +1,9 @@
+.env
+.env.*
+!.env.example
+generated/
+conversation_with_my_sister/
+references/
+__pycache__/
+**/__pycache__/
+*.pyc
