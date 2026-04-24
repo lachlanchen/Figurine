@@ -8,17 +8,20 @@ The public checkout config lives in `website/stripe-config.js`. It is generated 
 
 | Key | Language | Currency | Original | LAZY price | URL |
 | --- | --- | --- | --- | --- | --- |
-| `usd_en` | Notebook, English and other added languages | USD | `USD 148` | `USD 130.24` | `https://buy.stripe.com/6oUcN7c1d58lavg0q62go0o?locale=en` |
-| `jpy_ja` | Notebook, Japanese | JPY | `JPY 19,888` | `JPY 17,501` | `https://buy.stripe.com/5kQaEZ1mz8kxavg8WC2go0p?locale=ja` |
-| `cny_zh_hans` | Notebook, Simplified Chinese | CNY | `CNY 998` | `CNY 878.24` | `https://buy.stripe.com/28E4gB0ivasFavg7Sy2go0q?locale=zh` |
-| `hkd_zh_hant` | Notebook, Traditional Chinese | HKD | `HKD 998` | `HKD 878.24` | `https://buy.stripe.com/8x2fZj5CPeIV6f01ua2go0r?locale=zh-TW` |
-| `rara_usd_en` | Rara-chan Panda Doll | USD | `USD 198` | `USD 174.24` | `https://buy.stripe.com/28E4gB2qDbwJ32O4Gm2go0s?locale=en` |
+| `usd_en` | Notebook A5, English and other added languages | USD | `USD 148` | `USD 130.24` | `https://buy.stripe.com/8x26oJfdp30d6f0a0G2go0t?locale=en` |
+| `notebook_a4_usd_en` | Notebook A4 | USD | `USD 198` | `USD 174.24` | `https://buy.stripe.com/5kQfZjfdpdER32O4Gm2go0u?locale=en` |
+| `notebook_b5_usd_en` | Notebook B5 | USD | `USD 168` | `USD 147.84` | `https://buy.stripe.com/4gM4gB8P1bwJ1YK6Ou2go0v?locale=en` |
+| `notebook_a6_usd_en` | Notebook A6 | USD | `USD 118` | `USD 103.84` | `https://buy.stripe.com/aFa3cx6GT30d1YK1ua2go0w?locale=en` |
+| `jpy_ja` | Notebook A5, Japanese | JPY | `JPY 19,888` | `JPY 17,501` | `https://buy.stripe.com/aFa8wR3uHcAN32O8WC2go0x?locale=ja` |
+| `cny_zh_hans` | Notebook A5, Simplified Chinese | CNY | `CNY 998` | `CNY 878.24` | `https://buy.stripe.com/00wbJ32qD1W90UGegW2go0y?locale=zh` |
+| `hkd_zh_hant` | Notebook A5, Traditional Chinese | HKD | `HKD 998` | `HKD 878.24` | `https://buy.stripe.com/3cIcN7e9l9oBfPA5Kq2go0z?locale=zh-TW` |
+| `rara_usd_en` | Rara-chan Panda Doll | USD | `USD 198` | `USD 174.24` | `https://buy.stripe.com/5kQaEZ7KXgR35aWegW2go0A?locale=en` |
 
 Promotion code `LAZY` is a live Stripe promotion code backed by coupon `patchwork-leather-notebook-lazy-88pct`. It applies `12%` off, which means customers pay `0.88x`.
 
 Checkout settings: adjustable quantity `1-10`, promotion codes enabled, customer creation enabled, required billing address, shipping address collection for all supported countries, and phone number collection.
 
-Website routing: the notebook tab uses `jpy_ja` for Japanese, `hkd_zh_hant` for Traditional Chinese, `cny_zh_hans` for Simplified Chinese, and `usd_en` for other languages with a localized Stripe `locale` query parameter. The panda tab always uses `rara_usd_en` and localizes the Stripe `locale` query parameter.
+Website routing: the notebook size selector uses `notebook_a4_usd_en`, `notebook_b5_usd_en`, `usd_en` for A5, and `notebook_a6_usd_en`. A5 localized cards still use `jpy_ja` for Japanese, `hkd_zh_hant` for Traditional Chinese, `cny_zh_hans` for Simplified Chinese, and `usd_en` for other languages with a localized Stripe `locale` query parameter. The panda tab always uses `rara_usd_en` and localizes the Stripe `locale` query parameter.
 
 The notebook and panda tabs are separate product panels. Keep product-specific checkout buttons marked with `data-checkout-product` so payment links do not leak between products. `styles.css` also defines `[hidden] { display: none !important; }`, because section display rules like `.hero { display: grid; }` can otherwise override the browser default hidden behavior.
 

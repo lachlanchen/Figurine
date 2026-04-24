@@ -39,5 +39,9 @@
   },
   "sourceReference": "website/assets/brand/lazyingart-logo.png",
   "prompt": "prompts/lala-chan-panda-doll-product-image.txt",
-  "productImage": "assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp"
+  "productImage": "assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp",
+  "galleryImages": [
+    "assets/products/lala-chan-panda-doll/lala-chan-panda-doll-lifestyle-friends-v1.webp",
+    "assets/products/lala-chan-panda-doll/lala-chan-panda-doll-lifestyle-alone-v1.webp"
+  ]
 }

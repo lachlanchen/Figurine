@@ -537,6 +537,7 @@ const translations = {
 
 const languageSelect = document.getElementById("language");
 const languageLabel = document.querySelector("[data-language-label]");
+const notebookSizeSelect = document.querySelector("[data-notebook-size]");
 const fallbackOrderHref = "mailto:hello@lazying.art?subject=Patchwork%20Leather%20Notebook";
 const productAnchors = {
   notebook: {
@@ -550,6 +551,33 @@ const productAnchors = {
     buy: "panda-buy"
   }
 };
+const notebookSizes = {
+  a4: {
+    label: "A4",
+    key: "notebook_a4_usd_en",
+    original: "USD 198",
+    discount: "USD 174.24"
+  },
+  b5: {
+    label: "B5",
+    key: "notebook_b5_usd_en",
+    original: "USD 168",
+    discount: "USD 147.84"
+  },
+  a5: {
+    label: "A5",
+    key: "usd_en",
+    original: "USD 148",
+    discount: "USD 130.24"
+  },
+  a6: {
+    label: "A6",
+    key: "notebook_a6_usd_en",
+    original: "USD 118",
+    discount: "USD 103.84"
+  }
+};
+let selectedNotebookSize = localStorage.getItem("notebookSize") || "a5";
 let smartTextFrame = 0;
 let hashScrollFrame = 0;
 
@@ -572,6 +600,14 @@ const pandaProductCopy = {
     pandaDetailOne: "Soft collectible form with a calm, bright character.",
     pandaDetailTwo: "Inspired by the LazyingArt panda logo.",
     pandaDetailThree: "Available now as a small-batch panda doll.",
+    pandaGalleryEyebrow: "Soft presence",
+    pandaGalleryTitle: ["A small companion", "with instant warmth."],
+    pandaGalleryTextOne:
+      "Built for a shelf, a desk, or a quiet corner where a soft character can change the room.",
+    pandaGalleryAltEyebrow: "Plush detail",
+    pandaGalleryAltTitle: ["Rounded, calm,", "and easy to love."],
+    pandaGalleryTextTwo:
+      "The soft body, leather-like patches, stitched paws, and gentle expression make it feel collectible without becoming cold.",
     pandaBuyEyebrow: "Panda doll release",
     pandaBuyTitle: ["Rara-chan", "is ready to order."],
     pandaBuyText: "Use code LAZY at checkout for the same 0.88x launch price.",
@@ -598,6 +634,12 @@ const pandaProductCopy = {
     pandaDetailOne: "柔软可收藏，有安静明亮的性格。",
     pandaDetailTwo: "灵感来自 LazyingArt 熊猫标志。",
     pandaDetailThree: "小批量现货熊猫娃娃。",
+    pandaGalleryEyebrow: "柔软存在感",
+    pandaGalleryTitle: ["小小伙伴，", "立刻让空间变暖。"],
+    pandaGalleryTextOne: "适合书架、书桌或安静角落，让一个柔软角色改变房间气氛。",
+    pandaGalleryAltEyebrow: "绒感细节",
+    pandaGalleryAltTitle: ["圆润、安静，", "很容易喜欢。"],
+    pandaGalleryTextTwo: "柔软身体、皮革感拼片、缝线脚掌和温和表情，让它有收藏感但不冰冷。",
     pandaBuyEyebrow: "熊猫娃娃发售",
     pandaBuyTitle: ["Rara-chan", "已经可以订购。"],
     pandaBuyText: "结账时使用优惠码 LAZY，享受同样的 0.88 倍发售价。",
@@ -617,6 +659,12 @@ const pandaProductCopy = {
     pandaDetailOne: "柔軟可收藏，有安靜明亮的性格。",
     pandaDetailTwo: "靈感來自 LazyingArt 熊貓標誌。",
     pandaDetailThree: "小批量現貨熊貓娃娃。",
+    pandaGalleryEyebrow: "柔軟存在感",
+    pandaGalleryTitle: ["小小夥伴，", "立刻讓空間變暖。"],
+    pandaGalleryTextOne: "適合書架、書桌或安靜角落，讓一個柔軟角色改變房間氣氛。",
+    pandaGalleryAltEyebrow: "絨感細節",
+    pandaGalleryAltTitle: ["圓潤、安靜，", "很容易喜歡。"],
+    pandaGalleryTextTwo: "柔軟身體、皮革感拼片、縫線腳掌和溫和表情，讓它有收藏感但不冰冷。",
     pandaBuyEyebrow: "熊貓娃娃發售",
     pandaBuyTitle: ["Rara-chan", "已經可以訂購。"],
     pandaBuyText: "結帳時使用優惠碼 LAZY，享受同樣的 0.88 倍發售價。",
@@ -637,6 +685,12 @@ const pandaProductCopy = {
     pandaDetailOne: "落ち着いた明るさを持つ、やわらかなコレクタブル。",
     pandaDetailTwo: "LazyingArt のパンダロゴから着想。",
     pandaDetailThree: "少量制作のパンダドールとして販売中。",
+    pandaGalleryEyebrow: "やわらかな存在感",
+    pandaGalleryTitle: ["小さな相棒が", "空間をあたためる。"],
+    pandaGalleryTextOne: "棚、デスク、静かなコーナーに置くだけで、やさしいキャラクターが部屋の空気を変えます。",
+    pandaGalleryAltEyebrow: "ぬいぐるみの細部",
+    pandaGalleryAltTitle: ["丸く、穏やかで、", "好きになりやすい。"],
+    pandaGalleryTextTwo: "やわらかな体、レザー調のパーツ、縫い目のある足、穏やかな表情が、冷たくないコレクタブル感を作ります。",
     pandaBuyEyebrow: "パンダドール発売",
     pandaBuyTitle: ["ララちゃん", "注文できます。"],
     pandaBuyText: "チェックアウトでコード LAZY を使うと、同じ 0.88 倍のローンチ価格になります。",
@@ -656,6 +710,12 @@ const pandaProductCopy = {
     pandaDetailOne: "차분하고 밝은 성격의 부드러운 컬렉터블 형태.",
     pandaDetailTwo: "LazyingArt 판다 로고에서 영감을 받았습니다.",
     pandaDetailThree: "소량 판다 인형으로 현재 판매 중입니다.",
+    pandaGalleryEyebrow: "부드러운 존재감",
+    pandaGalleryTitle: ["작은 친구가", "공간을 따뜻하게."],
+    pandaGalleryTextOne: "선반, 책상, 조용한 코너 어디든 부드러운 캐릭터가 방의 분위기를 바꿉니다.",
+    pandaGalleryAltEyebrow: "플러시 디테일",
+    pandaGalleryAltTitle: ["둥글고 차분하며", "사랑하기 쉽습니다."],
+    pandaGalleryTextTwo: "부드러운 몸, 가죽 같은 패치, 스티치 발, 온화한 표정이 차갑지 않은 소장감을 만듭니다.",
     pandaBuyEyebrow: "판다 인형 출시",
     pandaBuyTitle: ["Rara-chan", "주문 가능합니다."],
     pandaBuyText: "결제 시 코드 LAZY를 사용하면 같은 0.88배 출시 가격을 받을 수 있습니다.",
@@ -675,6 +735,12 @@ const pandaProductCopy = {
     pandaDetailOne: "Dáng mềm, đáng sưu tầm, với tính cách sáng và bình yên.",
     pandaDetailTwo: "Lấy cảm hứng từ logo panda LazyingArt.",
     pandaDetailThree: "Đang bán dưới dạng búp bê panda lô nhỏ.",
+    pandaGalleryEyebrow: "Sự hiện diện mềm mại",
+    pandaGalleryTitle: ["Một người bạn nhỏ", "làm căn phòng ấm hơn."],
+    pandaGalleryTextOne: "Dành cho kệ, bàn làm việc hoặc một góc yên tĩnh nơi nhân vật mềm mại có thể đổi không khí căn phòng.",
+    pandaGalleryAltEyebrow: "Chi tiết plush",
+    pandaGalleryAltTitle: ["Tròn, bình yên", "và dễ yêu."],
+    pandaGalleryTextTwo: "Thân mềm, mảng như da, bàn chân có chỉ khâu và biểu cảm dịu làm món đồ có tính sưu tầm mà không lạnh.",
     pandaBuyEyebrow: "Ra mắt búp bê panda",
     pandaBuyTitle: ["Rara-chan", "đã sẵn sàng đặt mua."],
     pandaBuyText: "Dùng mã LAZY khi thanh toán để nhận giá ra mắt 0.88 lần.",
@@ -694,6 +760,12 @@ const pandaProductCopy = {
     pandaDetailOne: "شكل ناعم قابل للاقتناء بشخصية هادئة ومشرقة.",
     pandaDetailTwo: "مستوحاة من شعار باندا LazyingArt.",
     pandaDetailThree: "متاحة الآن كدمية باندا بإنتاج صغير.",
+    pandaGalleryEyebrow: "حضور ناعم",
+    pandaGalleryTitle: ["رفيق صغير", "يمنح دفئا فوريا."],
+    pandaGalleryTextOne: "مناسب لرف أو مكتب أو زاوية هادئة حيث يمكن لشخصية ناعمة أن تغير إحساس الغرفة.",
+    pandaGalleryAltEyebrow: "تفاصيل ناعمة",
+    pandaGalleryAltTitle: ["مستديرة وهادئة", "وسهلة المحبة."],
+    pandaGalleryTextTwo: "الجسم الناعم والرقع الشبيهة بالجلد والكفوف المخيطة والتعبير اللطيف تمنحها إحساسا قابلا للاقتناء دون برود.",
     pandaBuyEyebrow: "إصدار دمية الباندا",
     pandaBuyTitle: ["Rara-chan", "جاهزة للطلب."],
     pandaBuyText: "استخدم رمز LAZY عند الدفع للحصول على سعر الإطلاق نفسه 0.88x.",
@@ -713,6 +785,12 @@ const pandaProductCopy = {
     pandaDetailOne: "Forme douce à collectionner, avec un caractère calme et lumineux.",
     pandaDetailTwo: "Inspirée du logo panda LazyingArt.",
     pandaDetailThree: "Disponible maintenant en petite série.",
+    pandaGalleryEyebrow: "Présence douce",
+    pandaGalleryTitle: ["Un petit compagnon", "qui réchauffe tout de suite."],
+    pandaGalleryTextOne: "Pensée pour une étagère, un bureau ou un coin calme où un personnage doux peut changer la pièce.",
+    pandaGalleryAltEyebrow: "Détail peluche",
+    pandaGalleryAltTitle: ["Rond, calme", "et facile à aimer."],
+    pandaGalleryTextTwo: "Le corps doux, les pièces effet cuir, les pattes cousues et l'expression tendre donnent un objet de collection jamais froid.",
     pandaBuyEyebrow: "Sortie poupée panda",
     pandaBuyTitle: ["Rara-chan", "est prête à commander."],
     pandaBuyText: "Utilisez le code LAZY au paiement pour le même prix de lancement 0,88x.",
@@ -732,6 +810,12 @@ const pandaProductCopy = {
     pandaDetailOne: "Forma suave y coleccionable con carácter tranquilo y luminoso.",
     pandaDetailTwo: "Inspirada en el logo panda de LazyingArt.",
     pandaDetailThree: "Disponible ahora como muñeco panda de lote pequeño.",
+    pandaGalleryEyebrow: "Presencia suave",
+    pandaGalleryTitle: ["Un pequeño compañero", "con calidez inmediata."],
+    pandaGalleryTextOne: "Pensado para una estantería, un escritorio o un rincón tranquilo donde un personaje suave puede cambiar la habitación.",
+    pandaGalleryAltEyebrow: "Detalle de peluche",
+    pandaGalleryAltTitle: ["Redondo, tranquilo", "y fácil de querer."],
+    pandaGalleryTextTwo: "El cuerpo suave, las piezas tipo cuero, las patas cosidas y la expresión dulce lo hacen coleccionable sin sentirse frío.",
     pandaBuyEyebrow: "Lanzamiento del muñeco panda",
     pandaBuyTitle: ["Rara-chan", "lista para pedir."],
     pandaBuyText: "Usa el código LAZY al pagar para obtener el mismo precio de lanzamiento 0.88x.",
@@ -751,6 +835,12 @@ const pandaProductCopy = {
     pandaDetailOne: "Weiche Sammelform mit ruhigem, hellem Charakter.",
     pandaDetailTwo: "Inspiriert vom LazyingArt-Pandalogo.",
     pandaDetailThree: "Jetzt als kleine Panda-Puppenserie verfügbar.",
+    pandaGalleryEyebrow: "Weiche Präsenz",
+    pandaGalleryTitle: ["Ein kleiner Begleiter", "mit sofortiger Wärme."],
+    pandaGalleryTextOne: "Für Regal, Schreibtisch oder eine ruhige Ecke, wo ein weicher Charakter den Raum verändert.",
+    pandaGalleryAltEyebrow: "Plüschdetail",
+    pandaGalleryAltTitle: ["Rund, ruhig", "und leicht liebzugewinnen."],
+    pandaGalleryTextTwo: "Der weiche Körper, lederartige Patches, genähte Pfoten und der sanfte Ausdruck machen sie sammelbar, ohne kühl zu wirken.",
     pandaBuyEyebrow: "Panda-Puppen-Release",
     pandaBuyTitle: ["Rara-chan", "ist bestellbereit."],
     pandaBuyText: "Nutze beim Checkout den Code LAZY für denselben 0,88x-Startpreis.",
@@ -770,6 +860,12 @@ const pandaProductCopy = {
     pandaDetailOne: "Мягкая коллекционная форма со спокойным и ярким характером.",
     pandaDetailTwo: "Вдохновлена логотипом панды LazyingArt.",
     pandaDetailThree: "Уже доступна как кукла-панда малой партии.",
+    pandaGalleryEyebrow: "Мягкое присутствие",
+    pandaGalleryTitle: ["Маленький спутник", "с мгновенным теплом."],
+    pandaGalleryTextOne: "Для полки, стола или тихого угла, где мягкий персонаж может изменить ощущение комнаты.",
+    pandaGalleryAltEyebrow: "Детали плюша",
+    pandaGalleryAltTitle: ["Округлая, спокойная", "и легко любимая."],
+    pandaGalleryTextTwo: "Мягкое тело, кожаные вставки, прошитые лапы и нежное выражение делают ее коллекционной, но не холодной.",
     pandaBuyEyebrow: "Релиз куклы-панды",
     pandaBuyTitle: ["Rara-chan", "готова к заказу."],
     pandaBuyText: "Используйте код LAZY при оплате, чтобы получить ту же стартовую цену 0.88x.",
@@ -780,6 +876,79 @@ const pandaProductCopy = {
 };
 
 Object.entries(pandaProductCopy).forEach(([language, copy]) => {
+  Object.assign(translations[language], copy);
+});
+
+const notebookSizeCopy = {
+  en: {
+    notebookSizeLabel: "Notebook size",
+    notebookSizeHelp: "A5 is the current standard size. Other sizes use USD checkout.",
+    selectedSizePriceLabel: "Selected size / Global USD",
+    selectedSizeButton: "Buy selected size"
+  },
+  "zh-Hans": {
+    notebookSizeLabel: "手账本尺寸",
+    notebookSizeHelp: "A5 是当前标准尺寸。其他尺寸使用 USD 结账。",
+    selectedSizePriceLabel: "已选尺寸 / 全球 USD",
+    selectedSizeButton: "购买所选尺寸"
+  },
+  "zh-Hant": {
+    notebookSizeLabel: "手帳本尺寸",
+    notebookSizeHelp: "A5 是目前標準尺寸。其他尺寸使用 USD 結帳。",
+    selectedSizePriceLabel: "已選尺寸 / 全球 USD",
+    selectedSizeButton: "購買所選尺寸"
+  },
+  ja: {
+    notebookSizeLabel: "ノートのサイズ",
+    notebookSizeHelp: "A5 が現在の標準サイズです。他のサイズは USD チェックアウトを使用します。",
+    selectedSizePriceLabel: "選択サイズ / グローバル USD",
+    selectedSizeButton: "選択サイズを購入"
+  },
+  ko: {
+    notebookSizeLabel: "노트 크기",
+    notebookSizeHelp: "A5가 현재 표준 크기입니다. 다른 크기는 USD 결제를 사용합니다.",
+    selectedSizePriceLabel: "선택한 크기 / 글로벌 USD",
+    selectedSizeButton: "선택한 크기 구매"
+  },
+  vi: {
+    notebookSizeLabel: "Kích thước sổ",
+    notebookSizeHelp: "A5 là kích thước tiêu chuẩn hiện tại. Các kích thước khác dùng thanh toán USD.",
+    selectedSizePriceLabel: "Kích thước đã chọn / USD toàn cầu",
+    selectedSizeButton: "Mua kích thước đã chọn"
+  },
+  ar: {
+    notebookSizeLabel: "مقاس الدفتر",
+    notebookSizeHelp: "A5 هو المقاس القياسي الحالي. المقاسات الأخرى تستخدم الدفع بالدولار.",
+    selectedSizePriceLabel: "المقاس المختار / USD عالمي",
+    selectedSizeButton: "اشترِ المقاس المختار"
+  },
+  fr: {
+    notebookSizeLabel: "Format du carnet",
+    notebookSizeHelp: "A5 est le format standard actuel. Les autres formats utilisent le paiement en USD.",
+    selectedSizePriceLabel: "Format choisi / USD global",
+    selectedSizeButton: "Acheter le format choisi"
+  },
+  es: {
+    notebookSizeLabel: "Tamaño del cuaderno",
+    notebookSizeHelp: "A5 es el tamaño estándar actual. Otros tamaños usan pago en USD.",
+    selectedSizePriceLabel: "Tamaño seleccionado / USD global",
+    selectedSizeButton: "Comprar tamaño seleccionado"
+  },
+  de: {
+    notebookSizeLabel: "Notizbuchformat",
+    notebookSizeHelp: "A5 ist das aktuelle Standardformat. Andere Formate nutzen USD-Checkout.",
+    selectedSizePriceLabel: "Gewähltes Format / Global USD",
+    selectedSizeButton: "Gewähltes Format kaufen"
+  },
+  ru: {
+    notebookSizeLabel: "Размер блокнота",
+    notebookSizeHelp: "A5 сейчас является стандартным размером. Другие размеры используют оплату в USD.",
+    selectedSizePriceLabel: "Выбранный размер / Global USD",
+    selectedSizeButton: "Купить выбранный размер"
+  }
+};
+
+Object.entries(notebookSizeCopy).forEach(([language, copy]) => {
   Object.assign(translations[language], copy);
 });
 
@@ -875,6 +1044,10 @@ function checkoutKeyForLanguage(language, product = currentProduct()) {
   if (product === "panda") {
     return "rara_usd_en";
   }
+  const selectedSize = notebookSizes[selectedNotebookSize] ? selectedNotebookSize : "a5";
+  if (selectedSize !== "a5") {
+    return notebookSizes[selectedSize].key;
+  }
   const normalizedLanguage = normalizeLanguage(language);
   if (normalizedLanguage === "zh-Hant") {
     return "hkd_zh_hant";
@@ -919,7 +1092,8 @@ function checkoutHrefForKey(key, language, explicitKey = false) {
   if (typeof url !== "string" || !url.startsWith("https://")) {
     return fallbackOrderHref;
   }
-  if (!explicitKey && ["usd_en", "rara_usd_en"].includes(key)) {
+  const isGlobalUsd = key === "usd_en" || key === "rara_usd_en" || /^notebook_[a-z0-9]+_usd_en$/.test(key);
+  if (!explicitKey && isGlobalUsd) {
     return withStripeLocale(url, stripeLocaleForLanguage(language));
   }
   return url;
@@ -962,6 +1136,48 @@ function applyPriceLabels() {
     if (value) {
       node.textContent = value;
     }
+  });
+  applySelectedSizeUi();
+}
+
+function selectedSizeConfig() {
+  if (!notebookSizes[selectedNotebookSize]) {
+    selectedNotebookSize = "a5";
+  }
+  return notebookSizes[selectedNotebookSize];
+}
+
+function applySelectedSizeUi() {
+  const links = window.LAZYING_STRIPE_PAYMENT_LINKS || {};
+  const size = selectedSizeConfig();
+  const link = links[size.key] || {};
+  document.querySelectorAll("[data-selected-size-name]").forEach((node) => {
+    node.textContent = size.label;
+  });
+  document.querySelectorAll("[data-selected-size-price]").forEach((node) => {
+    node.textContent = link.discount || size.discount;
+  });
+  document.querySelectorAll("[data-selected-size-original]").forEach((node) => {
+    node.textContent = link.original || size.original;
+  });
+  if (notebookSizeSelect && notebookSizeSelect.value !== selectedNotebookSize) {
+    notebookSizeSelect.value = selectedNotebookSize;
+  }
+}
+
+function initNotebookSizes() {
+  if (!notebookSizeSelect) {
+    return;
+  }
+  if (!notebookSizes[selectedNotebookSize]) {
+    selectedNotebookSize = "a5";
+  }
+  notebookSizeSelect.value = selectedNotebookSize;
+  notebookSizeSelect.addEventListener("change", (event) => {
+    selectedNotebookSize = notebookSizes[event.target.value] ? event.target.value : "a5";
+    localStorage.setItem("notebookSize", selectedNotebookSize);
+    applySelectedSizeUi();
+    applyCheckoutLink();
   });
 }
 
@@ -1119,6 +1335,7 @@ const rawSavedLanguage = localStorage.getItem("language");
 const urlLanguage = rawUrlLanguage ? normalizeLanguage(rawUrlLanguage) : "";
 const savedLanguage = rawSavedLanguage ? normalizeLanguage(rawSavedLanguage) : "";
 setLanguage(urlLanguage || savedLanguage || preferredBrowserLanguage());
+initNotebookSizes();
 applyPriceLabels();
 applyCheckoutLink();
 initProductCarousel();

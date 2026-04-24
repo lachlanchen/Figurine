@@ -25,6 +25,8 @@ Product and brand assets:
 - [website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-02.webp](website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-02.webp) - carousel alternate front view
 - [website/assets/products/patchwork-leather-notebook/product.json](website/assets/products/patchwork-leather-notebook/product.json) - product metadata
 - [website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp](website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp) - Rara-chan / Lala-chan Panda Doll product image
+- [website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-lifestyle-friends-v1.webp](website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-lifestyle-friends-v1.webp) - Panda Doll lifestyle carousel image
+- [website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-lifestyle-alone-v1.webp](website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-lifestyle-alone-v1.webp) - Panda Doll solo carousel image
 - [website/assets/products/lala-chan-panda-doll/product.json](website/assets/products/lala-chan-panda-doll/product.json) - Panda Doll product metadata
 - [prompts/lala-chan-panda-doll-product-image.txt](prompts/lala-chan-panda-doll-product-image.txt) - Nano Banana prompt for the Lala-chan panda doll product image
 - [website/stripe-config.js](website/stripe-config.js) - public Stripe Payment Link config for notebook and panda doll checkout links
@@ -47,6 +49,12 @@ The Panda Doll category image is generated from:
 - Prompt: [prompts/lala-chan-panda-doll-product-image.txt](prompts/lala-chan-panda-doll-product-image.txt)
 - Local Nano Banana run folder, ignored by git: `generated/product-image-optimization/lala-chan-panda-doll-v1`
 
+The Panda Doll carousel images are generated from:
+
+- Source/reference: [website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp](website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp)
+- Prompts: [prompts/lala-chan-panda-doll-lifestyle-friends.txt](prompts/lala-chan-panda-doll-lifestyle-friends.txt) and [prompts/lala-chan-panda-doll-lifestyle-alone.txt](prompts/lala-chan-panda-doll-lifestyle-alone.txt)
+- Local Nano Banana run folders, ignored by git: `generated/product-image-optimization/lala-chan-panda-doll-lifestyle-friends-v1` and `generated/product-image-optimization/lala-chan-panda-doll-lifestyle-alone-v1`
+
 ## Stripe Checkout
 
 The storefront is wired for Stripe Payment Links via [website/stripe-config.js](website/stripe-config.js). The separate helper repo is initialized at `../Stripe`; fill `../Stripe/.env`, then run:
@@ -57,7 +65,7 @@ npm run create:payment-link
 npm run export:figurine
 ```
 
-The notebook uses original prices `HKD 998`, `CNY 998`, `USD 148`, and `JPY 19,888`. Promotion code `LAZY` applies a `0.88x` checkout price (`12%` off), shown as `HKD 878.24`, `CNY 878.24`, `USD 130.24`, and `JPY 17,501`. Rara-chan Panda Doll is available now at `USD 198`, or `USD 174.24` with `LAZY`; in Japanese copy the same doll is named Lala-chan. Notebook and panda tabs are isolated so detail sections and checkout links do not leak between products. Product settings live in `../Stripe/config/patchwork-leather-notebook.json`; checkout allows quantity changes, promotion codes, billing and shipping address collection, customer names, and phone numbers. Real Stripe keys stay in `../Stripe/.env` and are not committed. Full operational notes are in [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md).
+The notebook size selector supports `A4 USD 198`, `B5 USD 168`, `A5 USD 148`, and `A6 USD 118`; A5 remains the default and localized HKD/CNY/JPY cards remain A5. Promotion code `LAZY` applies a `0.88x` checkout price (`12%` off). Rara-chan Panda Doll is available now at `USD 198`, or `USD 174.24` with `LAZY`; in Japanese copy the same doll is named Lala-chan. Notebook and panda tabs are isolated so detail sections and checkout links do not leak between products. Product settings live in `../Stripe/config/patchwork-leather-notebook.json`; checkout allows quantity changes, promotion codes, billing and shipping address collection, customer names, and phone numbers. Real Stripe keys stay in `../Stripe/.env` and are not committed. Full operational notes are in [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md).
 
 ## Smart Text Wrapping
 

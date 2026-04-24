@@ -1,0 +1,9 @@
+Use case: product-mockup
+Asset type: ecommerce product detail carousel image for the Rara-chan / Lala-chan panda doll
+Input image role: use the reference image as the exact product identity for the panda doll; preserve the round head, soft white plush, black leather-like ears/arms/legs, black leather-like eye patches, stitched paws, small blush, and gentle expression.
+Primary request: create a premium product lifestyle image of the panda doll alone, staged as a collectible object people want to buy.
+Scene/backdrop: clean warm studio setting with a low cream plinth or soft neutral chair, pale beige and light blue accents, high-end calm product photography.
+Subject: the panda doll alone, full body visible, face and stitched paws clear, tactile plush and leather-like textures emphasized.
+Composition: 16:9 horizontal frame, centered but not stiff, generous negative space, carousel-ready, no props that distract from the doll.
+Lighting: soft diffused daylight, subtle shadow grounding, crisp details, bright luxury ecommerce finish.
+Avoid: people, extra toys, text, logos, watermarks, price tags, clutter, dark background, distorted doll anatomy, plastic look, cropped ears, cropped paws.

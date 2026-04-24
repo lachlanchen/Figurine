@@ -1,0 +1,9 @@
+Use case: photorealistic-natural
+Asset type: ecommerce product detail carousel image for the Rara-chan / Lala-chan panda doll
+Input image role: use the reference image as the exact product identity for the panda doll; preserve the round head, soft white plush, black leather-like ears/arms/legs, black leather-like eye patches, stitched paws, small blush, and gentle expression.
+Primary request: create a premium editorial lifestyle image where two adult women, one Chinese and one Russian, warmly hold the panda doll together.
+Scene/backdrop: bright modern apartment or studio with clean cream walls, soft daylight, quiet high-end lifestyle styling, no visible brand logos.
+Subject: the panda doll must be central, clearly visible, and recognizably the same product as the reference; the women support it naturally without covering the face or stitched paws.
+Composition: 16:9 horizontal frame, product-forward, soft natural smiles, refined clothing, warm human scale, enough negative space for a website carousel.
+Lighting: soft daylight, gentle shadows, crisp product texture, premium but not glossy.
+Avoid: minors, childish styling, distorted hands, distorted faces, extra toys, unreadable or readable text, logos, watermarks, price tags, heavy makeup, plastic-looking plush, clutter, dark backgrounds, cropped doll face.

@@ -14,6 +14,36 @@
     "ru": "Блокнот из лоскутной кожи"
   },
   "status": "made-to-order",
+  "sizes": [
+    {
+      "size": "A4",
+      "currency": "USD",
+      "original": 198,
+      "discount": 174.24,
+      "checkoutKey": "notebook_a4_usd_en"
+    },
+    {
+      "size": "B5",
+      "currency": "USD",
+      "original": 168,
+      "discount": 147.84,
+      "checkoutKey": "notebook_b5_usd_en"
+    },
+    {
+      "size": "A5",
+      "currency": "USD",
+      "original": 148,
+      "discount": 130.24,
+      "checkoutKey": "usd_en"
+    },
+    {
+      "size": "A6",
+      "currency": "USD",
+      "original": 118,
+      "discount": 103.84,
+      "checkoutKey": "notebook_a6_usd_en"
+    }
+  ],
   "price": {
     "promotionCode": "LAZY",
     "discountFactor": 0.88,
