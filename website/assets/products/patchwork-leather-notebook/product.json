@@ -16,5 +16,9 @@
     "config": "website/stripe-config.js"
   },
   "heroImage": "assets/products/patchwork-leather-notebook/patchwork-leather-notebook-luxury-clean-v2.jpg",
-  "detailImage": "assets/products/patchwork-leather-notebook/patchwork-leather-notebook-office-writing-v1.jpg"
+  "detailImage": "assets/products/patchwork-leather-notebook/patchwork-leather-notebook-office-writing-v1.jpg",
+  "galleryImages": [
+    "assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-01.webp",
+    "assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-02.webp"
+  ]
 }

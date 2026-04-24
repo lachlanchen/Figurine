@@ -19,6 +19,8 @@ Product and brand assets:
 - [website/assets/brand/lazyingart-icon.png](website/assets/brand/lazyingart-icon.png) - favicon
 - [website/assets/products/patchwork-leather-notebook/patchwork-leather-notebook-luxury-clean-v2.jpg](website/assets/products/patchwork-leather-notebook/patchwork-leather-notebook-luxury-clean-v2.jpg) - current hero product image
 - [website/assets/products/patchwork-leather-notebook/patchwork-leather-notebook-office-writing-v1.jpg](website/assets/products/patchwork-leather-notebook/patchwork-leather-notebook-office-writing-v1.jpg) - lifestyle detail image generated from the clean product reference
+- [website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-01.webp](website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-01.webp) - carousel front view
+- [website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-02.webp](website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-02.webp) - carousel alternate front view
 - [website/assets/products/patchwork-leather-notebook/product.json](website/assets/products/patchwork-leather-notebook/product.json) - product metadata
 - [website/stripe-config.js](website/stripe-config.js) - public Stripe Payment Link config; keep it empty until `../Stripe` exports a real Payment Link URL
 

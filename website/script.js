@@ -31,6 +31,8 @@ const translations = {
     detailOne: "Mixed leather patches with natural grain and tonal contrast.",
     detailTwo: "Visible hand stitching across every seam.",
     detailThree: "Made-to-order, each piece slightly different.",
+    galleryEyebrow: "Color study",
+    galleryTitle: ["Two views", "of the patchwork face."],
     buyEyebrow: "First release",
     buyTitle: ["One product.", "Small batch.", "Direct order."],
     buyText: "The first batch is prepared by request so the finish, paper, and binding can stay personal.",
@@ -56,6 +58,8 @@ const translations = {
     detailOne: "多色皮革拼接，保留天然纹理与色差。",
     detailTwo: "每一道接缝都能看见手缝痕迹。",
     detailThree: "按需小批制作，每一本都会有细微差异。",
+    galleryEyebrow: "色彩研究",
+    galleryTitle: ["两张正面图，", "看清拼接表情。"],
     buyEyebrow: "第一批",
     buyTitle: ["一款产品。", "小批制作。", "直接订购。"],
     buyText: "第一批按预约制作，封面、内页和装订都可以保持更个人化的选择。",
@@ -89,6 +93,8 @@ const translations = {
     detailOne: "色と質感の異なる革を組み合わせたパッチワーク。",
     detailTwo: "すべての継ぎ目に見える手縫いのステッチ。",
     detailThree: "受注制作のため、一冊ごとに少しずつ異なります。",
+    galleryEyebrow: "色の表情",
+    galleryTitle: ["正面から見る", "パッチワークの表情。"],
     buyEyebrow: "ファーストリリース",
     buyTitle: ["ひとつの商品。", "少量制作。", "直接注文。"],
     buyText: "最初のロットは予約制で制作し、仕上げ、紙、綴じ方をより個人的に調整できます。",
@@ -197,6 +203,66 @@ function scheduleSmartTextFit() {
   smartTextFrame = window.requestAnimationFrame(fitSmartText);
 }
 
+function initProductCarousel() {
+  document.querySelectorAll("[data-product-carousel]").forEach((carousel) => {
+    const slides = [...carousel.querySelectorAll(".carousel-slide")];
+    const dots = [...carousel.querySelectorAll("[data-carousel-dot]")];
+    const prev = carousel.querySelector("[data-carousel-prev]");
+    const next = carousel.querySelector("[data-carousel-next]");
+    let activeIndex = 0;
+    let touchStartX = 0;
+
+    function showSlide(index) {
+      activeIndex = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => {
+        const isActive = slideIndex === activeIndex;
+        slide.classList.toggle("is-active", isActive);
+        slide.setAttribute("aria-hidden", String(!isActive));
+      });
+      dots.forEach((dot, dotIndex) => {
+        const isActive = dotIndex === activeIndex;
+        dot.classList.toggle("is-active", isActive);
+        dot.setAttribute("aria-selected", String(isActive));
+      });
+    }
+
+    prev?.addEventListener("click", () => showSlide(activeIndex - 1));
+    next?.addEventListener("click", () => showSlide(activeIndex + 1));
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => showSlide(Number(dot.dataset.carouselDot)));
+    });
+    carousel.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") {
+        showSlide(activeIndex - 1);
+      }
+      if (event.key === "ArrowRight") {
+        showSlide(activeIndex + 1);
+      }
+    });
+    carousel.addEventListener(
+      "touchstart",
+      (event) => {
+        touchStartX = event.touches[0]?.clientX || 0;
+      },
+      { passive: true }
+    );
+    carousel.addEventListener(
+      "touchend",
+      (event) => {
+        const touchEndX = event.changedTouches[0]?.clientX || 0;
+        const delta = touchEndX - touchStartX;
+        if (Math.abs(delta) > 42) {
+          showSlide(activeIndex + (delta < 0 ? 1 : -1));
+        }
+      },
+      { passive: true }
+    );
+
+    carousel.tabIndex = 0;
+    showSlide(0);
+  });
+}
+
 languageSelect.addEventListener("change", (event) => {
   setLanguage(event.target.value);
   applyCheckoutLink();
@@ -204,5 +270,6 @@ languageSelect.addEventListener("change", (event) => {
 
 setLanguage(translations[urlLanguage] ? urlLanguage : savedLanguage || browserLanguage);
 applyCheckoutLink();
+initProductCarousel();
 window.addEventListener("resize", scheduleSmartTextFit);
 document.fonts?.ready.then(scheduleSmartTextFit);
