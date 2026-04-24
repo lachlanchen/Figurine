@@ -23,6 +23,7 @@ Product and brand assets:
 - [website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-02.webp](website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-02.webp) - carousel alternate front view
 - [website/assets/products/patchwork-leather-notebook/product.json](website/assets/products/patchwork-leather-notebook/product.json) - product metadata
 - [website/stripe-config.js](website/stripe-config.js) - public Stripe Payment Link config for localized USD, CNY, and HKD checkout links
+- [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md) - checkout links, promotion code, regeneration workflow, and smart text wrapping notes
 
 The current hero product image was generated from:
 
@@ -45,7 +46,11 @@ npm run create:payment-link
 npm run export:figurine
 ```
 
-The first product uses original prices `HKD 998`, `CNY 998`, and `USD 148`. Promotion code `LAZY` applies a `0.88x` checkout price (`12%` off), shown on the homepage as `HKD 878.24`, `CNY 878.24`, and `USD 130.24`. Product settings live in `../Stripe/config/patchwork-leather-notebook.json`; checkout allows quantity changes, promotion codes, billing and shipping address collection, customer names, and phone numbers. Real Stripe keys stay in `../Stripe/.env` and are not committed.
+The first product uses original prices `HKD 998`, `CNY 998`, and `USD 148`. Promotion code `LAZY` applies a `0.88x` checkout price (`12%` off), shown on the homepage as `HKD 878.24`, `CNY 878.24`, and `USD 130.24`. Product settings live in `../Stripe/config/patchwork-leather-notebook.json`; checkout allows quantity changes, promotion codes, billing and shipping address collection, customer names, and phone numbers. Real Stripe keys stay in `../Stripe/.env` and are not committed. Full operational notes are in [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md).
+
+## Smart Text Wrapping
+
+Hero and section headings use phrase-level i18n arrays in [website/script.js](website/script.js). Each phrase is rendered as a non-breaking `.text-chunk`; Chinese and Japanese chunks are separated with zero-width spaces so wrapping happens at chosen phrase boundaries. `fitSmartText()` reduces heading size only when the widest chunk would overflow. See [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md) before changing multilingual display copy.
 
 ## Nano Banana 2 Image Tool
 

@@ -49,7 +49,11 @@ There is no formal test suite yet. For script changes, run `py_compile` and at l
 
 ## Commit & Pull Request Guidelines
 
-No Git history is available in this folder, so use clear imperative commit messages such as `Add Nano Banana product image prompts`. Pull requests should summarize changed files, include dry-run or syntax-check results, and attach generated image samples or screenshots when visual output changes.
+Use clear imperative commit messages such as `Document Stripe checkout links`. After editing this repo, run the relevant checks, commit, and push `main` unless the user explicitly asks not to. Stripe checkout changes usually also touch `../Stripe`; commit and push that repo too when a remote exists. Pull requests should summarize changed files, include dry-run or syntax-check results, and attach generated image samples or screenshots when visual output changes.
+
+## Storefront Operations
+
+Stripe checkout and smart wrapping are documented in `docs/stripe-checkout-and-smart-wrap.md`. Update that file when payment links, promo codes, checkout collection settings, language options, or `.smart-text` wrapping behavior changes. Public Stripe links are generated from `../Stripe`; real keys stay only in `../Stripe/.env`.
 
 ## Security & Configuration Tips
 
