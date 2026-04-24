@@ -1,0 +1,27 @@
+Create a production-ready ecommerce product image for LazyingArt "Lucky Paw Leather Pendant".
+
+Use case: product-mockup
+Asset type: website hero product image
+Input images: the provided reference photos show the exact handmade leather paw pendant shape, visible white stitching, raised circular center pad, small toe cutouts, leather loop, cord, and brass ring details.
+
+Primary request:
+Generate a clean, high-end product image that shows several Lucky Paw Leather Pendant color combinations lined up horizontally, one by one, side by side, back to back where useful, aligned evenly like a premium Apple-style product lineup.
+
+Composition:
+- Use a wide 16:9 horizontal layout.
+- Show 7 to 9 pendants in a neat row with consistent scale and spacing.
+- Include both front and back orientations among the row, but keep every pendant easy to inspect.
+- Align the pendant bottoms and loops so the lineup feels deliberate and orderly.
+- Use a clean warm white or soft stone background, not a black tray and not a busy shop background.
+- Use soft premium studio lighting with natural leather highlights and subtle grounding shadows.
+
+Product fidelity:
+- Preserve the paw-shaped handmade leather charm design from the references.
+- Keep visible hand stitching, raised center circle, toe holes, leather grain, slightly imperfect handmade edges, leather cords, and brass rings.
+- Show the customizable two-color idea clearly: different outer color and inner pad color combinations.
+- Color combinations can include yellow/green, green/black, red/black, black/red, orange/red, blue/green, brown/red, and dark green/orange.
+- Make the leather tactile and real, never plastic.
+
+Avoid:
+- No readable text, logos, watermark, labels, price tags, UI, hands, people, packaging, clutter, distorted cords, impossible hardware, duplicate merged pendants, or fake typography.
+- Do not turn the pendant into a generic animal toy; it must remain a flat handmade leather paw pendant/key charm.

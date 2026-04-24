@@ -1,4 +1,4 @@
-const CACHE_NAME = "lazyingart-figurine-v2";
+const CACHE_NAME = "lazyingart-figurine-v3";
 const ASSETS = [
   "/",
   "/index.html",
@@ -13,7 +13,10 @@ const ASSETS = [
   "/assets/products/patchwork-leather-notebook/patchwork-leather-notebook-luxury-clean-v2.jpg",
   "/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp",
   "/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-lifestyle-friends-v1.webp",
-  "/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-lifestyle-alone-v1.webp"
+  "/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-lifestyle-alone-v1.webp",
+  "/assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-lineup-v1.webp",
+  "/assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-tray-detail-v1.webp",
+  "/assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-hand-detail-v1.webp"
 ];
 
 self.addEventListener("install", (event) => {

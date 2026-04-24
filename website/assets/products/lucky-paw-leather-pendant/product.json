@@ -1,0 +1,56 @@
+{
+  "id": "lucky-paw-leather-pendant",
+  "name": {
+    "en": "Lucky Paw Leather Pendant",
+    "zh-Hans": "幸运爪皮革挂件",
+    "zh-Hant": "幸運爪皮革掛件",
+    "ja": "ラッキーポー レザーペンダント",
+    "ko": "럭키 포 가죽 펜던트",
+    "vi": "Mặt dây da Lucky Paw",
+    "ar": "قلادة جلد Lucky Paw",
+    "fr": "Pendentif cuir Lucky Paw",
+    "es": "Colgante de cuero Lucky Paw",
+    "de": "Lucky Paw Lederanhänger",
+    "ru": "Кожаный подвес Lucky Paw"
+  },
+  "status": "available-now",
+  "category": "leather-pendant",
+  "price": {
+    "promotionCode": "LAZY",
+    "discountFactor": 0.88,
+    "currencies": [
+      {
+        "currency": "USD",
+        "original": 98,
+        "discount": 86.24
+      }
+    ]
+  },
+  "options": {
+    "outerColor": ["yellow", "green", "red", "black", "orange", "blue", "brown"],
+    "innerColor": ["black", "green", "red", "orange", "yellow", "brown"],
+    "checkoutReferencePattern": "lucky-paw-outer-{outer}-inner-{inner}"
+  },
+  "checkout": {
+    "provider": "stripe",
+    "config": "website/stripe-config.js",
+    "key": "pendant_usd_en",
+    "selectionTransport": "client_reference_id",
+    "collects": ["customer name", "billing address", "shipping address", "phone number"],
+    "quantity": {
+      "adjustable": true,
+      "minimum": 1,
+      "maximum": 10
+    }
+  },
+  "sourceReferences": [
+    "website/assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-tray-detail-v1.webp",
+    "website/assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-hand-detail-v1.webp"
+  ],
+  "prompt": "prompts/lucky-paw-leather-pendant-product-lineup.txt",
+  "productImage": "assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-lineup-v1.webp",
+  "galleryImages": [
+    "assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-tray-detail-v1.webp",
+    "assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-hand-detail-v1.webp"
+  ]
+}

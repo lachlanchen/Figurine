@@ -549,6 +549,7 @@ const translations = {
 const languageSelect = document.getElementById("language");
 const languageLabel = document.querySelector("[data-language-label]");
 const notebookSizeSelect = document.querySelector("[data-notebook-size]");
+const pendantOptionSelects = [...document.querySelectorAll("[data-pendant-option]")];
 const fallbackOrderHref = "mailto:hello@lazying.art?subject=Patchwork%20Leather%20Notebook";
 const productAnchors = {
   notebook: {
@@ -560,6 +561,11 @@ const productAnchors = {
     craft: "panda-craft",
     details: "panda-details",
     buy: "panda-buy"
+  },
+  pendant: {
+    craft: "pendant-craft",
+    details: "pendant-details",
+    buy: "pendant-buy"
   }
 };
 const notebookSizes = {
@@ -589,6 +595,12 @@ const notebookSizes = {
   }
 };
 let selectedNotebookSize = localStorage.getItem("notebookSize") || "a5";
+const defaultPendantSelection = {
+  outer: "green",
+  inner: "black"
+};
+const pendantColorValues = ["yellow", "green", "red", "black", "orange", "blue", "brown"];
+let selectedPendantOptions = loadPendantSelection();
 let smartTextFrame = 0;
 let hashScrollFrame = 0;
 
@@ -963,6 +975,475 @@ Object.entries(notebookSizeCopy).forEach(([language, copy]) => {
   Object.assign(translations[language], copy);
 });
 
+const pendantProductCopy = {
+  en: {
+    pageTitle: "LazyingArt Figurine | Handmade Notebook, Panda Doll, and Leather Pendant",
+    categoryPendant: "Pendant",
+    pendantEyebrow: "Leather pendant",
+    pendantHeroTitle: ["Lucky Paw", "Leather", "Pendant."],
+    pendantHeroText:
+      "A hand-stitched paw charm. Choose two leather colors for bags, keys, and small daily luck.",
+    pendantPrimary: "Buy Lucky Paw",
+    pendantSecondary: "See pendant details",
+    pendantDetailEyebrow: "Color pairing",
+    pendantDetailTitle: ["Choose the outer paw", "and inner pad."],
+    pendantDetailOne: "Outer leather sets the character of the paw shape.",
+    pendantDetailTwo: "Inner pad color creates the playful contrast.",
+    pendantDetailThree: "Every piece keeps visible hand stitching and natural leather grain.",
+    pendantGalleryEyebrow: "Workshop colors",
+    pendantGalleryTitle: ["Small pieces,", "loud personality."],
+    pendantGalleryTextOne:
+      "The tray view shows the real handmade variety: bright leather, exposed edges, and each stitch sitting slightly differently.",
+    pendantGalleryAltEyebrow: "Carry scale",
+    pendantGalleryAltTitle: ["Sized for keys,", "bags, and pockets."],
+    pendantGalleryTextTwo:
+      "Cord loops and brass rings make it easy to attach, while the soft leather keeps the charm warm in the hand.",
+    pendantBuyEyebrow: "Lucky Paw release",
+    pendantBuyTitle: ["Pick a color pair", "and carry it daily."],
+    pendantBuyText:
+      "Select the outer paw color and inner pad color before checkout. The choice is attached to the Stripe checkout reference.",
+    pendantOuterColorLabel: "Outer color",
+    pendantOuterColorHelp: "The outer color frames the paw silhouette.",
+    pendantInnerColorLabel: "Inner color",
+    pendantInnerColorHelp: "The inner pad color creates the contrast.",
+    pendantSelectionNote: "Selected combination is attached to checkout as the order reference.",
+    pendantSelectionFormat: "Outer {outer} / inner {inner}",
+    pendantPriceLabel: "Lucky Paw / Global USD",
+    payPendantUsd: "Buy Lucky Paw",
+    pendantStatement: [
+      "A tiny leather paw,",
+      "built from bright pieces",
+      "and visible stitches,",
+      "made to carry",
+      "a small piece of luck."
+    ],
+    pendantColors: {
+      yellow: "yellow",
+      green: "green",
+      red: "red",
+      black: "black",
+      orange: "orange",
+      blue: "blue",
+      brown: "brown"
+    }
+  },
+  "zh-Hans": {
+    pageTitle: "LazyingArt Figurine | 手作手账本、熊猫娃娃与皮革挂件",
+    categoryPendant: "皮革挂件",
+    pendantEyebrow: "皮革挂件",
+    pendantHeroTitle: ["幸运爪", "皮革挂件。"],
+    pendantHeroText: "手缝皮革爪爪挂件，可搭配外层与内垫颜色，配黄铜五金和柔软挂绳，适合包、钥匙和一点日常好运。",
+    pendantPrimary: "购买幸运爪",
+    pendantSecondary: "查看挂件细节",
+    pendantDetailEyebrow: "配色选择",
+    pendantDetailTitle: ["选择外层爪色", "和内垫颜色。"],
+    pendantDetailOne: "外层皮革决定爪爪轮廓的性格。",
+    pendantDetailTwo: "内垫颜色带来活泼的对比。",
+    pendantDetailThree: "每一件都保留可见手缝针脚和天然皮纹。",
+    pendantGalleryEyebrow: "工作室色彩",
+    pendantGalleryTitle: ["小小一枚，", "性格很响亮。"],
+    pendantGalleryTextOne: "托盘图展示真实手作的丰富变化：明亮皮革、外露边缘，以及每一针略有不同的手感。",
+    pendantGalleryAltEyebrow: "随身尺寸",
+    pendantGalleryAltTitle: ["适合钥匙、", "包和口袋。"],
+    pendantGalleryTextTwo: "皮绳和黄铜环方便挂扣，柔软皮革拿在手里也有温度。",
+    pendantBuyEyebrow: "幸运爪发售",
+    pendantBuyTitle: ["选一组配色，", "每天带在身边。"],
+    pendantBuyText: "结账前选择外层爪色和内垫颜色。该选择会附在 Stripe 结账订单参考中。",
+    pendantOuterColorLabel: "外层颜色",
+    pendantOuterColorHelp: "外层颜色塑造爪爪轮廓。",
+    pendantInnerColorLabel: "内垫颜色",
+    pendantInnerColorHelp: "内垫颜色形成对比。",
+    pendantSelectionNote: "所选配色会作为订单参考附加到结账中。",
+    pendantSelectionFormat: "外层 {outer} / 内垫 {inner}",
+    pendantPriceLabel: "幸运爪 / 全球 USD",
+    payPendantUsd: "购买幸运爪",
+    pendantStatement: ["一只小小皮革爪，", "由明亮皮料和可见针脚组成，", "带着一点好运随身走。"],
+    pendantColors: {
+      yellow: "黄色",
+      green: "绿色",
+      red: "红色",
+      black: "黑色",
+      orange: "橙色",
+      blue: "蓝色",
+      brown: "棕色"
+    }
+  },
+  "zh-Hant": {
+    pageTitle: "LazyingArt Figurine | 手作手帳本、熊貓娃娃與皮革掛件",
+    categoryPendant: "皮革掛件",
+    pendantEyebrow: "皮革掛件",
+    pendantHeroTitle: ["幸運爪", "皮革掛件。"],
+    pendantHeroText: "手縫皮革爪爪掛件，可搭配外層與內墊顏色，配黃銅五金和柔軟掛繩，適合包、鑰匙和一點日常好運。",
+    pendantPrimary: "購買幸運爪",
+    pendantSecondary: "查看掛件細節",
+    pendantDetailEyebrow: "配色選擇",
+    pendantDetailTitle: ["選擇外層爪色", "和內墊顏色。"],
+    pendantDetailOne: "外層皮革決定爪爪輪廓的性格。",
+    pendantDetailTwo: "內墊顏色帶來活潑的對比。",
+    pendantDetailThree: "每一件都保留可見手縫針腳和天然皮紋。",
+    pendantGalleryEyebrow: "工作室色彩",
+    pendantGalleryTitle: ["小小一枚，", "性格很響亮。"],
+    pendantGalleryTextOne: "托盤圖展示真實手作的豐富變化：明亮皮革、外露邊緣，以及每一針略有不同的手感。",
+    pendantGalleryAltEyebrow: "隨身尺寸",
+    pendantGalleryAltTitle: ["適合鑰匙、", "包和口袋。"],
+    pendantGalleryTextTwo: "皮繩和黃銅環方便掛扣，柔軟皮革拿在手裡也有溫度。",
+    pendantBuyEyebrow: "幸運爪發售",
+    pendantBuyTitle: ["選一組配色，", "每天帶在身邊。"],
+    pendantBuyText: "結帳前選擇外層爪色和內墊顏色。該選擇會附在 Stripe 結帳訂單參考中。",
+    pendantOuterColorLabel: "外層顏色",
+    pendantOuterColorHelp: "外層顏色塑造爪爪輪廓。",
+    pendantInnerColorLabel: "內墊顏色",
+    pendantInnerColorHelp: "內墊顏色形成對比。",
+    pendantSelectionNote: "所選配色會作為訂單參考附加到結帳中。",
+    pendantSelectionFormat: "外層 {outer} / 內墊 {inner}",
+    pendantPriceLabel: "幸運爪 / 全球 USD",
+    payPendantUsd: "購買幸運爪",
+    pendantStatement: ["一隻小小皮革爪，", "由明亮皮料和可見針腳組成，", "帶著一點好運隨身走。"],
+    pendantColors: {
+      yellow: "黃色",
+      green: "綠色",
+      red: "紅色",
+      black: "黑色",
+      orange: "橙色",
+      blue: "藍色",
+      brown: "棕色"
+    }
+  },
+  ja: {
+    pageTitle: "LazyingArt Figurine | 手仕事ノート、パンダドール、レザーペンダント",
+    categoryPendant: "ペンダント",
+    pendantEyebrow: "レザーペンダント",
+    pendantHeroTitle: ["ラッキーポー", "レザーペンダント。"],
+    pendantHeroText:
+      "手縫いのレザー肉球チャーム。外側と内側の色を選び、真鍮金具とやわらかなコードでバッグや鍵に小さな幸運を添えます。",
+    pendantPrimary: "ラッキーポーを購入",
+    pendantSecondary: "ペンダントの細部を見る",
+    pendantDetailEyebrow: "色合わせ",
+    pendantDetailTitle: ["外側の肉球色と", "内側パッドを選ぶ。"],
+    pendantDetailOne: "外側の革が肉球シルエットの印象を決めます。",
+    pendantDetailTwo: "内側パッドの色が遊びのあるコントラストを作ります。",
+    pendantDetailThree: "見える手縫いステッチと天然の革目を残しています。",
+    pendantGalleryEyebrow: "工房の色",
+    pendantGalleryTitle: ["小さなパーツに", "強い個性。"],
+    pendantGalleryTextOne: "トレイの写真には、明るい革、露出した縁、一針ごとに違う手仕事の表情が出ています。",
+    pendantGalleryAltEyebrow: "持ち歩けるサイズ",
+    pendantGalleryAltTitle: ["鍵、バッグ、", "ポケットに。"],
+    pendantGalleryTextTwo: "コードループと真鍮リングで取り付けやすく、やわらかな革が手の中であたたかく感じられます。",
+    pendantBuyEyebrow: "ラッキーポー発売",
+    pendantBuyTitle: ["色の組み合わせを選んで", "毎日持ち歩く。"],
+    pendantBuyText: "チェックアウト前に外側と内側の色を選択してください。選択内容は Stripe の注文参照に添付されます。",
+    pendantOuterColorLabel: "外側の色",
+    pendantOuterColorHelp: "外側の色が肉球の形を縁取ります。",
+    pendantInnerColorLabel: "内側の色",
+    pendantInnerColorHelp: "内側の色がコントラストを作ります。",
+    pendantSelectionNote: "選択した配色は注文参照としてチェックアウトに添付されます。",
+    pendantSelectionFormat: "外側 {outer} / 内側 {inner}",
+    pendantPriceLabel: "ラッキーポー / グローバル USD",
+    payPendantUsd: "ラッキーポーを購入",
+    pendantStatement: ["小さなレザー肉球。", "明るい革と見える縫い目で作られ、", "小さな幸運を運びます。"],
+    pendantColors: {
+      yellow: "イエロー",
+      green: "グリーン",
+      red: "レッド",
+      black: "ブラック",
+      orange: "オレンジ",
+      blue: "ブルー",
+      brown: "ブラウン"
+    }
+  },
+  ko: {
+    pageTitle: "LazyingArt Figurine | 수제 노트, 판다 인형, 가죽 펜던트",
+    categoryPendant: "펜던트",
+    pendantEyebrow: "가죽 펜던트",
+    pendantHeroTitle: ["럭키 포", "가죽 펜던트."],
+    pendantHeroText: "손바느질 가죽 발바닥 참입니다. 바깥색과 안쪽 패드 색을 고르고, 황동 장식과 부드러운 끈으로 가방이나 열쇠에 작은 행운을 더합니다.",
+    pendantPrimary: "럭키 포 구매",
+    pendantSecondary: "펜던트 상세 보기",
+    pendantDetailEyebrow: "색 조합",
+    pendantDetailTitle: ["바깥 발 색과", "안쪽 패드를 선택."],
+    pendantDetailOne: "바깥 가죽은 발 모양의 성격을 정합니다.",
+    pendantDetailTwo: "안쪽 패드 색은 경쾌한 대비를 만듭니다.",
+    pendantDetailThree: "모든 조각은 손바느질과 천연 가죽 결을 드러냅니다.",
+    pendantGalleryEyebrow: "작업실 색상",
+    pendantGalleryTitle: ["작은 조각,", "선명한 성격."],
+    pendantGalleryTextOne: "트레이 사진은 밝은 가죽, 드러난 가장자리, 조금씩 다른 바느질의 실제 수공예 변화를 보여줍니다.",
+    pendantGalleryAltEyebrow: "휴대 크기",
+    pendantGalleryAltTitle: ["열쇠, 가방,", "주머니에 맞는 크기."],
+    pendantGalleryTextTwo: "끈 고리와 황동 링으로 쉽게 달 수 있고, 부드러운 가죽은 손 안에서 따뜻하게 느껴집니다.",
+    pendantBuyEyebrow: "럭키 포 출시",
+    pendantBuyTitle: ["색 조합을 고르고", "매일 지니세요."],
+    pendantBuyText: "결제 전에 바깥 발 색과 안쪽 패드 색을 선택하세요. 선택 내용은 Stripe 결제 주문 참조에 첨부됩니다.",
+    pendantOuterColorLabel: "바깥색",
+    pendantOuterColorHelp: "바깥색이 발 모양을 둘러쌉니다.",
+    pendantInnerColorLabel: "안쪽 색",
+    pendantInnerColorHelp: "안쪽 패드 색이 대비를 만듭니다.",
+    pendantSelectionNote: "선택한 조합은 주문 참조로 결제에 첨부됩니다.",
+    pendantSelectionFormat: "바깥 {outer} / 안쪽 {inner}",
+    pendantPriceLabel: "럭키 포 / 글로벌 USD",
+    payPendantUsd: "럭키 포 구매",
+    pendantStatement: ["작은 가죽 발바닥,", "밝은 조각과 보이는 바느질로 만들어", "작은 행운을 지니게 합니다."],
+    pendantColors: {
+      yellow: "노랑",
+      green: "초록",
+      red: "빨강",
+      black: "검정",
+      orange: "주황",
+      blue: "파랑",
+      brown: "갈색"
+    }
+  },
+  vi: {
+    pageTitle: "LazyingArt Figurine | Sổ tay thủ công, búp bê panda và mặt dây da",
+    categoryPendant: "Mặt dây",
+    pendantEyebrow: "Mặt dây da",
+    pendantHeroTitle: ["Lucky Paw", "mặt dây da."],
+    pendantHeroText: "Charm móng da khâu tay với phối màu vui, phụ kiện đồng thau và dây mềm cho túi, chìa khóa hoặc chút may mắn hằng ngày.",
+    pendantPrimary: "Mua Lucky Paw",
+    pendantSecondary: "Xem chi tiết mặt dây",
+    pendantDetailEyebrow: "Phối màu",
+    pendantDetailTitle: ["Chọn màu móng ngoài", "và miếng đệm trong."],
+    pendantDetailOne: "Da bên ngoài tạo tính cách cho dáng móng.",
+    pendantDetailTwo: "Màu miếng đệm trong tạo tương phản vui mắt.",
+    pendantDetailThree: "Mỗi món giữ đường khâu tay và vân da tự nhiên.",
+    pendantGalleryEyebrow: "Màu xưởng",
+    pendantGalleryTitle: ["Món nhỏ,", "cá tính rõ."],
+    pendantGalleryTextOne: "Ảnh khay cho thấy sự đa dạng thủ công thật: da sáng màu, mép lộ và từng mũi khâu hơi khác nhau.",
+    pendantGalleryAltEyebrow: "Kích thước mang theo",
+    pendantGalleryAltTitle: ["Cho chìa khóa,", "túi và túi áo."],
+    pendantGalleryTextTwo: "Vòng dây và khoen đồng giúp gắn dễ dàng, còn da mềm giữ cảm giác ấm trong tay.",
+    pendantBuyEyebrow: "Ra mắt Lucky Paw",
+    pendantBuyTitle: ["Chọn một cặp màu", "và mang mỗi ngày."],
+    pendantBuyText: "Chọn màu móng ngoài và màu đệm trong trước khi thanh toán. Lựa chọn được gắn vào tham chiếu thanh toán Stripe.",
+    pendantOuterColorLabel: "Màu ngoài",
+    pendantOuterColorHelp: "Màu ngoài định hình dáng móng.",
+    pendantInnerColorLabel: "Màu trong",
+    pendantInnerColorHelp: "Màu đệm trong tạo tương phản.",
+    pendantSelectionNote: "Tổ hợp đã chọn được gắn vào thanh toán làm tham chiếu đơn hàng.",
+    pendantSelectionFormat: "Ngoài {outer} / trong {inner}",
+    pendantPriceLabel: "Lucky Paw / USD toàn cầu",
+    payPendantUsd: "Mua Lucky Paw",
+    pendantStatement: ["Một móng da nhỏ,", "làm từ mảnh da sáng và mũi khâu lộ,", "để mang theo chút may mắn."],
+    pendantColors: {
+      yellow: "vàng",
+      green: "xanh lá",
+      red: "đỏ",
+      black: "đen",
+      orange: "cam",
+      blue: "xanh dương",
+      brown: "nâu"
+    }
+  },
+  ar: {
+    pageTitle: "LazyingArt Figurine | دفتر يدوي ودمية باندا وقلادة جلد",
+    categoryPendant: "قلادة",
+    pendantEyebrow: "قلادة جلد",
+    pendantHeroTitle: ["Lucky Paw", "قلادة جلد."],
+    pendantHeroText: "تعليقة جلدية مخيطة يدويا على شكل كف، بألوان مرحة ومعدن نحاسي وحبل ناعم للحقائب أو المفاتيح أو حظ صغير يومي.",
+    pendantPrimary: "اشترِ Lucky Paw",
+    pendantSecondary: "شاهد تفاصيل القلادة",
+    pendantDetailEyebrow: "تنسيق الألوان",
+    pendantDetailTitle: ["اختر لون الكف الخارجي", "والوسادة الداخلية."],
+    pendantDetailOne: "الجلد الخارجي يحدد شخصية شكل الكف.",
+    pendantDetailTwo: "لون الوسادة الداخلية يصنع التباين المرح.",
+    pendantDetailThree: "كل قطعة تحتفظ بالغرز اليدوية الظاهرة وحبيبات الجلد الطبيعية.",
+    pendantGalleryEyebrow: "ألوان الورشة",
+    pendantGalleryTitle: ["قطع صغيرة،", "شخصية واضحة."],
+    pendantGalleryTextOne: "تظهر صورة الصندوق تنوع الصناعة اليدوية الحقيقي: جلد لامع، حواف ظاهرة، وكل غرزة مختلفة قليلا.",
+    pendantGalleryAltEyebrow: "حجم للحمل",
+    pendantGalleryAltTitle: ["للمفاتيح والحقائب", "والجيوب."],
+    pendantGalleryTextTwo: "حلقات الحبل والمعدن النحاسي تجعل التعليق سهلا، والجلد الناعم يبقيها دافئة في اليد.",
+    pendantBuyEyebrow: "إصدار Lucky Paw",
+    pendantBuyTitle: ["اختر زوج ألوان", "واحمله يوميا."],
+    pendantBuyText: "اختر لون الكف الخارجي ولون الوسادة الداخلية قبل الدفع. يرفق الاختيار بمرجع الدفع في Stripe.",
+    pendantOuterColorLabel: "اللون الخارجي",
+    pendantOuterColorHelp: "اللون الخارجي يؤطر شكل الكف.",
+    pendantInnerColorLabel: "اللون الداخلي",
+    pendantInnerColorHelp: "لون الوسادة الداخلية يصنع التباين.",
+    pendantSelectionNote: "يرفق تنسيق الألوان المختار بالدفع كمرجع للطلب.",
+    pendantSelectionFormat: "خارجي {outer} / داخلي {inner}",
+    pendantPriceLabel: "Lucky Paw / USD عالمي",
+    payPendantUsd: "اشترِ Lucky Paw",
+    pendantStatement: ["كف جلدي صغير،", "مصنوع من قطع مشرقة وغرز ظاهرة،", "ليحمل قليلا من الحظ."],
+    pendantColors: {
+      yellow: "أصفر",
+      green: "أخضر",
+      red: "أحمر",
+      black: "أسود",
+      orange: "برتقالي",
+      blue: "أزرق",
+      brown: "بني"
+    }
+  },
+  fr: {
+    pageTitle: "LazyingArt Figurine | Carnet fait main, poupée panda et pendentif cuir",
+    categoryPendant: "Pendentif",
+    pendantEyebrow: "Pendentif cuir",
+    pendantHeroTitle: ["Lucky Paw", "pendentif cuir."],
+    pendantHeroText: "Un charme patte en cuir cousu main, avec association de couleurs ludique, quincaillerie laiton et cordon souple pour sac, clés ou petite chance quotidienne.",
+    pendantPrimary: "Acheter Lucky Paw",
+    pendantSecondary: "Voir les détails du pendentif",
+    pendantDetailEyebrow: "Association couleur",
+    pendantDetailTitle: ["Choisir la patte extérieure", "et le coussinet intérieur."],
+    pendantDetailOne: "Le cuir extérieur donne le caractère de la silhouette.",
+    pendantDetailTwo: "La couleur du coussinet intérieur crée le contraste.",
+    pendantDetailThree: "Chaque pièce garde les coutures visibles et le grain naturel du cuir.",
+    pendantGalleryEyebrow: "Couleurs d'atelier",
+    pendantGalleryTitle: ["Petites pièces,", "grande personnalité."],
+    pendantGalleryTextOne: "La vue en plateau montre la vraie variété artisanale : cuir vif, bords visibles et points légèrement différents.",
+    pendantGalleryAltEyebrow: "Format à porter",
+    pendantGalleryAltTitle: ["Pour clés,", "sacs et poches."],
+    pendantGalleryTextTwo: "Les boucles de cordon et anneaux laiton facilitent l'attache, tandis que le cuir souple reste chaleureux en main.",
+    pendantBuyEyebrow: "Sortie Lucky Paw",
+    pendantBuyTitle: ["Choisissez une paire de couleurs", "et portez-la chaque jour."],
+    pendantBuyText: "Sélectionnez la couleur extérieure et intérieure avant le paiement. Le choix est attaché à la référence Stripe.",
+    pendantOuterColorLabel: "Couleur extérieure",
+    pendantOuterColorHelp: "La couleur extérieure encadre la silhouette.",
+    pendantInnerColorLabel: "Couleur intérieure",
+    pendantInnerColorHelp: "La couleur intérieure crée le contraste.",
+    pendantSelectionNote: "La combinaison choisie est attachée au paiement comme référence de commande.",
+    pendantSelectionFormat: "Extérieur {outer} / intérieur {inner}",
+    pendantPriceLabel: "Lucky Paw / USD global",
+    payPendantUsd: "Acheter Lucky Paw",
+    pendantStatement: ["Une petite patte en cuir,", "faite de pièces vives et de coutures visibles,", "pour porter un peu de chance."],
+    pendantColors: {
+      yellow: "jaune",
+      green: "vert",
+      red: "rouge",
+      black: "noir",
+      orange: "orange",
+      blue: "bleu",
+      brown: "brun"
+    }
+  },
+  es: {
+    pageTitle: "LazyingArt Figurine | Cuaderno artesanal, muñeco panda y colgante de cuero",
+    categoryPendant: "Colgante",
+    pendantEyebrow: "Colgante de cuero",
+    pendantHeroTitle: ["Lucky Paw", "colgante de cuero."],
+    pendantHeroText: "Un charm de pata en cuero cosido a mano, con combinación de colores juguetona, herrajes de latón y cordón suave para bolsos, llaves o un poco de suerte diaria.",
+    pendantPrimary: "Comprar Lucky Paw",
+    pendantSecondary: "Ver detalles del colgante",
+    pendantDetailEyebrow: "Combinación de color",
+    pendantDetailTitle: ["Elige la pata exterior", "y la almohadilla interior."],
+    pendantDetailOne: "El cuero exterior define el carácter de la silueta.",
+    pendantDetailTwo: "El color de la almohadilla interior crea el contraste.",
+    pendantDetailThree: "Cada pieza conserva costuras visibles y grano natural del cuero.",
+    pendantGalleryEyebrow: "Colores de taller",
+    pendantGalleryTitle: ["Piezas pequeñas,", "mucha personalidad."],
+    pendantGalleryTextOne: "La vista de bandeja muestra la variedad real hecha a mano: cuero brillante, bordes expuestos y puntadas ligeramente distintas.",
+    pendantGalleryAltEyebrow: "Escala para llevar",
+    pendantGalleryAltTitle: ["Para llaves,", "bolsos y bolsillos."],
+    pendantGalleryTextTwo: "Los bucles de cordón y anillos de latón facilitan engancharlo, mientras el cuero suave se siente cálido en la mano.",
+    pendantBuyEyebrow: "Lanzamiento Lucky Paw",
+    pendantBuyTitle: ["Elige una pareja de colores", "y llévala cada día."],
+    pendantBuyText: "Selecciona el color exterior y el interior antes del pago. La elección se adjunta a la referencia de checkout de Stripe.",
+    pendantOuterColorLabel: "Color exterior",
+    pendantOuterColorHelp: "El color exterior enmarca la silueta de la pata.",
+    pendantInnerColorLabel: "Color interior",
+    pendantInnerColorHelp: "El color interior crea el contraste.",
+    pendantSelectionNote: "La combinación seleccionada se adjunta al checkout como referencia del pedido.",
+    pendantSelectionFormat: "Exterior {outer} / interior {inner}",
+    pendantPriceLabel: "Lucky Paw / USD global",
+    payPendantUsd: "Comprar Lucky Paw",
+    pendantStatement: ["Una pequeña pata de cuero,", "hecha con piezas brillantes y puntadas visibles,", "para llevar un poco de suerte."],
+    pendantColors: {
+      yellow: "amarillo",
+      green: "verde",
+      red: "rojo",
+      black: "negro",
+      orange: "naranja",
+      blue: "azul",
+      brown: "marrón"
+    }
+  },
+  de: {
+    pageTitle: "LazyingArt Figurine | Handgemachtes Notizbuch, Panda-Puppe und Lederanhänger",
+    categoryPendant: "Anhänger",
+    pendantEyebrow: "Lederanhänger",
+    pendantHeroTitle: ["Lucky Paw", "Lederanhänger."],
+    pendantHeroText: "Ein handgenähter Leder-Pfotenanhänger mit spielerischer Farbkombination, Messingbeschlägen und weicher Kordel für Taschen, Schlüssel oder kleines tägliches Glück.",
+    pendantPrimary: "Lucky Paw kaufen",
+    pendantSecondary: "Anhänger-Details ansehen",
+    pendantDetailEyebrow: "Farbkombination",
+    pendantDetailTitle: ["Außenpfote und", "Innenpolster wählen."],
+    pendantDetailOne: "Das äußere Leder gibt der Pfotenform ihren Charakter.",
+    pendantDetailTwo: "Die Innenfarbe erzeugt den spielerischen Kontrast.",
+    pendantDetailThree: "Jedes Stück behält sichtbare Handstiche und natürliche Ledernarbung.",
+    pendantGalleryEyebrow: "Werkstattfarben",
+    pendantGalleryTitle: ["Kleine Stücke,", "starke Persönlichkeit."],
+    pendantGalleryTextOne: "Die Tablettansicht zeigt echte handgemachte Vielfalt: helles Leder, offene Kanten und leicht unterschiedliche Stiche.",
+    pendantGalleryAltEyebrow: "Tragegröße",
+    pendantGalleryAltTitle: ["Für Schlüssel,", "Taschen und Jackentaschen."],
+    pendantGalleryTextTwo: "Kordelschlaufen und Messingringe lassen sich leicht befestigen, während das weiche Leder in der Hand warm bleibt.",
+    pendantBuyEyebrow: "Lucky Paw Release",
+    pendantBuyTitle: ["Farbpaar wählen", "und täglich tragen."],
+    pendantBuyText: "Wähle Außen- und Innenfarbe vor dem Checkout. Die Auswahl wird an die Stripe-Checkout-Referenz angehängt.",
+    pendantOuterColorLabel: "Außenfarbe",
+    pendantOuterColorHelp: "Die Außenfarbe rahmt die Pfotensilhouette.",
+    pendantInnerColorLabel: "Innenfarbe",
+    pendantInnerColorHelp: "Die Innenfarbe erzeugt Kontrast.",
+    pendantSelectionNote: "Die gewählte Kombination wird dem Checkout als Bestellreferenz angehängt.",
+    pendantSelectionFormat: "Außen {outer} / innen {inner}",
+    pendantPriceLabel: "Lucky Paw / Globaler USD",
+    payPendantUsd: "Lucky Paw kaufen",
+    pendantStatement: ["Eine kleine Lederpfote,", "aus hellen Stücken und sichtbaren Stichen,", "gemacht für ein kleines Stück Glück."],
+    pendantColors: {
+      yellow: "gelb",
+      green: "grün",
+      red: "rot",
+      black: "schwarz",
+      orange: "orange",
+      blue: "blau",
+      brown: "braun"
+    }
+  },
+  ru: {
+    pageTitle: "LazyingArt Figurine | Блокнот ручной работы, кукла-панда и кожаный подвес",
+    categoryPendant: "Подвес",
+    pendantEyebrow: "Кожаный подвес",
+    pendantHeroTitle: ["Lucky Paw", "кожаный подвес."],
+    pendantHeroText: "Кожаный брелок-лапка с ручной строчкой, игривым сочетанием цветов, латунной фурнитурой и мягким шнуром для сумки, ключей или маленькой ежедневной удачи.",
+    pendantPrimary: "Купить Lucky Paw",
+    pendantSecondary: "Смотреть детали подвеса",
+    pendantDetailEyebrow: "Сочетание цветов",
+    pendantDetailTitle: ["Выберите внешний цвет", "и внутреннюю подушечку."],
+    pendantDetailOne: "Внешняя кожа задает характер формы лапки.",
+    pendantDetailTwo: "Цвет внутренней подушечки создает playful-контраст.",
+    pendantDetailThree: "Каждая вещь сохраняет видимую ручную строчку и натуральную фактуру кожи.",
+    pendantGalleryEyebrow: "Цвета мастерской",
+    pendantGalleryTitle: ["Маленькие детали,", "яркий характер."],
+    pendantGalleryTextOne: "Вид на лотке показывает настоящую ручную вариативность: яркая кожа, открытые края и слегка разные стежки.",
+    pendantGalleryAltEyebrow: "Размер для ношения",
+    pendantGalleryAltTitle: ["Для ключей,", "сумок и карманов."],
+    pendantGalleryTextTwo: "Петли из шнура и латунные кольца легко крепятся, а мягкая кожа остается теплой в руке.",
+    pendantBuyEyebrow: "Релиз Lucky Paw",
+    pendantBuyTitle: ["Выберите пару цветов", "и носите каждый день."],
+    pendantBuyText: "Выберите внешний цвет лапки и цвет внутренней подушечки перед оплатой. Выбор добавляется в reference Stripe Checkout.",
+    pendantOuterColorLabel: "Внешний цвет",
+    pendantOuterColorHelp: "Внешний цвет обрамляет силуэт лапки.",
+    pendantInnerColorLabel: "Внутренний цвет",
+    pendantInnerColorHelp: "Внутренний цвет создает контраст.",
+    pendantSelectionNote: "Выбранное сочетание добавляется к оплате как reference заказа.",
+    pendantSelectionFormat: "Снаружи {outer} / внутри {inner}",
+    pendantPriceLabel: "Lucky Paw / глобальный USD",
+    payPendantUsd: "Купить Lucky Paw",
+    pendantStatement: ["Маленькая кожаная лапка,", "собранная из ярких деталей и видимых стежков,", "чтобы носить немного удачи."],
+    pendantColors: {
+      yellow: "желтый",
+      green: "зеленый",
+      red: "красный",
+      black: "черный",
+      orange: "оранжевый",
+      blue: "синий",
+      brown: "коричневый"
+    }
+  }
+};
+
+Object.entries(pendantProductCopy).forEach(([language, copy]) => {
+  Object.assign(translations[language], copy);
+});
+
 function normalizeLanguage(language) {
   const value = String(language || "").toLowerCase();
   if (["zh-hant", "zh-tw", "zh-hk", "zh-mo"].includes(value)) {
@@ -1029,6 +1510,61 @@ function renderLocalizedText(node, value, language) {
   });
 }
 
+function loadPendantSelection() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem("pendantSelection") || "{}");
+    return {
+      outer: pendantColorValues.includes(parsed.outer) ? parsed.outer : defaultPendantSelection.outer,
+      inner: pendantColorValues.includes(parsed.inner) ? parsed.inner : defaultPendantSelection.inner
+    };
+  } catch {
+    return { ...defaultPendantSelection };
+  }
+}
+
+function pendantColorLabel(color, language = normalizeLanguage(languageSelect.value)) {
+  const dictionary = translations[language] || translations.en;
+  return dictionary.pendantColors?.[color] || translations.en.pendantColors[color] || color;
+}
+
+function pendantSelectionReference() {
+  const outer = selectedPendantOptions.outer || defaultPendantSelection.outer;
+  const inner = selectedPendantOptions.inner || defaultPendantSelection.inner;
+  return `lucky-paw-outer-${outer}-inner-${inner}`;
+}
+
+function withClientReferenceId(url, clientReferenceId) {
+  try {
+    const checkoutUrl = new URL(url);
+    checkoutUrl.searchParams.set("client_reference_id", clientReferenceId);
+    return checkoutUrl.toString();
+  } catch {
+    return url;
+  }
+}
+
+function applyPendantOptionsUi(language = normalizeLanguage(languageSelect.value)) {
+  const dictionary = translations[language] || translations.en;
+  pendantOptionSelects.forEach((select) => {
+    const type = select.dataset.pendantOption;
+    if (type && select.value !== selectedPendantOptions[type]) {
+      select.value = selectedPendantOptions[type];
+    }
+    [...select.options].forEach((option) => {
+      option.textContent = pendantColorLabel(option.value, language);
+    });
+  });
+
+  const outer = pendantColorLabel(selectedPendantOptions.outer, language);
+  const inner = pendantColorLabel(selectedPendantOptions.inner, language);
+  const summary = (dictionary.pendantSelectionFormat || translations.en.pendantSelectionFormat)
+    .replace("{outer}", outer)
+    .replace("{inner}", inner);
+  document.querySelectorAll("[data-pendant-choice]").forEach((node) => {
+    node.textContent = summary;
+  });
+}
+
 function setLanguage(language) {
   const normalizedLanguage = normalizeLanguage(language);
   const dictionary = translations[normalizedLanguage] || translations.en;
@@ -1049,12 +1585,16 @@ function setLanguage(language) {
   if (languageLabel && selectedOption) {
     languageLabel.textContent = selectedOption.textContent;
   }
+  applyPendantOptionsUi(normalizedLanguage);
   scheduleSmartTextFit();
 }
 
 function checkoutKeyForLanguage(language, product = currentProduct()) {
   if (product === "panda") {
     return "rara_usd_en";
+  }
+  if (product === "pendant") {
+    return "pendant_usd_en";
   }
   const selectedSize = notebookSizes[selectedNotebookSize] ? selectedNotebookSize : "a5";
   if (selectedSize !== "a5") {
@@ -1077,6 +1617,9 @@ function stripeLocaleForLanguage(language) {
   return (
     {
       en: "en",
+      "zh-Hans": "zh",
+      "zh-Hant": "zh-TW",
+      ja: "ja",
       ko: "ko",
       vi: "vi",
       ar: "ar",
@@ -1104,7 +1647,11 @@ function checkoutHrefForKey(key, language, explicitKey = false) {
   if (typeof url !== "string" || !url.startsWith("https://")) {
     return fallbackOrderHref;
   }
-  const isGlobalUsd = key === "usd_en" || key === "rara_usd_en" || /^notebook_[a-z0-9]+_usd_en$/.test(key);
+  const isGlobalUsd =
+    key === "usd_en" ||
+    key === "rara_usd_en" ||
+    key === "pendant_usd_en" ||
+    /^notebook_[a-z0-9]+_usd_en$/.test(key);
   if (!explicitKey && isGlobalUsd) {
     return withStripeLocale(url, stripeLocaleForLanguage(language));
   }
@@ -1116,10 +1663,13 @@ function applyCheckoutLink() {
   const dictionary = translations[language] || translations.en;
 
   document.querySelectorAll("[data-checkout-link]").forEach((link) => {
-    const product = link.dataset.checkoutProduct || currentProduct();
     const explicitKey = Boolean(link.dataset.checkoutKey);
+    const product = link.dataset.checkoutProduct || (explicitKey ? "" : currentProduct());
     const key = link.dataset.checkoutKey || checkoutKeyForLanguage(language, product);
-    const href = checkoutHrefForKey(key, language, explicitKey);
+    let href = checkoutHrefForKey(key, language, explicitKey);
+    if (key === "pendant_usd_en" && href !== fallbackOrderHref) {
+      href = withClientReferenceId(href, pendantSelectionReference());
+    }
     link.href = href;
     if (href === fallbackOrderHref) {
       link.removeAttribute("target");
@@ -1150,6 +1700,7 @@ function applyPriceLabels() {
     }
   });
   applySelectedSizeUi();
+  applyPendantOptionsUi();
 }
 
 function selectedSizeConfig() {
@@ -1193,6 +1744,30 @@ function initNotebookSizes() {
   });
 }
 
+function initPendantOptions() {
+  pendantOptionSelects.forEach((select) => {
+    const type = select.dataset.pendantOption;
+    if (type && selectedPendantOptions[type]) {
+      select.value = selectedPendantOptions[type];
+    }
+    select.addEventListener("change", (event) => {
+      const changedType = event.target.dataset.pendantOption;
+      const changedValue = event.target.value;
+      if (!changedType || !pendantColorValues.includes(changedValue)) {
+        return;
+      }
+      selectedPendantOptions = {
+        ...selectedPendantOptions,
+        [changedType]: changedValue
+      };
+      localStorage.setItem("pendantSelection", JSON.stringify(selectedPendantOptions));
+      applyPendantOptionsUi();
+      applyCheckoutLink();
+    });
+  });
+}
+
+
 function fitSmartText() {
   document.querySelectorAll(".smart-text").forEach((node) => {
     node.style.fontSize = "";
@@ -1220,7 +1795,13 @@ function scheduleSmartTextFit() {
 }
 
 function currentProduct() {
-  return window.location.hash.startsWith("#panda") ? "panda" : "notebook";
+  if (window.location.hash.startsWith("#panda")) {
+    return "panda";
+  }
+  if (window.location.hash.startsWith("#pendant")) {
+    return "pendant";
+  }
+  return "notebook";
 }
 
 function scrollToVisibleHashTarget() {
@@ -1241,7 +1822,7 @@ function scrollToVisibleHashTarget() {
 }
 
 function setActiveProduct(product, shouldScroll = true) {
-  const activeProduct = product === "panda" ? "panda" : "notebook";
+  const activeProduct = product === "panda" || product === "pendant" ? product : "notebook";
 
   document.querySelectorAll("[data-product-panel]").forEach((panel) => {
     panel.hidden = panel.dataset.productPanel !== activeProduct;
@@ -1348,6 +1929,7 @@ const urlLanguage = rawUrlLanguage ? normalizeLanguage(rawUrlLanguage) : "";
 const savedLanguage = rawSavedLanguage ? normalizeLanguage(rawSavedLanguage) : "";
 setLanguage(urlLanguage || savedLanguage || preferredBrowserLanguage());
 initNotebookSizes();
+initPendantOptions();
 applyPriceLabels();
 applyCheckoutLink();
 initProductCarousel();

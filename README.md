@@ -1,6 +1,6 @@
 # Figurine
 
-Public website workspace for the `buy.lazying.art` storefront by LazyingArt. Current products are the patchwork leather notebook and Rara-chan / Lala-chan panda doll.
+Public website workspace for the `buy.lazying.art` storefront by LazyingArt. Current products are the patchwork leather notebook, Rara-chan / Lala-chan panda doll, and Lucky Paw Leather Pendant.
 
 ## Website
 
@@ -28,8 +28,13 @@ Product and brand assets:
 - [website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-lifestyle-friends-v1.webp](website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-lifestyle-friends-v1.webp) - Panda Doll lifestyle carousel image
 - [website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-lifestyle-alone-v1.webp](website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-lifestyle-alone-v1.webp) - Panda Doll solo carousel image
 - [website/assets/products/lala-chan-panda-doll/product.json](website/assets/products/lala-chan-panda-doll/product.json) - Panda Doll product metadata
+- [website/assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-lineup-v1.webp](website/assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-lineup-v1.webp) - Lucky Paw Leather Pendant generated lineup image
+- [website/assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-tray-detail-v1.webp](website/assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-tray-detail-v1.webp) - pendant workshop tray detail image
+- [website/assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-hand-detail-v1.webp](website/assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-hand-detail-v1.webp) - pendant carry-scale detail image
+- [website/assets/products/lucky-paw-leather-pendant/product.json](website/assets/products/lucky-paw-leather-pendant/product.json) - pendant product metadata and color options
 - [prompts/lala-chan-panda-doll-product-image.txt](prompts/lala-chan-panda-doll-product-image.txt) - Nano Banana prompt for the Lala-chan panda doll product image
-- [website/stripe-config.js](website/stripe-config.js) - public Stripe Payment Link config for notebook and panda doll checkout links
+- [prompts/lucky-paw-leather-pendant-product-lineup.txt](prompts/lucky-paw-leather-pendant-product-lineup.txt) - Nano Banana prompt for the Lucky Paw pendant lineup image
+- [website/stripe-config.js](website/stripe-config.js) - public Stripe Payment Link config for notebook, panda doll, and pendant checkout links
 - [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md) - checkout links, promotion code, regeneration workflow, and smart text wrapping notes
 
 The current hero product image was generated from:
@@ -55,6 +60,12 @@ The Panda Doll carousel images are generated from:
 - Prompts: [prompts/lala-chan-panda-doll-lifestyle-friends.txt](prompts/lala-chan-panda-doll-lifestyle-friends.txt) and [prompts/lala-chan-panda-doll-lifestyle-alone.txt](prompts/lala-chan-panda-doll-lifestyle-alone.txt)
 - Local Nano Banana run folders, ignored by git: `generated/product-image-optimization/lala-chan-panda-doll-lifestyle-friends-v1` and `generated/product-image-optimization/lala-chan-panda-doll-lifestyle-alone-v1`
 
+The Lucky Paw Leather Pendant image is generated from:
+
+- Source references: `conversation_with_my_sister/pendant/...MsgID=3201418810389910509...jpeg` and `conversation_with_my_sister/pendant/...MsgID=3306176643787090832...jpeg`
+- Prompt: [prompts/lucky-paw-leather-pendant-product-lineup.txt](prompts/lucky-paw-leather-pendant-product-lineup.txt)
+- Local Nano Banana run folder, ignored by git: `generated/product-image-optimization/lucky-paw-leather-pendant-lineup-v1`
+
 ## Stripe Checkout
 
 The storefront is wired for Stripe Payment Links via [website/stripe-config.js](website/stripe-config.js). The separate helper repo is initialized at `../Stripe`; fill `../Stripe/.env`, then run:
@@ -65,7 +76,7 @@ npm run create:payment-link
 npm run export:figurine
 ```
 
-The notebook size selector supports `A4 USD 198`, `B5 USD 168`, `A5 USD 148`, and `A6 USD 118`; A5 remains the default and localized HKD/CNY/JPY cards remain A5. Promotion code `LAZY` applies a `0.88x` checkout price (`12%` off). Rara-chan Panda Doll is available now at `USD 198`, or `USD 174.24` with `LAZY`; in Japanese copy the same doll is named Lala-chan. Notebook and panda tabs are isolated so detail sections and checkout links do not leak between products. Product settings live in `../Stripe/config/patchwork-leather-notebook.json`; checkout allows quantity changes, promotion codes, billing and shipping address collection, customer names, and phone numbers. Real Stripe keys stay in `../Stripe/.env` and are not committed. Full operational notes are in [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md).
+The notebook size selector supports `A4 USD 198`, `B5 USD 168`, `A5 USD 148`, and `A6 USD 118`; A5 remains the default and localized HKD/CNY/JPY cards remain A5. Promotion code `LAZY` applies a `0.88x` checkout price (`12%` off). Rara-chan Panda Doll is available now at `USD 198`, or `USD 174.24` with `LAZY`; in Japanese copy the same doll is named Lala-chan. Lucky Paw Leather Pendant is `USD 98`, or `USD 86.24` with `LAZY`; the website passes selected outer and inner colors to Stripe as `client_reference_id`. Notebook, panda, and pendant tabs are isolated so detail sections and checkout links do not leak between products. Product settings live in `../Stripe/config/patchwork-leather-notebook.json`; checkout allows quantity changes, promotion codes, billing and shipping address collection, customer names, and phone numbers. Real Stripe keys stay in `../Stripe/.env` and are not committed. Full operational notes are in [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md).
 
 ## Smart Text Wrapping
 

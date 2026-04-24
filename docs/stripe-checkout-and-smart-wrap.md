@@ -1,6 +1,6 @@
 # Stripe Checkout and Smart Text Wrapping
 
-This site sells the patchwork leather notebook and Rara-chan Panda Doll through Stripe Payment Links generated from the helper repo at `../Stripe`.
+This site sells the patchwork leather notebook, Rara-chan Panda Doll, and Lucky Paw Leather Pendant through Stripe Payment Links generated from the helper repo at `../Stripe`.
 
 ## Live Payment Links
 
@@ -8,22 +8,27 @@ The public checkout config lives in `website/stripe-config.js`. It is generated 
 
 | Key | Language | Currency | Original | LAZY price | URL |
 | --- | --- | --- | --- | --- | --- |
-| `usd_en` | Notebook A5, English and other added languages | USD | `USD 148` | `USD 130.24` | `https://buy.stripe.com/8x26oJfdp30d6f0a0G2go0t?locale=en` |
-| `notebook_a4_usd_en` | Notebook A4 | USD | `USD 198` | `USD 174.24` | `https://buy.stripe.com/5kQfZjfdpdER32O4Gm2go0u?locale=en` |
-| `notebook_b5_usd_en` | Notebook B5 | USD | `USD 168` | `USD 147.84` | `https://buy.stripe.com/4gM4gB8P1bwJ1YK6Ou2go0v?locale=en` |
-| `notebook_a6_usd_en` | Notebook A6 | USD | `USD 118` | `USD 103.84` | `https://buy.stripe.com/aFa3cx6GT30d1YK1ua2go0w?locale=en` |
-| `jpy_ja` | Notebook A5, Japanese | JPY | `JPY 19,888` | `JPY 17,501` | `https://buy.stripe.com/aFa8wR3uHcAN32O8WC2go0x?locale=ja` |
-| `cny_zh_hans` | Notebook A5, Simplified Chinese | CNY | `CNY 998` | `CNY 878.24` | `https://buy.stripe.com/00wbJ32qD1W90UGegW2go0y?locale=zh` |
-| `hkd_zh_hant` | Notebook A5, Traditional Chinese | HKD | `HKD 998` | `HKD 878.24` | `https://buy.stripe.com/3cIcN7e9l9oBfPA5Kq2go0z?locale=zh-TW` |
-| `rara_usd_en` | Rara-chan Panda Doll | USD | `USD 198` | `USD 174.24` | `https://buy.stripe.com/5kQaEZ7KXgR35aWegW2go0A?locale=en` |
+| `usd_en` | Notebook A5, English and other added languages | USD | `USD 148` | `USD 130.24` | `https://buy.stripe.com/eVq4gBaX9gR38n86Ou2go0B?locale=en` |
+| `notebook_a4_usd_en` | Notebook A4 | USD | `USD 198` | `USD 174.24` | `https://buy.stripe.com/5kQ6oJ1mz6cpfPA6Ou2go0C?locale=en` |
+| `notebook_b5_usd_en` | Notebook B5 | USD | `USD 168` | `USD 147.84` | `https://buy.stripe.com/bJefZj5CP6cpcDo2ye2go0D?locale=en` |
+| `notebook_a6_usd_en` | Notebook A6 | USD | `USD 118` | `USD 103.84` | `https://buy.stripe.com/fZufZj6GTbwJfPA3Ci2go0E?locale=en` |
+| `jpy_ja` | Notebook A5, Japanese | JPY | `JPY 19,888` | `JPY 17,501` | `https://buy.stripe.com/4gM6oJd5heIVcDoa0G2go0F?locale=ja` |
+| `cny_zh_hans` | Notebook A5, Simplified Chinese | CNY | `CNY 998` | `CNY 878.24` | `https://buy.stripe.com/5kQ14pght58l5aW4Gm2go0G?locale=zh` |
+| `hkd_zh_hant` | Notebook A5, Traditional Chinese | HKD | `HKD 998` | `HKD 878.24` | `https://buy.stripe.com/5kQ3cx0iv7gtcDoc8O2go0H?locale=zh-TW` |
+| `rara_usd_en` | Rara-chan Panda Doll | USD | `USD 198` | `USD 174.24` | `https://buy.stripe.com/fZu3cx4yL7gtcDo1ua2go0I?locale=en` |
+| `pendant_usd_en` | Lucky Paw Leather Pendant | USD | `USD 98` | `USD 86.24` | `https://buy.stripe.com/3cIbJ3aX9eIVgTE6Ou2go0J?locale=en` |
 
 Promotion code `LAZY` is a live Stripe promotion code backed by coupon `patchwork-leather-notebook-lazy-88pct`. It applies `12%` off, which means customers pay `0.88x`.
 
 Checkout settings: adjustable quantity `1-10`, promotion codes enabled, customer creation enabled, required billing address, shipping address collection for all supported countries, and phone number collection.
 
-Website routing: the notebook size selector uses `notebook_a4_usd_en`, `notebook_b5_usd_en`, `usd_en` for A5, and `notebook_a6_usd_en`. A5 localized cards still use `jpy_ja` for Japanese, `hkd_zh_hant` for Traditional Chinese, `cny_zh_hans` for Simplified Chinese, and `usd_en` for other languages with a localized Stripe `locale` query parameter. The panda tab always uses `rara_usd_en` and localizes the Stripe `locale` query parameter.
+Website routing: the notebook size selector uses `notebook_a4_usd_en`, `notebook_b5_usd_en`, `usd_en` for A5, and `notebook_a6_usd_en`. A5 localized cards still use `jpy_ja` for Japanese, `hkd_zh_hant` for Traditional Chinese, `cny_zh_hans` for Simplified Chinese, and `usd_en` for other languages with a localized Stripe `locale` query parameter. The panda tab always uses `rara_usd_en`. The pendant tab uses `pendant_usd_en`, localizes the Stripe `locale` query parameter, and appends selected `outer` and `inner` colors as `client_reference_id`, for example `lucky-paw-outer-green-inner-black`.
 
-The notebook and panda tabs are separate product panels. Keep product-specific checkout buttons marked with `data-checkout-product` so payment links do not leak between products. `styles.css` also defines `[hidden] { display: none !important; }`, because section display rules like `.hero { display: grid; }` can otherwise override the browser default hidden behavior.
+The notebook, panda, and pendant tabs are separate product panels. Keep product-specific checkout buttons marked with `data-checkout-product` so payment links do not leak between products. `styles.css` also defines `[hidden] { display: none !important; }`, because section display rules like `.hero { display: grid; }` can otherwise override the browser default hidden behavior.
+
+## Static Cart Limits
+
+GitHub Pages can host a client-side cart UI, but it cannot securely create a dynamic Stripe Checkout Session because that requires `STRIPE_SECRET_KEY`. Current checkout uses pre-created Payment Links, which work well for single product pages and adjustable quantity. A true multi-product cart that lets customers add notebook, panda, and pendant together needs a small backend or serverless function, such as Cloudflare Workers, Vercel Functions, or Netlify Functions, to call Stripe Checkout with multiple `line_items`.
 
 ## PWA
 
@@ -40,7 +45,7 @@ The storefront is installable as a PWA through `website/manifest.webmanifest` an
    npm run export:figurine
    ```
 
-3. Verify `website/stripe-config.js`, `website/index.html`, and `website/assets/products/patchwork-leather-notebook/product.json`.
+3. Verify `website/stripe-config.js`, `website/index.html`, and each `website/assets/products/*/product.json`.
 4. Run `node --check website/script.js` and `git diff --check`.
 5. Commit and push this repo:
 
