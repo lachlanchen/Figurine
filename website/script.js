@@ -3,6 +3,7 @@ const translations = {
     navCraft: "Craft",
     navDetails: "Details",
     navBuy: "Buy",
+    pageTitle: "LazyingArt Figurine | Handmade Notebook and Panda Doll",
     categoryNotebook: "Notebook",
     categoryPanda: "Panda Doll",
     eyebrow: "One handmade notebook",
@@ -69,6 +70,7 @@ const translations = {
     navCraft: "工艺",
     navDetails: "细节",
     navBuy: "购买",
+    pageTitle: "LazyingArt Figurine | 手作手账本与熊猫娃娃",
     categoryNotebook: "手账本",
     categoryPanda: "熊猫娃娃",
     eyebrow: "第一款手作本",
@@ -115,6 +117,7 @@ const translations = {
     navCraft: "工藝",
     navDetails: "細節",
     navBuy: "購買",
+    pageTitle: "LazyingArt Figurine | 手作手帳本與熊貓娃娃",
     categoryNotebook: "手帳本",
     categoryPanda: "熊貓娃娃",
     eyebrow: "第一款手作本",
@@ -161,6 +164,7 @@ const translations = {
     navCraft: "クラフト",
     navDetails: "細部",
     navBuy: "購入",
+    pageTitle: "LazyingArt Figurine | 手仕事ノートとパンダドール",
     categoryNotebook: "ノート",
     categoryPanda: "パンダドール",
     eyebrow: "最初の手仕事ノート",
@@ -215,6 +219,7 @@ const translations = {
     navCraft: "공예",
     navDetails: "상세",
     navBuy: "구매",
+    pageTitle: "LazyingArt Figurine | 수제 노트와 판다 인형",
     categoryNotebook: "노트북",
     categoryPanda: "판다 인형",
     eyebrow: "첫 번째 수제 노트",
@@ -261,6 +266,7 @@ const translations = {
     navCraft: "Thủ công",
     navDetails: "Chi tiết",
     navBuy: "Mua",
+    pageTitle: "LazyingArt Figurine | Sổ tay thủ công và búp bê panda",
     categoryNotebook: "Sổ tay",
     categoryPanda: "Búp bê panda",
     eyebrow: "Một cuốn sổ thủ công",
@@ -307,6 +313,7 @@ const translations = {
     navCraft: "الحرفة",
     navDetails: "التفاصيل",
     navBuy: "اشترِ",
+    pageTitle: "LazyingArt Figurine | دفتر يدوي ودمية باندا",
     categoryNotebook: "دفتر",
     categoryPanda: "دمية باندا",
     eyebrow: "دفتر يدوي واحد",
@@ -353,6 +360,7 @@ const translations = {
     navCraft: "Artisanat",
     navDetails: "Détails",
     navBuy: "Acheter",
+    pageTitle: "LazyingArt Figurine | Carnet fait main et poupée panda",
     categoryNotebook: "Carnet",
     categoryPanda: "Poupée panda",
     eyebrow: "Un carnet fait main",
@@ -399,6 +407,7 @@ const translations = {
     navCraft: "Artesanía",
     navDetails: "Detalles",
     navBuy: "Comprar",
+    pageTitle: "LazyingArt Figurine | Cuaderno artesanal y muñeco panda",
     categoryNotebook: "Cuaderno",
     categoryPanda: "Muñeco panda",
     eyebrow: "Un cuaderno hecho a mano",
@@ -445,6 +454,7 @@ const translations = {
     navCraft: "Handwerk",
     navDetails: "Details",
     navBuy: "Kaufen",
+    pageTitle: "LazyingArt Figurine | Handgemachtes Notizbuch und Panda-Puppe",
     categoryNotebook: "Notizbuch",
     categoryPanda: "Panda-Puppe",
     eyebrow: "Ein handgemachtes Notizbuch",
@@ -491,6 +501,7 @@ const translations = {
     navCraft: "Ремесло",
     navDetails: "Детали",
     navBuy: "Купить",
+    pageTitle: "LazyingArt Figurine | Блокнот ручной работы и кукла-панда",
     categoryNotebook: "Блокнот",
     categoryPanda: "Кукла-панда",
     eyebrow: "Один блокнот ручной работы",
@@ -844,7 +855,7 @@ const pandaProductCopy = {
     pandaBuyEyebrow: "Panda-Puppen-Release",
     pandaBuyTitle: ["Rara-chan", "ist bestellbereit."],
     pandaBuyText: "Nutze beim Checkout den Code LAZY für denselben 0,88x-Startpreis.",
-    pandaPriceLabel: "Rara-chan / Global USD",
+    pandaPriceLabel: "Rara-chan / Globaler USD",
     payPandaUsd: "Rara-chan kaufen",
     pandaStatement: ["Rara-chan", "ist jetzt verfügbar:", "weich, hell", "und mit dem", "LazyingArt-Pandageist."]
   },
@@ -869,7 +880,7 @@ const pandaProductCopy = {
     pandaBuyEyebrow: "Релиз куклы-панды",
     pandaBuyTitle: ["Rara-chan", "готова к заказу."],
     pandaBuyText: "Используйте код LAZY при оплате, чтобы получить ту же стартовую цену 0.88x.",
-    pandaPriceLabel: "Rara-chan / Global USD",
+    pandaPriceLabel: "Rara-chan / глобальный USD",
     payPandaUsd: "Купить Rara-chan",
     pandaStatement: ["Rara-chan", "уже доступна:", "мягкая, яркая", "и несет дух", "панды LazyingArt."]
   }
@@ -1023,6 +1034,7 @@ function setLanguage(language) {
   const dictionary = translations[normalizedLanguage] || translations.en;
   document.documentElement.lang = normalizedLanguage;
   document.documentElement.dir = normalizedLanguage === "ar" ? "rtl" : "ltr";
+  document.title = dictionary.pageTitle || translations.en.pageTitle;
   document.querySelectorAll("[data-i18n]").forEach((node) => {
     const key = node.getAttribute("data-i18n");
     const hasLocalizedValue = dictionary[key] !== undefined;
