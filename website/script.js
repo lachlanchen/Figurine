@@ -1444,6 +1444,123 @@ Object.entries(pendantProductCopy).forEach(([language, copy]) => {
   Object.assign(translations[language], copy);
 });
 
+const aiAccessoriesCopy = {
+  en: {
+    aiHeroJump: "Add AI accessories",
+    aiAddonEyebrow: "Optional AI accessories",
+    aiAddonTitle: "Recording, chat, and AI notes add-on.",
+    aiAddonText: "Add AI accessories for an extra USD 300.",
+    aiLeadTime: "Because each piece is handmade, lead time is about 1 to 1.5 months.",
+    aiComboNotebookButton: "Buy together · USD 448",
+    aiComboPandaButton: "Buy together · USD 498",
+    aiComboPendantButton: "Buy together · USD 398"
+  },
+  "zh-Hans": {
+    aiHeroJump: "加购 AI 配件",
+    aiAddonEyebrow: "可选 AI 配件",
+    aiAddonTitle: "录音、聊天和 AI 笔记加购。",
+    aiAddonText: "加购 AI 配件需额外 USD 300。",
+    aiLeadTime: "因为每件都是手作，交付周期约 1 到 1.5 个月。",
+    aiComboNotebookButton: "一起购买 · USD 448",
+    aiComboPandaButton: "一起购买 · USD 498",
+    aiComboPendantButton: "一起购买 · USD 398"
+  },
+  "zh-Hant": {
+    aiHeroJump: "加購 AI 配件",
+    aiAddonEyebrow: "可選 AI 配件",
+    aiAddonTitle: "錄音、聊天和 AI 筆記加購。",
+    aiAddonText: "加購 AI 配件需額外 USD 300。",
+    aiLeadTime: "因為每件都是手作，交付週期約 1 到 1.5 個月。",
+    aiComboNotebookButton: "一起購買 · USD 448",
+    aiComboPandaButton: "一起購買 · USD 498",
+    aiComboPendantButton: "一起購買 · USD 398"
+  },
+  ja: {
+    aiHeroJump: "AIアクセサリーを追加",
+    aiAddonEyebrow: "オプションAIアクセサリー",
+    aiAddonTitle: "録音、チャット、AIノートの追加。",
+    aiAddonText: "AIアクセサリーは追加で USD 300 です。",
+    aiLeadTime: "すべて手作りのため、納期は約1〜1.5か月です。",
+    aiComboNotebookButton: "セットで購入 · USD 448",
+    aiComboPandaButton: "セットで購入 · USD 498",
+    aiComboPendantButton: "セットで購入 · USD 398"
+  },
+  ko: {
+    aiHeroJump: "AI 액세서리 추가",
+    aiAddonEyebrow: "선택 AI 액세서리",
+    aiAddonTitle: "녹음, 채팅, AI 노트 애드온.",
+    aiAddonText: "AI 액세서리는 추가 USD 300입니다.",
+    aiLeadTime: "모든 제품은 수작업이라 제작 기간은 약 1~1.5개월입니다.",
+    aiComboNotebookButton: "함께 구매 · USD 448",
+    aiComboPandaButton: "함께 구매 · USD 498",
+    aiComboPendantButton: "함께 구매 · USD 398"
+  },
+  vi: {
+    aiHeroJump: "Thêm phụ kiện AI",
+    aiAddonEyebrow: "Phụ kiện AI tùy chọn",
+    aiAddonTitle: "Ghi âm, trò chuyện và ghi chú AI.",
+    aiAddonText: "Thêm phụ kiện AI với phụ phí USD 300.",
+    aiLeadTime: "Vì mọi món đều làm thủ công, thời gian hoàn thiện khoảng 1 đến 1.5 tháng.",
+    aiComboNotebookButton: "Mua cùng · USD 448",
+    aiComboPandaButton: "Mua cùng · USD 498",
+    aiComboPendantButton: "Mua cùng · USD 398"
+  },
+  ar: {
+    aiHeroJump: "أضف ملحقات AI",
+    aiAddonEyebrow: "ملحقات AI اختيارية",
+    aiAddonTitle: "إضافة للتسجيل والدردشة وملاحظات AI.",
+    aiAddonText: "أضف ملحقات AI مقابل USD 300 إضافية.",
+    aiLeadTime: "لأن كل قطعة مصنوعة يدويا، مدة الإنجاز نحو 1 إلى 1.5 شهر.",
+    aiComboNotebookButton: "اشترِ معا · USD 448",
+    aiComboPandaButton: "اشترِ معا · USD 498",
+    aiComboPendantButton: "اشترِ معا · USD 398"
+  },
+  fr: {
+    aiHeroJump: "Ajouter les accessoires IA",
+    aiAddonEyebrow: "Accessoires IA optionnels",
+    aiAddonTitle: "Module enregistrement, chat et notes IA.",
+    aiAddonText: "Ajoutez les accessoires IA pour USD 300 de plus.",
+    aiLeadTime: "Comme chaque pièce est faite main, le délai est d'environ 1 à 1,5 mois.",
+    aiComboNotebookButton: "Acheter ensemble · USD 448",
+    aiComboPandaButton: "Acheter ensemble · USD 498",
+    aiComboPendantButton: "Acheter ensemble · USD 398"
+  },
+  es: {
+    aiHeroJump: "Añadir accesorios IA",
+    aiAddonEyebrow: "Accesorios IA opcionales",
+    aiAddonTitle: "Complemento de grabación, chat y notas IA.",
+    aiAddonText: "Añade accesorios IA por USD 300 extra.",
+    aiLeadTime: "Como cada pieza es artesanal, el plazo es de 1 a 1.5 meses.",
+    aiComboNotebookButton: "Comprar juntos · USD 448",
+    aiComboPandaButton: "Comprar juntos · USD 498",
+    aiComboPendantButton: "Comprar juntos · USD 398"
+  },
+  de: {
+    aiHeroJump: "AI-Zubehör hinzufügen",
+    aiAddonEyebrow: "Optionales AI-Zubehör",
+    aiAddonTitle: "Add-on für Aufnahme, Chat und AI-Notizen.",
+    aiAddonText: "AI-Zubehör für zusätzlich USD 300 hinzufügen.",
+    aiLeadTime: "Da jedes Stück handgemacht ist, beträgt die Lieferzeit etwa 1 bis 1,5 Monate.",
+    aiComboNotebookButton: "Zusammen kaufen · USD 448",
+    aiComboPandaButton: "Zusammen kaufen · USD 498",
+    aiComboPendantButton: "Zusammen kaufen · USD 398"
+  },
+  ru: {
+    aiHeroJump: "Добавить AI-аксессуары",
+    aiAddonEyebrow: "Опциональные AI-аксессуары",
+    aiAddonTitle: "Дополнение для записи, чата и AI-заметок.",
+    aiAddonText: "Добавьте AI-аксессуары за дополнительные USD 300.",
+    aiLeadTime: "Так как все сделано вручную, срок изготовления около 1-1.5 месяца.",
+    aiComboNotebookButton: "Купить вместе · USD 448",
+    aiComboPandaButton: "Купить вместе · USD 498",
+    aiComboPendantButton: "Купить вместе · USD 398"
+  }
+};
+
+Object.entries(aiAccessoriesCopy).forEach(([language, copy]) => {
+  Object.assign(translations[language], copy);
+});
+
 function normalizeLanguage(language) {
   const value = String(language || "").toLowerCase();
   if (["zh-hant", "zh-tw", "zh-hk", "zh-mo"].includes(value)) {
@@ -1613,6 +1730,16 @@ function checkoutKeyForLanguage(language, product = currentProduct()) {
   return "usd_en";
 }
 
+function aiComboKeyForProduct(product = currentProduct()) {
+  if (product === "panda") {
+    return "rara_ai_usd_en";
+  }
+  if (product === "pendant") {
+    return "pendant_ai_usd_en";
+  }
+  return "notebook_ai_usd_en";
+}
+
 function stripeLocaleForLanguage(language) {
   return (
     {
@@ -1651,6 +1778,8 @@ function checkoutHrefForKey(key, language, explicitKey = false) {
     key === "usd_en" ||
     key === "rara_usd_en" ||
     key === "pendant_usd_en" ||
+    key === "rara_ai_usd_en" ||
+    key === "pendant_ai_usd_en" ||
     /^notebook_[a-z0-9]+_usd_en$/.test(key);
   if (!explicitKey && isGlobalUsd) {
     return withStripeLocale(url, stripeLocaleForLanguage(language));
@@ -1665,9 +1794,11 @@ function applyCheckoutLink() {
   document.querySelectorAll("[data-checkout-link]").forEach((link) => {
     const explicitKey = Boolean(link.dataset.checkoutKey);
     const product = link.dataset.checkoutProduct || (explicitKey ? "" : currentProduct());
-    const key = link.dataset.checkoutKey || checkoutKeyForLanguage(language, product);
+    const key = link.dataset.checkoutAiCombo
+      ? aiComboKeyForProduct(link.dataset.checkoutAiCombo)
+      : link.dataset.checkoutKey || checkoutKeyForLanguage(language, product);
     let href = checkoutHrefForKey(key, language, explicitKey);
-    if (key === "pendant_usd_en" && href !== fallbackOrderHref) {
+    if ((key === "pendant_usd_en" || key === "pendant_ai_usd_en") && href !== fallbackOrderHref) {
       href = withClientReferenceId(href, pendantSelectionReference());
     }
     link.href = href;

@@ -8,21 +8,26 @@ The public checkout config lives in `website/stripe-config.js`. It is generated 
 
 | Key | Language | Currency | Original | LAZY price | URL |
 | --- | --- | --- | --- | --- | --- |
-| `usd_en` | Notebook A5, English and other added languages | USD | `USD 148` | `USD 130.24` | `https://buy.stripe.com/eVq4gBaX9gR38n86Ou2go0B?locale=en` |
-| `notebook_a4_usd_en` | Notebook A4 | USD | `USD 198` | `USD 174.24` | `https://buy.stripe.com/5kQ6oJ1mz6cpfPA6Ou2go0C?locale=en` |
-| `notebook_b5_usd_en` | Notebook B5 | USD | `USD 168` | `USD 147.84` | `https://buy.stripe.com/bJefZj5CP6cpcDo2ye2go0D?locale=en` |
-| `notebook_a6_usd_en` | Notebook A6 | USD | `USD 118` | `USD 103.84` | `https://buy.stripe.com/fZufZj6GTbwJfPA3Ci2go0E?locale=en` |
-| `jpy_ja` | Notebook A5, Japanese | JPY | `JPY 19,888` | `JPY 17,501` | `https://buy.stripe.com/4gM6oJd5heIVcDoa0G2go0F?locale=ja` |
-| `cny_zh_hans` | Notebook A5, Simplified Chinese | CNY | `CNY 998` | `CNY 878.24` | `https://buy.stripe.com/5kQ14pght58l5aW4Gm2go0G?locale=zh` |
-| `hkd_zh_hant` | Notebook A5, Traditional Chinese | HKD | `HKD 998` | `HKD 878.24` | `https://buy.stripe.com/5kQ3cx0iv7gtcDoc8O2go0H?locale=zh-TW` |
-| `rara_usd_en` | Rara-chan Panda Doll | USD | `USD 198` | `USD 174.24` | `https://buy.stripe.com/fZu3cx4yL7gtcDo1ua2go0I?locale=en` |
-| `pendant_usd_en` | Lucky Paw Leather Pendant | USD | `USD 98` | `USD 86.24` | `https://buy.stripe.com/3cIbJ3aX9eIVgTE6Ou2go0J?locale=en` |
+| `usd_en` | Notebook A5, English and other added languages | USD | `USD 148` | `USD 130.24` | `https://buy.stripe.com/3cI8wRc1dfMZbzk2ye2go0K?locale=en` |
+| `notebook_a4_usd_en` | Notebook A4 | USD | `USD 198` | `USD 174.24` | `https://buy.stripe.com/dRm7sNaX91W9bzkegW2go0L?locale=en` |
+| `notebook_b5_usd_en` | Notebook B5 | USD | `USD 168` | `USD 147.84` | `https://buy.stripe.com/cNi3cxc1d7gt7j43Ci2go0M?locale=en` |
+| `notebook_a6_usd_en` | Notebook A6 | USD | `USD 118` | `USD 103.84` | `https://buy.stripe.com/28EfZj0iv7gt0UGc8O2go0N?locale=en` |
+| `jpy_ja` | Notebook A5, Japanese | JPY | `JPY 19,888` | `JPY 17,501` | `https://buy.stripe.com/00w9AVd5h0S56f00q62go0O?locale=ja` |
+| `cny_zh_hans` | Notebook A5, Simplified Chinese | CNY | `CNY 998` | `CNY 878.24` | `https://buy.stripe.com/5kQ5kFfdp30d7j4egW2go0P?locale=zh` |
+| `hkd_zh_hant` | Notebook A5, Traditional Chinese | HKD | `HKD 998` | `HKD 878.24` | `https://buy.stripe.com/bJeaEZ3uHfMZ0UG5Kq2go0Q?locale=zh-TW` |
+| `rara_usd_en` | Rara-chan Panda Doll | USD | `USD 198` | `USD 174.24` | `https://buy.stripe.com/14A6oJ9T5eIV6f02ye2go0R?locale=en` |
+| `pendant_usd_en` | Lucky Paw Leather Pendant | USD | `USD 98` | `USD 86.24` | `https://buy.stripe.com/9B600l9T5asF46S1ua2go0S?locale=en` |
+| `notebook_ai_usd_en` | Notebook A5 plus AI accessories | USD | `USD 448` | `USD 394.24` | `https://buy.stripe.com/8x24gB0ivcANavg4Gm2go0T?locale=en` |
+| `rara_ai_usd_en` | Rara-chan Panda Doll plus AI accessories | USD | `USD 498` | `USD 438.24` | `https://buy.stripe.com/dRmaEZ6GTbwJfPA0q62go0U?locale=en` |
+| `pendant_ai_usd_en` | Lucky Paw Leather Pendant plus AI accessories | USD | `USD 398` | `USD 350.24` | `https://buy.stripe.com/28E5kF6GT44hfPA5Kq2go0V?locale=en` |
 
 Promotion code `LAZY` is a live Stripe promotion code backed by coupon `patchwork-leather-notebook-lazy-88pct`. It applies `12%` off, which means customers pay `0.88x`.
 
 Checkout settings: adjustable quantity `1-10`, promotion codes enabled, customer creation enabled, required billing address, shipping address collection for all supported countries, and phone number collection.
 
 Website routing: the notebook size selector uses `notebook_a4_usd_en`, `notebook_b5_usd_en`, `usd_en` for A5, and `notebook_a6_usd_en`. A5 localized cards still use `jpy_ja` for Japanese, `hkd_zh_hant` for Traditional Chinese, `cny_zh_hans` for Simplified Chinese, and `usd_en` for other languages with a localized Stripe `locale` query parameter. The panda tab always uses `rara_usd_en`. The pendant tab uses `pendant_usd_en`, localizes the Stripe `locale` query parameter, and appends selected `outer` and `inner` colors as `client_reference_id`, for example `lucky-paw-outer-green-inner-black`.
+
+AI accessory combo buttons use separate USD Payment Links and keep the same `LAZY` promotion behavior: notebook A5 `USD 148 + USD 300 = USD 448`, Rara-chan Panda Doll `USD 198 + USD 300 = USD 498`, and Lucky Paw Leather Pendant `USD 98 + USD 300 = USD 398`. The add-on copy states that the accessories support recording, chat, and AI notes, and that handmade lead time is about `1` to `1.5` months.
 
 The notebook, panda, and pendant tabs are separate product panels. Keep product-specific checkout buttons marked with `data-checkout-product` so payment links do not leak between products. `styles.css` also defines `[hidden] { display: none !important; }`, because section display rules like `.hero { display: grid; }` can otherwise override the browser default hidden behavior.
 

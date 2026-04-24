@@ -37,6 +37,15 @@
       "maximum": 10
     }
   },
+  "aiAccessories": {
+    "checkoutKey": "rara_ai_usd_en",
+    "basePriceUsd": 198,
+    "accessoryPriceUsd": 300,
+    "originalUsd": 498,
+    "discountUsd": 438.24,
+    "features": ["recording", "chat", "AI notes"],
+    "leadTime": "about 1 to 1.5 months"
+  },
   "sourceReference": "website/assets/brand/lazyingart-logo.png",
   "prompt": "prompts/lala-chan-panda-doll-product-image.txt",
   "productImage": "assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp",

@@ -34,7 +34,7 @@ Product and brand assets:
 - [website/assets/products/lucky-paw-leather-pendant/product.json](website/assets/products/lucky-paw-leather-pendant/product.json) - pendant product metadata and color options
 - [prompts/lala-chan-panda-doll-product-image.txt](prompts/lala-chan-panda-doll-product-image.txt) - Nano Banana prompt for the Lala-chan panda doll product image
 - [prompts/lucky-paw-leather-pendant-product-lineup.txt](prompts/lucky-paw-leather-pendant-product-lineup.txt) - Nano Banana prompt for the Lucky Paw pendant lineup image
-- [website/stripe-config.js](website/stripe-config.js) - public Stripe Payment Link config for notebook, panda doll, and pendant checkout links
+- [website/stripe-config.js](website/stripe-config.js) - public Stripe Payment Link config for notebook, panda doll, pendant, and AI accessory combo checkout links
 - [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md) - checkout links, promotion code, regeneration workflow, and smart text wrapping notes
 
 The current hero product image was generated from:
@@ -76,7 +76,7 @@ npm run create:payment-link
 npm run export:figurine
 ```
 
-The notebook size selector supports `A4 USD 198`, `B5 USD 168`, `A5 USD 148`, and `A6 USD 118`; A5 remains the default and localized HKD/CNY/JPY cards remain A5. Promotion code `LAZY` applies a `0.88x` checkout price (`12%` off). Rara-chan Panda Doll is available now at `USD 198`, or `USD 174.24` with `LAZY`; in Japanese copy the same doll is named Lala-chan. Lucky Paw Leather Pendant is `USD 98`, or `USD 86.24` with `LAZY`; the website passes selected outer and inner colors to Stripe as `client_reference_id`. Notebook, panda, and pendant tabs are isolated so detail sections and checkout links do not leak between products. Product settings live in `../Stripe/config/patchwork-leather-notebook.json`; checkout allows quantity changes, promotion codes, billing and shipping address collection, customer names, and phone numbers. Real Stripe keys stay in `../Stripe/.env` and are not committed. Full operational notes are in [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md).
+The notebook size selector supports `A4 USD 198`, `B5 USD 168`, `A5 USD 148`, and `A6 USD 118`; A5 remains the default and localized HKD/CNY/JPY cards remain A5. Promotion code `LAZY` applies a `0.88x` checkout price (`12%` off). Rara-chan Panda Doll is available now at `USD 198`, or `USD 174.24` with `LAZY`; in Japanese copy the same doll is named Lala-chan. Lucky Paw Leather Pendant is `USD 98`, or `USD 86.24` with `LAZY`; the website passes selected outer and inner colors to Stripe as `client_reference_id`. Optional AI accessories add recording, chat, and AI notes for `USD 300`, with combo links at notebook `USD 448`, panda `USD 498`, and pendant `USD 398` before `LAZY`. The add-on panel also states the handmade lead time of about `1` to `1.5` months. Notebook, panda, and pendant tabs are isolated so detail sections and checkout links do not leak between products. Product settings live in `../Stripe/config/patchwork-leather-notebook.json`; checkout allows quantity changes, promotion codes, billing and shipping address collection, customer names, and phone numbers. Real Stripe keys stay in `../Stripe/.env` and are not committed. Full operational notes are in [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md).
 
 ## Smart Text Wrapping
 

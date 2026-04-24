@@ -80,6 +80,15 @@
       "maximum": 10
     }
   },
+  "aiAccessories": {
+    "checkoutKey": "notebook_ai_usd_en",
+    "basePriceUsd": 148,
+    "accessoryPriceUsd": 300,
+    "originalUsd": 448,
+    "discountUsd": 394.24,
+    "features": ["recording", "chat", "AI notes"],
+    "leadTime": "about 1 to 1.5 months"
+  },
   "heroImage": "assets/products/patchwork-leather-notebook/patchwork-leather-notebook-luxury-clean-v2.jpg",
   "detailImage": "assets/products/patchwork-leather-notebook/patchwork-leather-notebook-office-writing-v1.jpg",
   "galleryImages": [

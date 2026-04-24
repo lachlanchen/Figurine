@@ -43,6 +43,15 @@
       "maximum": 10
     }
   },
+  "aiAccessories": {
+    "checkoutKey": "pendant_ai_usd_en",
+    "basePriceUsd": 98,
+    "accessoryPriceUsd": 300,
+    "originalUsd": 398,
+    "discountUsd": 350.24,
+    "features": ["recording", "chat", "AI notes"],
+    "leadTime": "about 1 to 1.5 months"
+  },
   "sourceReferences": [
     "website/assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-tray-detail-v1.webp",
     "website/assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-hand-detail-v1.webp"
