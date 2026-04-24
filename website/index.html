@@ -42,7 +42,13 @@
             Reclaimed leather scraps become a bright, hand-stitched notebook with the quiet confidence of a luxury object.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="mailto:hello@lazying.art?subject=Patchwork%20Leather%20Notebook" data-i18n="ctaPrimary">Reserve yours</a>
+            <a
+              class="button primary"
+              href="mailto:hello@lazying.art?subject=Patchwork%20Leather%20Notebook"
+              data-checkout-link
+              data-i18n-fallback="ctaPrimaryFallback"
+              data-i18n="ctaPrimary"
+            >Buy now</a>
             <a class="button secondary" href="#details" data-i18n="ctaSecondary">See details</a>
           </div>
         </div>
@@ -63,8 +69,8 @@
       <section id="details" class="details">
         <div class="detail-image">
           <img
-            src="assets/products/patchwork-leather-notebook/patchwork-leather-notebook-stitching-detail.jpg"
-            alt="Close-up of patchwork leather and stitching"
+            src="assets/products/patchwork-leather-notebook/patchwork-leather-notebook-office-writing-v1.jpg"
+            alt="Professional woman writing in the handmade patchwork leather notebook"
           />
         </div>
         <div class="detail-copy">
@@ -84,7 +90,17 @@
         <p data-i18n="buyText">
           The first batch is prepared by request so the finish, paper, and binding can stay personal.
         </p>
-        <a class="button primary" href="mailto:hello@lazying.art?subject=Patchwork%20Leather%20Notebook" data-i18n="buyButton">Contact to order</a>
+        <div class="price-stack" aria-label="Product price">
+          <span class="price-current" data-i18n="priceCurrent">Launch price ¥888</span>
+          <span class="price-original" data-i18n="priceOriginal">Original ¥998</span>
+        </div>
+        <a
+          class="button primary"
+          href="mailto:hello@lazying.art?subject=Patchwork%20Leather%20Notebook"
+          data-checkout-link
+          data-i18n-fallback="buyButtonFallback"
+          data-i18n="buyButton"
+        >Buy for ¥888</a>
       </section>
     </main>
 
@@ -93,6 +109,7 @@
       <span data-i18n="footer">Handmade by LazyingArt.</span>
     </footer>
 
+    <script src="stripe-config.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

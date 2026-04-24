@@ -7,7 +7,8 @@ const translations = {
     heroTitle: "Patchwork leather, made vivid.",
     heroText:
       "Reclaimed leather scraps become a bright, hand-stitched notebook with the quiet confidence of a luxury object.",
-    ctaPrimary: "Reserve yours",
+    ctaPrimary: "Buy now",
+    ctaPrimaryFallback: "Reserve yours",
     ctaSecondary: "See details",
     statement:
       "Built from humble offcuts, finished with visible stitches, and kept intentionally imperfect. Every mark is part of the object.",
@@ -19,7 +20,10 @@ const translations = {
     buyEyebrow: "First release",
     buyTitle: "One product. Small batch. Direct order.",
     buyText: "The first batch is prepared by request so the finish, paper, and binding can stay personal.",
-    buyButton: "Contact to order",
+    priceCurrent: "Launch price ¥888",
+    priceOriginal: "Original ¥998",
+    buyButton: "Buy for ¥888",
+    buyButtonFallback: "Contact to order",
     footer: "Handmade by LazyingArt."
   },
   zh: {
@@ -29,7 +33,8 @@ const translations = {
     eyebrow: "第一款手作本",
     heroTitle: "百衲皮革，鲜活成册。",
     heroText: "被重新拾起的皮革边角料，经过手缝成为一本明亮、有重量、像奢侈品一样安静的手账。",
-    ctaPrimary: "预约订购",
+    ctaPrimary: "立即购买",
+    ctaPrimaryFallback: "预约订购",
     ctaSecondary: "查看细节",
     statement: "旧料、针脚、划痕和不完美都被保留下来。它不是工厂复制品，而是一件有来处的物。",
     detailEyebrow: "材料性格",
@@ -40,7 +45,10 @@ const translations = {
     buyEyebrow: "第一批",
     buyTitle: "一款产品。小批制作。直接订购。",
     buyText: "第一批按预约制作，封面、内页和装订都可以保持更个人化的选择。",
-    buyButton: "联系订购",
+    priceCurrent: "首发价 ¥888",
+    priceOriginal: "原价 ¥998",
+    buyButton: "¥888 购买",
+    buyButtonFallback: "联系订购",
     footer: "LazyingArt 手作。"
   },
   ja: {
@@ -51,7 +59,8 @@ const translations = {
     heroTitle: "継ぎ革を、鮮やかな一冊へ。",
     heroText:
       "再生された革の端材を、手縫いで明るく力強いノートに。静かな高級感と手仕事の痕跡をそのまま残しました。",
-    ctaPrimary: "予約する",
+    ctaPrimary: "購入する",
+    ctaPrimaryFallback: "予約する",
     ctaSecondary: "細部を見る",
     statement:
       "端材、縫い目、傷、不完全さを隠さず残す。量産品ではなく、ひとつの背景を持った道具です。",
@@ -63,12 +72,16 @@ const translations = {
     buyEyebrow: "ファーストリリース",
     buyTitle: "ひとつの商品。少量制作。直接注文。",
     buyText: "最初のロットは予約制で制作し、仕上げ、紙、綴じ方をより個人的に調整できます。",
-    buyButton: "注文について相談",
+    priceCurrent: "発売価格 ¥888",
+    priceOriginal: "通常価格 ¥998",
+    buyButton: "¥888 で購入",
+    buyButtonFallback: "注文について相談",
     footer: "LazyingArt の手仕事。"
   }
 };
 
 const languageSelect = document.getElementById("language");
+const fallbackOrderHref = "mailto:hello@lazying.art?subject=Patchwork%20Leather%20Notebook";
 const savedLanguage = localStorage.getItem("language");
 const browserLanguage = navigator.language?.toLowerCase().startsWith("zh")
   ? "zh"
@@ -89,8 +102,34 @@ function setLanguage(language) {
   languageSelect.value = language;
 }
 
+function applyCheckoutLink() {
+  const dictionary = translations[languageSelect.value] || translations.en;
+  const paymentLink =
+    typeof window.LAZYING_STRIPE_PAYMENT_LINK === "string"
+      ? window.LAZYING_STRIPE_PAYMENT_LINK.trim()
+      : "";
+  const href = paymentLink.startsWith("https://") ? paymentLink : fallbackOrderHref;
+
+  document.querySelectorAll("[data-checkout-link]").forEach((link) => {
+    link.href = href;
+    if (href === fallbackOrderHref) {
+      link.removeAttribute("target");
+      link.removeAttribute("rel");
+      const fallbackKey = link.getAttribute("data-i18n-fallback");
+      if (fallbackKey && dictionary[fallbackKey]) {
+        link.textContent = dictionary[fallbackKey];
+      }
+    } else {
+      link.target = "_blank";
+      link.rel = "noopener";
+    }
+  });
+}
+
 languageSelect.addEventListener("change", (event) => {
   setLanguage(event.target.value);
+  applyCheckoutLink();
 });
 
 setLanguage(savedLanguage || browserLanguage);
+applyCheckoutLink();

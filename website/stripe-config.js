@@ -1,0 +1,2 @@
+window.LAZYING_STRIPE_PAYMENT_LINK = "";
+

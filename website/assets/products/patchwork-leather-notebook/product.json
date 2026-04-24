@@ -6,6 +6,15 @@
     "ja": "百衲レザーノート"
   },
   "status": "made-to-order",
+  "price": {
+    "currency": "CNY",
+    "original": 998,
+    "discount": 888
+  },
+  "checkout": {
+    "provider": "stripe",
+    "config": "website/stripe-config.js"
+  },
   "heroImage": "assets/products/patchwork-leather-notebook/patchwork-leather-notebook-luxury-clean-v2.jpg",
-  "detailImage": "assets/products/patchwork-leather-notebook/patchwork-leather-notebook-stitching-detail.jpg"
+  "detailImage": "assets/products/patchwork-leather-notebook/patchwork-leather-notebook-office-writing-v1.jpg"
 }

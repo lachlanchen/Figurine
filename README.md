@@ -18,12 +18,32 @@ Product and brand assets:
 - [website/assets/brand/lazyingart-logo.png](website/assets/brand/lazyingart-logo.png) - LazyingArt logo used in the header
 - [website/assets/brand/lazyingart-icon.png](website/assets/brand/lazyingart-icon.png) - favicon
 - [website/assets/products/patchwork-leather-notebook/patchwork-leather-notebook-luxury-clean-v2.jpg](website/assets/products/patchwork-leather-notebook/patchwork-leather-notebook-luxury-clean-v2.jpg) - current hero product image
+- [website/assets/products/patchwork-leather-notebook/patchwork-leather-notebook-office-writing-v1.jpg](website/assets/products/patchwork-leather-notebook/patchwork-leather-notebook-office-writing-v1.jpg) - lifestyle detail image generated from the clean product reference
 - [website/assets/products/patchwork-leather-notebook/product.json](website/assets/products/patchwork-leather-notebook/product.json) - product metadata
+- [website/stripe-config.js](website/stripe-config.js) - public Stripe Payment Link config; keep it empty until `../Stripe` exports a real Payment Link URL
 
 The current hero product image was generated from:
 
 - Source/reference: `conversation_with_my_sister/muted-patchwork-leather-notebook-front.jpeg`
 - Local Nano Banana run folder, ignored by git: `generated/product-image-optimization/patchwork-leather-notebook-clean-v2`
+
+The current lifestyle detail image was generated from:
+
+- Source/reference: `website/assets/products/patchwork-leather-notebook/patchwork-leather-notebook-luxury-clean-v2.jpg`
+- Prompt: [prompts/patchwork-leather-notebook-office-lifestyle.txt](prompts/patchwork-leather-notebook-office-lifestyle.txt)
+- Local Nano Banana run folder, ignored by git: `generated/product-image-optimization/patchwork-leather-notebook-office-writing-v1`
+
+## Stripe Checkout
+
+The storefront is wired for a Stripe Payment Link via [website/stripe-config.js](website/stripe-config.js). The separate helper repo is initialized at `../Stripe`; fill `../Stripe/.env`, then run:
+
+```bash
+cd ../Stripe
+npm run create:payment-link
+npm run export:figurine
+```
+
+The first product is configured at original price `998` and launch price `888` using `cny` by default. Real Stripe keys stay in `../Stripe/.env` and are not committed.
 
 ## Nano Banana 2 Image Tool
 

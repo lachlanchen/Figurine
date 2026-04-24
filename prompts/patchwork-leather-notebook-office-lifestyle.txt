@@ -1,0 +1,9 @@
+Use case: photorealistic-natural
+Asset type: ecommerce lifestyle detail image for buy.lazying.art
+Primary request: Generate a refined lifestyle image using the reference notebook as the exact product. Show an adult charismatic, confident professional woman in an elegant office-lady suit holding the patchwork leather notebook open and writing in it with a pen.
+Input image: The provided clean product image is the product reference. Preserve the notebook's visible patchwork leather cover, vivid mixed leather colors, hand-stitched seams, rough handmade character, and proportions.
+Scene/backdrop: Bright modern executive office or creative studio, clean Apple-like product environment, high-end but warm, natural daylight, glass/wood desk, minimal background, tidy and uncluttered.
+Composition: 4:5 vertical editorial ecommerce image. The notebook is the hero object in the lower center or foreground, clearly visible and being used naturally. The woman should support the product story without obscuring the cover and stitching. Leave clean negative space around the subject for website layout.
+Style: Photorealistic luxury lifestyle photography, crisp focus on the notebook and hands, polished commercial lighting, vivid bright color, premium magazine quality, natural skin tone, tasteful professional styling.
+Quality controls: Hands and fingers must look anatomically correct. The pen and notebook should align naturally. No extra notebooks, no warped cover, no fake logos, no readable writing, no watermark, no text overlay, no price tag, no clutter, no distorted face, no exaggerated fashion pose.
+Final output: Single polished product lifestyle image, realistic and attractive, suitable as the detail image on a luxury handmade notebook storefront.

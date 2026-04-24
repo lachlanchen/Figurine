@@ -259,6 +259,28 @@ h2 {
   margin: 24px auto 34px;
 }
 
+.price-stack {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 14px;
+  margin: 0 0 26px;
+}
+
+.price-current {
+  color: var(--ink);
+  font-size: clamp(34px, 5vw, 64px);
+  font-weight: 820;
+  line-height: 1;
+}
+
+.price-original {
+  color: rgba(21, 19, 15, 0.48);
+  font-size: clamp(17px, 2vw, 24px);
+  font-weight: 720;
+  text-decoration: line-through;
+}
+
 .site-footer {
   display: flex;
   justify-content: space-between;
@@ -307,5 +329,11 @@ h2 {
 
   .site-footer {
     flex-direction: column;
+  }
+
+  .price-stack {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
   }
 }
