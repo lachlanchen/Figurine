@@ -1,136 +1,66 @@
+[English](README.md) · [العربية](i18n/README.ar.md) · [Español](i18n/README.es.md) · [Français](i18n/README.fr.md) · [日本語](i18n/README.ja.md) · [한국어](i18n/README.ko.md) · [Tiếng Việt](i18n/README.vi.md) · [中文 (简体)](i18n/README.zh-Hans.md) · [中文（繁體）](i18n/README.zh-Hant.md) · [Deutsch](i18n/README.de.md) · [Русский](i18n/README.ru.md)
+
+[![LazyingArt banner](figs/banner.png)](https://lazying.art)
+
 # Figurine
 
-Public website workspace for the `buy.lazying.art` storefront by LazyingArt. Current products are the patchwork leather notebook, Rara-chan / Lala-chan panda doll, and Lucky Paw Leather Pendant.
+Multilingual LazyingArt storefront for handmade figurine-style objects: patchwork leather notebooks, Rara-chan / Lala-chan panda dolls, Lucky Paw leather pendants, and optional AI accessories.
+
+[![Website](https://img.shields.io/badge/Website-buy.lazying.art-111827?style=for-the-badge&logo=googlechrome&logoColor=white)](https://buy.lazying.art)
+[![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-222?style=for-the-badge&logo=githubpages&logoColor=white)](https://github.com/lachlanchen/Figurine/actions)
+[![Stripe](https://img.shields.io/badge/Checkout-Stripe-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](docs/stripe-checkout-and-smart-wrap.md)
+
+## Products
+
+| Product | Checkout |
+| --- | --- |
+| Patchwork Leather Notebook | A4 `USD 198`, B5 `USD 168`, A5 `USD 148`, A6 `USD 118` |
+| Rara-chan / Lala-chan Panda Doll | `USD 198` |
+| Lucky Paw Leather Pendant | `USD 98`, with outer and inner color options |
+| AI Accessories | Add `USD 300` for recording, chat, and AI notes |
+
+Promotion code `LAZY` applies `12%` off through Stripe Payment Links. Handmade product lead time is about `1` to `1.5` months.
 
 ## Website
 
-The static site lives in [website/](website/) and is deployed to GitHub Pages by [.github/workflows/deploy-website.yml](.github/workflows/deploy-website.yml).
-
-Key files:
+The public static site lives in [website/](website/) and deploys to GitHub Pages through [.github/workflows/deploy-website.yml](.github/workflows/deploy-website.yml).
 
 - [website/index.html](website/index.html) - storefront markup and metadata
 - [website/styles.css](website/styles.css) - responsive visual design
-- [website/script.js](website/script.js) - multilingual storefront i18n and checkout routing
-- [website/CNAME](website/CNAME) - custom domain: `buy.lazying.art`
-- [website/manifest.webmanifest](website/manifest.webmanifest) and [website/service-worker.js](website/service-worker.js) - PWA install metadata and static asset caching
+- [website/script.js](website/script.js) - product tabs, smart text wrapping, i18n, and checkout routing
+- [website/stripe-config.js](website/stripe-config.js) - exported public Stripe Payment Link config
+- [website/manifest.webmanifest](website/manifest.webmanifest) and [website/service-worker.js](website/service-worker.js) - PWA metadata and cache
 
-Product and brand assets:
+## Multilingual i18n
 
-- [website/assets/brand/lazyingart-logo.png](website/assets/brand/lazyingart-logo.png) - LazyingArt logo used in the header
-- [website/assets/brand/lazyingart-icon.png](website/assets/brand/lazyingart-icon.png) - favicon
-- [website/assets/brand/lazyingart-pwa-192.png](website/assets/brand/lazyingart-pwa-192.png) and [website/assets/brand/lazyingart-pwa-512.png](website/assets/brand/lazyingart-pwa-512.png) - square PWA app icons
-- [website/assets/products/patchwork-leather-notebook/patchwork-leather-notebook-luxury-clean-v2.jpg](website/assets/products/patchwork-leather-notebook/patchwork-leather-notebook-luxury-clean-v2.jpg) - current hero product image
-- [website/assets/products/patchwork-leather-notebook/patchwork-leather-notebook-office-writing-v1.jpg](website/assets/products/patchwork-leather-notebook/patchwork-leather-notebook-office-writing-v1.jpg) - lifestyle detail image generated from the clean product reference
-- [website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-01.webp](website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-01.webp) - carousel front view
-- [website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-02.webp](website/assets/products/patchwork-leather-notebook/colorful-patchwork-leather-notebook-front-02.webp) - carousel alternate front view
-- [website/assets/products/patchwork-leather-notebook/product.json](website/assets/products/patchwork-leather-notebook/product.json) - product metadata
-- [website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp](website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp) - Rara-chan / Lala-chan Panda Doll product image
-- [website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-lifestyle-friends-v1.webp](website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-lifestyle-friends-v1.webp) - Panda Doll lifestyle carousel image
-- [website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-lifestyle-alone-v1.webp](website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-lifestyle-alone-v1.webp) - Panda Doll solo carousel image
-- [website/assets/products/lala-chan-panda-doll/product.json](website/assets/products/lala-chan-panda-doll/product.json) - Panda Doll product metadata
-- [website/assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-lineup-v1.webp](website/assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-lineup-v1.webp) - Lucky Paw Leather Pendant generated lineup image
-- [website/assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-tray-detail-v1.webp](website/assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-tray-detail-v1.webp) - pendant workshop tray detail image
-- [website/assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-hand-detail-v1.webp](website/assets/products/lucky-paw-leather-pendant/lucky-paw-leather-pendant-hand-detail-v1.webp) - pendant carry-scale detail image
-- [website/assets/products/lucky-paw-leather-pendant/product.json](website/assets/products/lucky-paw-leather-pendant/product.json) - pendant product metadata and color options
-- [prompts/lala-chan-panda-doll-product-image.txt](prompts/lala-chan-panda-doll-product-image.txt) - Nano Banana prompt for the Lala-chan panda doll product image
-- [prompts/lucky-paw-leather-pendant-product-lineup.txt](prompts/lucky-paw-leather-pendant-product-lineup.txt) - Nano Banana prompt for the Lucky Paw pendant lineup image
-- [website/stripe-config.js](website/stripe-config.js) - public Stripe Payment Link config for notebook, panda doll, pendant, and AI accessory combo checkout links
-- [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md) - checkout links, promotion code, regeneration workflow, and smart text wrapping notes
+The storefront supports English, Simplified Chinese, Traditional Chinese, Japanese, Korean, Vietnamese, Arabic, French, Spanish, German, and Russian. Translation keys live in [website/script.js](website/script.js). Smart heading copy uses phrase arrays so Chinese, Japanese, and long Latin-script headings wrap at better visual positions on mobile.
 
-The current hero product image was generated from:
-
-- Source/reference: `conversation_with_my_sister/muted-patchwork-leather-notebook-front.jpeg`
-- Local Nano Banana run folder, ignored by git: `generated/product-image-optimization/patchwork-leather-notebook-clean-v2`
-
-The current lifestyle detail image was generated from:
-
-- Source/reference: `website/assets/products/patchwork-leather-notebook/patchwork-leather-notebook-luxury-clean-v2.jpg`
-- Prompt: [prompts/patchwork-leather-notebook-office-lifestyle.txt](prompts/patchwork-leather-notebook-office-lifestyle.txt)
-- Local Nano Banana run folder, ignored by git: `generated/product-image-optimization/patchwork-leather-notebook-office-writing-v1`
-
-The Panda Doll category image is generated from:
-
-- Source/reference: [website/assets/brand/lazyingart-logo.png](website/assets/brand/lazyingart-logo.png)
-- Prompt: [prompts/lala-chan-panda-doll-product-image.txt](prompts/lala-chan-panda-doll-product-image.txt)
-- Local Nano Banana run folder, ignored by git: `generated/product-image-optimization/lala-chan-panda-doll-v1`
-
-The Panda Doll carousel images are generated from:
-
-- Source/reference: [website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp](website/assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp)
-- Prompts: [prompts/lala-chan-panda-doll-lifestyle-friends.txt](prompts/lala-chan-panda-doll-lifestyle-friends.txt) and [prompts/lala-chan-panda-doll-lifestyle-alone.txt](prompts/lala-chan-panda-doll-lifestyle-alone.txt)
-- Local Nano Banana run folders, ignored by git: `generated/product-image-optimization/lala-chan-panda-doll-lifestyle-friends-v1` and `generated/product-image-optimization/lala-chan-panda-doll-lifestyle-alone-v1`
-
-The Lucky Paw Leather Pendant image is generated from:
-
-- Source references: `conversation_with_my_sister/pendant/...MsgID=3201418810389910509...jpeg` and `conversation_with_my_sister/pendant/...MsgID=3306176643787090832...jpeg`
-- Prompt: [prompts/lucky-paw-leather-pendant-product-lineup.txt](prompts/lucky-paw-leather-pendant-product-lineup.txt)
-- Local Nano Banana run folder, ignored by git: `generated/product-image-optimization/lucky-paw-leather-pendant-lineup-v1`
+README translations live in [i18n/](i18n/) and mirror the language switcher used by the `lachlanchen` profile repository.
 
 ## Stripe Checkout
 
-The storefront is wired for Stripe Payment Links via [website/stripe-config.js](website/stripe-config.js). The separate helper repo is initialized at `../Stripe`; fill `../Stripe/.env`, then run:
+Stripe products, prices, promotion codes, and payment links are generated from the helper repo at `../Stripe`.
 
 ```bash
 cd ../Stripe
-npm run create:payment-link
+npm run create:payment-link -- --force
 npm run export:figurine
 ```
 
-The notebook size selector supports `A4 USD 198`, `B5 USD 168`, `A5 USD 148`, and `A6 USD 118`; A5 remains the default and localized HKD/CNY/JPY cards remain A5. Promotion code `LAZY` applies a `0.88x` checkout price (`12%` off). Rara-chan Panda Doll is available now at `USD 198`, or `USD 174.24` with `LAZY`; in Japanese copy the same doll is named Lala-chan. Lucky Paw Leather Pendant is `USD 98`, or `USD 86.24` with `LAZY`; the website passes selected outer and inner colors to Stripe as `client_reference_id`. Optional AI accessories add recording, chat, and AI notes for `USD 300`, with combo links at notebook `USD 448`, panda `USD 498`, and pendant `USD 398` before `LAZY`. The add-on panel also states the handmade lead time of about `1` to `1.5` months. Notebook, panda, and pendant tabs are isolated so detail sections and checkout links do not leak between products. Product settings live in `../Stripe/config/patchwork-leather-notebook.json`; checkout allows quantity changes, promotion codes, billing and shipping address collection, customer names, and phone numbers. Real Stripe keys stay in `../Stripe/.env` and are not committed. Full operational notes are in [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md).
+Secrets stay in `../Stripe/.env`. Product configuration stays in `../Stripe/config/patchwork-leather-notebook.json`. See [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md) for live links and checkout behavior.
 
-## Smart Text Wrapping
-
-Hero and section headings use phrase-level i18n arrays in [website/script.js](website/script.js). Each phrase is rendered as a non-breaking `.text-chunk`; Chinese and Japanese chunks are separated with zero-width spaces so wrapping happens at chosen phrase boundaries. `fitSmartText()` reduces heading size only when the widest chunk would overflow, and Arabic flips the document to RTL. See [docs/stripe-checkout-and-smart-wrap.md](docs/stripe-checkout-and-smart-wrap.md) before changing multilingual display copy.
-
-## Nano Banana 2 Image Tool
-
-The local image-generation runner is:
-
-- [scripts/nanobanana_image_gen.py](scripts/nanobanana_image_gen.py)
-
-It uses the GRS AI global host by default:
-
-- `https://grsaiapi.com`
-- model: `nano-banana-2`
-
-Set credentials with either:
+## Local Development
 
 ```bash
-export GRSAI=sk-your-grsai-api-key
+python3 -m http.server 4173 -d website
 ```
 
-or create a local `.env` from `.env.example`.
+Then open `http://127.0.0.1:4173/`.
 
-Dry-run a website hero prompt without spending API credits:
+## Support
 
-```bash
-python3 scripts/nanobanana_image_gen.py \
-  --prompt-file prompts/handmade-leather-notebook-site-hero.txt \
-  --output-dir generated/site-hero \
-  --dry-run
-```
+| Donate | GitHub Sponsors | PayPal | Stripe |
+| --- | --- | --- | --- |
+| [![Donate](https://img.shields.io/badge/Donate-LazyingArt-0EA5E9?style=for-the-badge&logo=kofi&logoColor=white)](https://chat.lazying.art/donate) | [![Sponsors](https://img.shields.io/badge/Sponsor-lachlanchen-EA4AAA?style=for-the-badge&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/lachlanchen) | [![PayPal](https://img.shields.io/badge/PayPal-RongzhouChen-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/RongzhouChen) | [![Stripe](https://img.shields.io/badge/Stripe-Donate-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
 
-Generate the image when the key is available:
-
-```bash
-python3 scripts/nanobanana_image_gen.py \
-  --prompt-file prompts/handmade-leather-notebook-site-hero.txt \
-  --output-dir generated/site-hero \
-  --resume
-```
-
-Regenerate the current clean product image from the original notebook reference:
-
-```bash
-python3 scripts/nanobanana_image_gen.py \
-  --prompt-file prompts/optimize-patchwork-leather-notebook-product-image.txt \
-  --reference-image conversation_with_my_sister/muted-patchwork-leather-notebook-front.jpeg \
-  --model nano-banana-2 \
-  --aspect-ratio 4:5 \
-  --image-size 2K \
-  --output-stem patchwork-leather-notebook-luxury-clean-v2 \
-  --output-dir generated/product-image-optimization/patchwork-leather-notebook-clean-v2 \
-  --resume
-```
-
-For product-card or detail images, use `--aspect-ratio 4:5` or `--aspect-ratio 1:1`. Optional private source references can be kept locally and passed with repeated `--reference-image` arguments; they should not be committed.
+Built by **LazyingArt LLC**.
