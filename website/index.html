@@ -315,7 +315,28 @@
       <section id="panda-details" class="product-carousel-section panda-carousel-section" data-product-panel="panda" hidden aria-label="Panda doll detail carousel">
         <div class="product-carousel" data-product-carousel>
           <div class="carousel-viewport">
-            <article class="carousel-slide showcase-slide is-active">
+            <article class="carousel-slide showcase-slide panda-video-slide is-active">
+              <figure class="showcase-media video-media">
+                <div class="video-shell">
+                  <iframe
+                    src="https://www.youtube.com/embed/xYEwlm46Ehs?rel=0"
+                    title="Rara-chan Lala-chan panda doll introduction video"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </figure>
+              <div class="showcase-copy">
+                <p class="eyebrow" data-i18n="pandaVideoEyebrow">Intro movie</p>
+                <h2 class="smart-text" data-i18n="pandaVideoTitle">Meet Lala-chan in motion.</h2>
+                <p data-i18n="pandaVideoText">
+                  A short introduction video for the soft panda figure and the small lucky spirit behind it.
+                </p>
+              </div>
+            </article>
+            <article class="carousel-slide showcase-slide">
               <figure class="showcase-media">
                 <img
                   src="assets/products/lala-chan-panda-doll/lala-chan-panda-doll-product-v1.webp"
@@ -366,9 +387,10 @@
           <button class="carousel-button carousel-prev" type="button" data-carousel-prev aria-label="Previous image">‹</button>
           <button class="carousel-button carousel-next" type="button" data-carousel-next aria-label="Next image">›</button>
           <div class="carousel-dots" role="tablist" aria-label="Panda doll gallery">
-            <button class="carousel-dot is-active" type="button" data-carousel-dot="0" aria-label="Show image 1"></button>
-            <button class="carousel-dot" type="button" data-carousel-dot="1" aria-label="Show image 2"></button>
-            <button class="carousel-dot" type="button" data-carousel-dot="2" aria-label="Show image 3"></button>
+            <button class="carousel-dot is-active" type="button" data-carousel-dot="0" aria-label="Show intro video"></button>
+            <button class="carousel-dot" type="button" data-carousel-dot="1" aria-label="Show image 1"></button>
+            <button class="carousel-dot" type="button" data-carousel-dot="2" aria-label="Show image 2"></button>
+            <button class="carousel-dot" type="button" data-carousel-dot="3" aria-label="Show image 3"></button>
           </div>
         </div>
       </section>
